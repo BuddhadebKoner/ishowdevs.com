@@ -2,12 +2,10 @@ import { Router } from "express";
 import {
    chnageCurrentPassword,
    getCurrentUser,
-   getUserChanalProfile,
    loginUser,
    logoutUser,
    refreshAccessToken,
    registerUser,
-   UpdateAcountDetails,
    updateUserAvatar,
    updateUserCoverImage,
 } from "../controllers/user.controller.js";
@@ -47,14 +45,12 @@ router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh-token").post(refreshAccessToken);
 router.route("/chnage-password").post(verifyJWT, chnageCurrentPassword);
 router.route("/current-user").get(verifyJWT, getCurrentUser);
-router.route("/update-acount").patch(verifyJWT, UpdateAcountDetails);
 router
    .route("/avatar")
    .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
 router
    .route("/cover-image")
    .patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage);
-router.route("/c/:username").get(verifyJWT, getUserChanalProfile);
 
 export default router;
    
