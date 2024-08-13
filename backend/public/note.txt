@@ -1,0 +1,11 @@
+  /*
+   get user details from frontend
+   validation of user details , not empty, email format
+   check if user already exists , email or username qunique
+   check for images ,check for cover image
+   upload in cloudinary , avter
+   create user object - create entry in db
+   remove password and refresh token from user response
+   check for user creation
+   send response to frontend
+   */
