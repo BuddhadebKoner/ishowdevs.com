@@ -61,10 +61,10 @@ const userSchema = new Schema(
          type: String,
       },
       mediaLinks: {
-         type: Array,
+         type: [String],
       },
       keyWords: {
-         type: Array,
+         type: [String],
       },
       refreshToken: {
          type: String,

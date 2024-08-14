@@ -34,7 +34,18 @@ const generateAccessAndRefreshToken = async (userId) => {
 
 const registerUser = asyncHandaller(async (req, res) => {
    // Get user details from frontend
-   const { fullName, username, email, password, portfolio, mobile, workAs, bio = "", mediaLinks = [], keyWords = [] } = req.body;
+   const {
+      fullName,
+      username,
+      email,
+      password,
+      portfolio,
+      mobile,
+      workAs,
+      bio = "",
+      mediaLinks,
+      keyWords
+   } = req.body;
 
    // Validate user details
    if ([fullName, username, email, password, portfolio, mobile, workAs].some(field => !field.trim())) {
@@ -89,15 +100,11 @@ const registerUser = asyncHandaller(async (req, res) => {
       keyWords
    });
 
-   // Remove password and refresh token from user response
-   const createdUser = await User.findById(user._id).select("-password -refreshToken");
-
-   if (!createdUser) {
-      throw new ApiError(500, "Something went wrong while registering user");
-   }
-
-   // Send response to frontend
-   return res.status(201).json(new ApiResponce(201, createdUser, "User registered successfully"));
+   // Respond with the newly created user
+   res.status(201).json({
+      message: "User registered successfully",
+      user
+   });
 });
 
 const loginUser = asyncHandaller(async (req, res) => {
