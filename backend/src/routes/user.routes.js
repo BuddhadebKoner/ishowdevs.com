@@ -46,11 +46,10 @@ router.route("/refresh-token").post(refreshAccessToken);
 router.route("/chnage-password").post(verifyJWT, chnageCurrentPassword);
 router.route("/current-user").get(verifyJWT, getCurrentUser);
 router
-   .route("/avatar")
+   .route("/update-avatar")
    .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
 router
-   .route("/cover-image")
+   .route("/update-coverimage")
    .patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage);
 
 export default router;
-   

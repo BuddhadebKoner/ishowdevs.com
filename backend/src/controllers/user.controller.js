@@ -19,103 +19,85 @@ const generateAccessAndRefreshToken = async (userId) => {
    }
 };
 
+/*
+1.get user details from frontend
+2.validation of user details , not empty, email format
+3.check if user already exists , email or username qunique
+4.check for images ,check for cover image
+5.upload in cloudinary , avter
+6.create user object - create entry in db
+7.remove password and refresh token from user response
+8.check for user creation
+9.send response to frontend
+*/
+
+
 const registerUser = asyncHandaller(async (req, res) => {
-   /*
-   1.get user details from frontend
-   2.validation of user details , not empty, email format
-   3.check if user already exists , email or username qunique
-   4.check for images ,check for cover image
-   5.upload in cloudinary , avter
-   6.create user object - create entry in db
-   7.remove password and refresh token from user response
-   8.check for user creation
-   9.send response to frontend
-   */
+   // Get user details from frontend
+   const { fullName, username, email, password, portfolio, mobile, workAs, bio = "", mediaLinks = [], keyWords = [] } = req.body;
 
-   // get user details from frontend
-   const { fullName, username, email, password } = req.body;
-   // console.log("User details from frontend:", {
-   //    fullName,
-   //    username,
-   //    email,
-   //    password,
-   // });
-
-   // validation of user details
-   if (
-      [fullName, username, email, password].some(
-         (field) => field?.trim() === ""
-      )
-   ) {
-      // console.log("Validation error: Please fill all fields");
-      throw new ApiError(400, "Please fill all fields");
+   // Validate user details
+   if ([fullName, username, email, password, portfolio, mobile, workAs].some(field => !field.trim())) {
+      throw new ApiError(400, "Please fill all required fields");
    }
 
-   // check if user already exists
-   const existedUser = await User.findOne({
-      $or: [{ email }, { username }],
+   // Check if user already exists
+   const existingUser = await User.findOne({
+      $or: [{ email }, { username }]
    });
-   // console.log("Existed user:", existedUser);
 
-   if (existedUser) {
-      // console.log("User already exists");
+   if (existingUser) {
       throw new ApiError(409, "User already exists");
    }
 
-   // check for images
+   // Check for images
    const avatarLocalPath = req.files?.avatar?.[0]?.path;
    const coverLocalPath = req.files?.coverImage?.[0]?.path;
-   // console.log("Avatar local path:", avatarLocalPath);
-   // console.log("Cover image local path:", coverLocalPath);
 
    if (!avatarLocalPath) {
-      // console.log("Avatar is required");
       throw new ApiError(400, "Avatar is required");
    }
 
-   // upload in cloudinary
+   if (!coverLocalPath) {
+      throw new ApiError(400, "Cover image is required");
+   }
+
+   // Upload images to Cloudinary
    const avatar = await uploadOnCloudinary(avatarLocalPath);
-   const coverImage = coverLocalPath
-      ? await uploadOnCloudinary(coverLocalPath)
-      : null;
-   // console.log("Avatar upload response:", avatar);
-   // console.log("Cover image upload response:", coverImage);
+   const coverImage = await uploadOnCloudinary(coverLocalPath);
 
    if (!avatar) {
-      // console.log("Avatar is required");
-      throw new ApiError(400, "Avatar is required");
+      throw new ApiError(400, "Avatar upload failed");
    }
-   if (coverLocalPath && !coverImage) {
-      // console.log("Cover image upload failed");
+   if (!coverImage) {
       throw new ApiError(500, "Cover image upload failed");
    }
 
-   // create user object
+   // Create user object
    const user = await User.create({
-      fullName,
       username: username.toLowerCase(),
+      fullName,
       email,
       password,
       avatar: avatar.url,
-      coverImage: coverImage?.url || "",
+      coverImage: coverImage.url,
+      portfolio,
+      mobile,
+      workAs,
+      bio,
+      mediaLinks,
+      keyWords
    });
-   // console.log("Created user:", user);
 
-   // remove password and refresh token from user response
-   const createdUser = await User.findById(user._id).select(
-      "-password -refreshToken"
-   );
-   // console.log("Created user after selecting fields:", createdUser);
+   // Remove password and refresh token from user response
+   const createdUser = await User.findById(user._id).select("-password -refreshToken");
 
    if (!createdUser) {
-      // console.log("Something went wrong while registering user");
-      throw new ApiError(500, "something went wrong, while registering user");
+      throw new ApiError(500, "Something went wrong while registering user");
    }
 
-   // send response to frontend
-   return res
-      .status(201)
-      .json(new ApiResponce(201, createdUser, "User registered successfully"));
+   // Send response to frontend
+   return res.status(201).json(new ApiResponce(201, createdUser, "User registered successfully"));
 });
 
 const loginUser = asyncHandaller(async (req, res) => {
@@ -292,17 +274,16 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
    if (!avatar.url) {
       throw new ApiError(500, "Error While uploading Avatar");
    }
-   const user = await User.findByIdAndUpdate(
+   await User.findByIdAndUpdate(
       req.user?._id,
       {
          $set: {
             avatar: avatar.url,
          },
       },
-      { new: true }.select("-password")
    );
 
-   return res.status(200).json(new ApiResponce(200, user, "Avatar updated"));
+   return res.status(200).json(new ApiResponce(200, "Avatar updated"));
 });
 
 const updateUserCoverImage = asyncHandaller(async (req, res) => {
@@ -321,18 +302,17 @@ const updateUserCoverImage = asyncHandaller(async (req, res) => {
    if (!coverImage.url) {
       throw new ApiError(500, "Error While uploading cover image");
    }
-   const user = await User.findByIdAndUpdate(
+   await User.findByIdAndUpdate(
       req.user?._id,
       {
          $set: {
             coverImage: coverImage.url,
          },
       },
-      { new: true }.select("-password")
    );
    return res
       .status(200)
-      .json(new ApiResponce(200, user, "Cover Image updated"));
+      .json(new ApiResponce(200, "Cover Image updated"));
 });
 
 

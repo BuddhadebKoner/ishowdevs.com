@@ -12,6 +12,12 @@ const userSchema = new Schema(
          trim: true,
          index: true,
       },
+      fullName: {
+         type: String,
+         required: true,
+         trim: true,
+         index: true,
+      },
       email: {
          type: String,
          required: true,
@@ -19,11 +25,9 @@ const userSchema = new Schema(
          lowercase: true,
          trim: true,
       },
-      fullName: {
+      password: {
          type: String,
-         required: true,
-         trim: true,
-         index: true,
+         required: [true, "password is required"],
       },
       avatar: {
          type: String,
@@ -33,9 +37,34 @@ const userSchema = new Schema(
          type: String,
          required: true,
       },
-      password: {
+      isVarified: {
+         type: Boolean,
+         default: false,
+      },
+      portfolio: {
          type: String,
-         required: [true, "password is required"],
+         required: true,
+      },
+      mobile: {
+         type: String,
+      },
+      workAs: {
+         type: String,
+         required: true,
+      },
+      role: {
+         type: String,
+         enum: ["user", "admin", "superAdmin"],
+         default: "user",
+      },
+      bio: {
+         type: String,
+      },
+      mediaLinks: {
+         type: Array,
+      },
+      keyWords: {
+         type: Array,
       },
       refreshToken: {
          type: String,
