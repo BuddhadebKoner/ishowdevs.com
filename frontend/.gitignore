@@ -1,0 +1,92 @@
+# Node modules
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+build/
+dist/
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+# .env.* 
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js build output
+.next/
+out/
+
+# Babel
+.babel.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Docker
+docker-compose.override.yml
+
+# Sentry
+.sentry/
+
+# macOS Finder
+*.DS_Store
+
+# Windows thumbnails
+Thumbs.db
+
+# JetBrains IDEs
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code settings
+.vscode/
+
+# Coveralls
+.coveralls.yml
+
+# Misc
+*.swp
+*.swo
+*.swn
+*.swa
+*.swn
+*.bak
+*.tmp
+
+# Firebase
+.firebase/
+
+# Prisma
+prisma/dev.db
+prisma/migrations/
+
+# Other
+*.gz
+*.zip
+*.tar
+*.rar
+*.7z
+*.tar.gz
+*.tgz
+
+# Ignore all files in the `uploads` directory
+uploads/
