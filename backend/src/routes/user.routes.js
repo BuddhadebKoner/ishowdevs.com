@@ -15,6 +15,11 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
+// Testing route
+router.route("/test").get((req, res) => {
+   res.status(200).send({ message: "User route works" });
+});
+
 router.route("/register").post((req, res, next) => {
    try {
       upload.fields([
