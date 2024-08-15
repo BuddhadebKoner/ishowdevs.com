@@ -1,0 +1,44 @@
+import React, { useState } from 'react';
+import { generateCaptureCode, verifyCaptureCode } from './controllers/capture.controller';
+
+function App() {
+  const [generatedCode, setGeneratedCode] = useState('');
+  const [inputCode, setInputCode] = useState('');
+  const [verificationResult, setVerificationResult] = useState(null);
+
+  const handleGenerateCode = () => {
+    const code = generateCaptureCode();
+    setGeneratedCode(code);
+  };
+
+  const handleVerifyCode = () => {
+    const result = verifyCaptureCode(inputCode);
+    setVerificationResult(result);
+  };
+
+  return (
+    <div className="App">
+      <h1>React App</h1>
+      <button onClick={handleGenerateCode}>Generate Capture Code</button>
+      {generatedCode && (
+        <div>
+          <p>Generated Code: {generatedCode}</p>
+        </div>
+      )}
+      <input
+        type="text"
+        value={inputCode}
+        onChange={(e) => setInputCode(e.target.value)}
+        placeholder="Enter code to verify"
+      />
+      <button onClick={handleVerifyCode}>Verify Code</button>
+      {verificationResult !== null && (
+        <div>
+          <p>Verification Result: {verificationResult ? 'Valid' : 'Invalid'}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
