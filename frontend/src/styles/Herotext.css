@@ -10,9 +10,11 @@
    background-color: white;
 }
 
-.text_gradient{
+.text_gradient {
    width: fit-content;
-    background: linear-gradient(to right, #F15A59, #000000);
+   font-size: 3rem;
+   font-weight: 900;
+   background: linear-gradient(to right, #F15A59, #000000);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }

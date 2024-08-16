@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { assets } from '../assets/assets';
 import Notificationlevel from './Notificationlevel';
 import '../styles/Navbar.css';
+import { NavLink } from 'react-router-dom';
 
 export default function components() {
    const [isLogedIn, setIsLogedIn] = useState(false);
@@ -11,12 +12,14 @@ export default function components() {
       <>
          <nav className="navbar_container">
             <div className="navbar_logo">
-               <h1>Logo</h1>
+               <NavLink to={"/"} className='navbar_links_btns'>
+                  <h1>Logo</h1>
+               </NavLink>
             </div>
             <div className="navbar_links">
-               <a href="#" className='navbar_links_btns'>Explore</a>
-               <a href="#" className='navbar_links_btns'>About</a>
-               <a href="#" className='navbar_links_btns'>Blog</a>
+               <NavLink to={"explore"} className='navbar_links_btns'>Explore</NavLink>
+               <NavLink to={"about"} className='navbar_links_btns'>About</NavLink>
+               <NavLink to={"blogpost"} className='navbar_links_btns'>Blog</NavLink>
                {isLogedIn === true ?
                   <div className="my_profile">
                      <button>
@@ -26,7 +29,7 @@ export default function components() {
                   </div>
                   :
                   <div className="login_signup">
-                     <a href="#" className='navbar_links_btns'>Login</a>
+                     <NavLink to={"login"} className='navbar_links_btns'>Login</NavLink>
                      <button className='hero_btn'>Sign up</button>
                   </div>
                }

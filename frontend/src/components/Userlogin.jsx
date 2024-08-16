@@ -77,10 +77,10 @@ export default function UserLogin() {
                <button className='login_form_submit_btn cancel'>Cancel</button>
             </div>
          </div>
-         <Alerts
+         {/* <Alerts
             // type={'success'}
             message={'What Drives You to Create an Account? Are You a Developer? Great News! If you are, you can contribute to our platform and earn money Please Note: Your account may be subject to approval.'}
-         />
+         /> */}
       </div>
    );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import Login from './pages/Login';
+import Homelayot from './layout/Homelayout';
 
 function App() {
 
 
   return (
     <>
-      <Login />
+    <Homelayot />
     </>
   );
 }

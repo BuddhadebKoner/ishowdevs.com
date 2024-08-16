@@ -49,7 +49,7 @@ export default function Alerts({ type = "offer", message }) {
    useEffect(() => {
       const timer = setTimeout(() => {
          setIsVisible(false);
-      }, 100000);
+      }, 10000);
       return () => clearTimeout(timer);
    }, []);
 
