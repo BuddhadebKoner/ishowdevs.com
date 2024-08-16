@@ -6,7 +6,7 @@
 
 body {
   width: 100vw;
-  height: 200vh;
+  height: fit-content;
   overflow-x: hidden;
   overflow-y: auto;
   font-family: 'Roboto', sans-serif;
