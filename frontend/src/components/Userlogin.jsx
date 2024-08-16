@@ -32,18 +32,27 @@ export default function UserLogin() {
       }
    };
 
-
    return (
       <div className="userlogin_form_container">
          <Herotext text="Hi fox!" />
          <div className="userlogin_form">
             <div className="input_fild_box">
                <label htmlFor="username">Enter Your Username / Email</label>
-               <input type="text" name="username" id="username" placeholder="Enter your username or email" />
+               <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  autoComplete='off'
+                  placeholder="Enter your username or email" />
             </div>
             <div className="input_fild_box">
                <label htmlFor="password">Enter Your Password</label>
-               <input type="password" name="password" id="password" placeholder="Enter your Password" />
+               <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  autoComplete='off'
+                  placeholder="Enter your Password" />
             </div>
             <div className="capture_code">
                <input type="text" value={captureCode} readOnly />
@@ -58,12 +67,13 @@ export default function UserLogin() {
                   name="capture"
                   id="capture"
                   placeholder="Enter capture code"
+                  autoComplete='off'
                   onChange={(e) => setUserEnteredCaptureCode(e.target.value)}
                />
             </div>
             <div className="loginsubmit_btns">
-               <button onClick={handleLogin}>Login</button>
-               <button>Cancel</button>
+               <button onClick={handleLogin} className='login_form_submit_btn login'>Login</button>
+               <button className='login_form_submit_btn cancel'>Cancel</button>
             </div>
          </div>
       </div>
