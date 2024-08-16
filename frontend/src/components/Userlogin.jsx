@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Herotext from './Herotext';
 import '../styles/Userlogin.css';
 import { assets } from '../assets/assets';
+import Alerts from './Alarts/Useralart';
 
 export default function UserLogin() {
    const [captureCode, setCaptureCode] = useState('');
@@ -37,13 +38,13 @@ export default function UserLogin() {
          <Herotext text="Hi fox!" />
          <div className="userlogin_form">
             <div className="input_fild_box">
-               <label htmlFor="username">Enter Your Username / Email</label>
+               <label htmlFor="username">Enter Your Username</label>
                <input
                   type="text"
                   name="username"
                   id="username"
                   autoComplete='off'
-                  placeholder="Enter your username or email" />
+                  placeholder="Your username" />
             </div>
             <div className="input_fild_box">
                <label htmlFor="password">Enter Your Password</label>
@@ -52,7 +53,7 @@ export default function UserLogin() {
                   name="password"
                   id="password"
                   autoComplete='off'
-                  placeholder="Enter your Password" />
+                  placeholder="Your Password" />
             </div>
             <div className="capture_code">
                <input type="text" value={captureCode} readOnly />
@@ -66,7 +67,7 @@ export default function UserLogin() {
                   type="text"
                   name="capture"
                   id="capture"
-                  placeholder="Enter capture code"
+                  placeholder="Capture code"
                   autoComplete='off'
                   onChange={(e) => setUserEnteredCaptureCode(e.target.value)}
                />
@@ -76,6 +77,10 @@ export default function UserLogin() {
                <button className='login_form_submit_btn cancel'>Cancel</button>
             </div>
          </div>
+         <Alerts
+            // type={'success'}
+            message={'What Drives You to Create an Account? Are You a Developer? Great News! If you are, you can contribute to our platform and earn money Please Note: Your account may be subject to approval.'}
+         />
       </div>
    );
 }

@@ -7,7 +7,7 @@ export default function components({ text }) {
 
       <>
          <div className="hero_text_container">
-            <h1 class="text_gradient">{text}</h1>
+            <h1 className="text_gradient">{text}</h1>
          </div>
       </>
 
