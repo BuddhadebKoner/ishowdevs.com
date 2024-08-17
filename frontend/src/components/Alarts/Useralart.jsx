@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/Alerts.css';
 import { assets } from '../../assets/assets';
 
-export default function Alerts({ type = "offer", message }) {
+export default function Alerts({ type = "offer", message, setAlert }) {
    const alertIcons = {
       error: assets.error,
       info: assets.info,

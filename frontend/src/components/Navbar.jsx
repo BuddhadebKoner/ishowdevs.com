@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { assets } from '../assets/assets';
 import Notificationlevel from './Notificationlevel';
 import '../styles/Navbar.css';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from '../context/user.context';
 
 export default function components() {
-   const [isLogedIn, setIsLogedIn] = useState(false);
+   const { isLoggedIn } = useContext(UserContext);
 
    return (
 
@@ -20,25 +21,24 @@ export default function components() {
                <NavLink to={"explore"} className='navbar_links_btns'>Explore</NavLink>
                <NavLink to={"about"} className='navbar_links_btns'>About</NavLink>
                <NavLink to={"blogpost"} className='navbar_links_btns'>Blog</NavLink>
-               {isLogedIn === true ?
+               {isLoggedIn === true ?
                   <div className="my_profile">
                      <button>
                         <img src={assets.profile} alt="" className='my_profile_iamge' />
                      </button>
-                     <button className='hero_btn'>Post</button>
+                     <button className='hero_btn'>Contribute</button>
                   </div>
                   :
                   <div className="login_signup">
-                     <NavLink to={"login"} className='navbar_links_btns'>Login</NavLink>
-                     <button className='hero_btn'>Sign up</button>
+                     <NavLink to={"login"} className='hero_btn'>Devaloper</NavLink>
                   </div>
                }
             </div>
          </nav>
-         <Notificationlevel
+         {/* <Notificationlevel
             note={'Notice : To be our team member sign up or contact with website admiin'}
             link={'#'}
-         />
+         /> */}
       </>
 
    )

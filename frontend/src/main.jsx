@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
@@ -14,6 +14,16 @@ import Blogpost from './pages/Blogpost.jsx';
 import About from './pages/About.jsx';
 
 const Main = () => {
+  useEffect(() => {
+    if (performance.getEntriesByType("navigation")[0].type === "reload") {
+      const lastVisitedPath = localStorage.getItem("lastVisitedPath");
+      if (!lastVisitedPath || lastVisitedPath === "/") {
+        window.location.href = "./";
+      }
+    }
+    // Store the current path in localStorage
+    localStorage.setItem("lastVisitedPath", window.location.pathname);
+  }, []);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<App />}>

@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 // login
-const userLogin = async (username, email, password) => {
+const userLogin = async (username, password) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/login`, { username, email, password }, {
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/login`, { username, password }, {
          withCredentials: true,
       });
       return response.data;
    } catch (error) {
-      console.error(error);
+      return error.response.data;
    }
 }
 

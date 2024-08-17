@@ -62,14 +62,22 @@
    font-size: 1rem;
 }
 
-.capture_code input {
+.capture_code p {
    width: fit-content;
    height: 50px;
    font-size: 2rem;
    font-weight: 900;
    font-family: "Edu VIC WA NT Beginner", cursive;
    padding-left: 20px;
+   /* pointer-events: none;
+   user-select: none; */
+   background-color: transparent;
+   border: none;
+   caret-color: transparent;
+   color: inherit;
+   outline: none;
 }
+
 
 .input_fild_box label {
    margin-bottom: 10px;
