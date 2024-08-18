@@ -12,21 +12,21 @@ const UserProvider = ({ children }) => {
    const [userdetails, setUserdetails] = useState(null);
 
    // Check login status on mount
-   // useEffect(() => {
-   //    const checkLoginStatus = async () => {
-   //       try {
-   //          const res = await getCurrentUser();
-   //          setIsLoggedIn(res?.success || false);
-   //          setUserdetails(res?.message || null);
-   //       } catch (error) {
-   //          console.error('Error checking login status:', error.message || error);
-   //          setIsLoggedIn(false);
-   //       }
-   //    };
-   //    if (!isLoggedIn) {
-   //       checkLoginStatus();
-   //    }
-   // }, []);
+   useEffect(() => {
+      const checkLoginStatus = async () => {
+         try {
+            const res = await getCurrentUser();
+            setIsLoggedIn(res?.success || false);
+            setUserdetails(res?.message || null);
+         } catch (error) {
+            console.error('Error checking login status:', error.message || error);
+            setIsLoggedIn(false);
+         }
+      };
+      if (!isLoggedIn) {
+         checkLoginStatus();
+      }
+   }, [isLoggedIn]);
 
    // Handle user login
    const handleLogin = useCallback(async () => {

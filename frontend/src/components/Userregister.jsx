@@ -9,6 +9,7 @@ export default function UserRegister() {
    const [mediaLinks, setMediaLinks] = useState(['']);
    const [error, setError] = useState('');
 
+
    const handleAddField = () => {
       const lastField = mediaLinks[mediaLinks.length - 1]?.trim();
 
@@ -36,16 +37,49 @@ export default function UserRegister() {
       setMediaLinks(newMediaLinks);
    };
 
-   const handleSubmit = async (e) => {
-      e.preventDefault();
+   const handleSubmit = async (event) => {
+      event.preventDefault();
 
-      const formData = new FormData(e.target);
-      formData.set('mediaLinks', JSON.stringify(mediaLinks.filter(link => link.trim() !== '')));
-      formData.set('keyWords', JSON.stringify(formData.get('Keywords').trim().split(',')));
+      const formData = new FormData();
 
-      console.log("Form Data:", Object.fromEntries(formData.entries()));
-      await handelRegister(formData);
+      const fullName = event.target.fullname.value;
+      const username = event.target.Username.value;
+      const email = event.target.Email.value;
+      const password = event.target.EnterPassword.value;
+      const portfolio = event.target.portfolio.value;
+      const mobile = event.target.Mobile.value;
+      const workAs = event.target.WorkAs.value;
+      const bio = event.target.Bio.value;
+      const avatarFile = event.target.avatar.files[0];
+      const coverImageFile = event.target.coverImage.files[0];
+
+      formData.append('fullName', fullName);
+      formData.append('username', username);
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('portfolio', portfolio);
+      formData.append('mobile', mobile);
+      formData.append('workAs', workAs);
+      formData.append('bio', bio);
+      formData.append('mediaLinks', JSON.stringify(mediaLinks));
+      formData.append('keyWords', '');
+      formData.append('avatar', avatarFile);
+      formData.append('coverImage', coverImageFile);
+
+      // Print FormData contents
+      for (let [key, value] of formData.entries()) {
+         console.log(key, value);
+      }
+
+      try {
+         const response = await handelRegister(formData);
+         console.log("Registration response:", response);
+      } catch (error) {
+         console.error("Registration error:", error);
+      }
    };
+
+
 
    return (
       <>
