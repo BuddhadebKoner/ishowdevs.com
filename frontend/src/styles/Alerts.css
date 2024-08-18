@@ -2,7 +2,7 @@
    position: fixed;
    width: 500px;
    height: fit-content;
-   top: 20px;
+   bottom: 20px;
    right: 10px;
    z-index: 1000;
    display: flex;

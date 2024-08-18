@@ -57,6 +57,7 @@ export default function UserLogin() {
                      autoComplete="off"
                      placeholder="Your username"
                      onChange={handleInputChange(setUsername)}
+                     required
                   />
                </div>
                <div className="input_fild_box">
@@ -68,6 +69,7 @@ export default function UserLogin() {
                      autoComplete="off"
                      placeholder="Your Password"
                      onChange={handleInputChange(setPassword)}
+                     required
                   />
                </div>
                <div className="capture_code">

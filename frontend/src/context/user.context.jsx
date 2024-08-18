@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
-import { getCurrentUser, userLogin, userLogout } from '../api/user.api';
+import { getCurrentUser, userLogin, userLogout, userRegister } from '../api/user.api';
 
 // Create Context
 const UserContext = createContext();
@@ -23,7 +23,9 @@ const UserProvider = ({ children }) => {
    //          setIsLoggedIn(false);
    //       }
    //    };
-   //    checkLoginStatus();
+   //    if (!isLoggedIn) {
+   //       checkLoginStatus();
+   //    }
    // }, []);
 
    // Handle user login
@@ -64,6 +66,23 @@ const UserProvider = ({ children }) => {
       }
    };
 
+   const handelRegister = useCallback(async (formData) => {
+      console.log("Form Data:", Object.fromEntries(formData.entries()));
+      try {
+         const res = await userRegister(formData);
+         if (res?.success) {
+            setIsLoggedIn(true);
+            setUserdetails(res?.message || null);
+            window.location.reload();
+         } else {
+            setIsLoggedIn(false);
+         }
+      } catch (error) {
+         console.error('Error during login:', error.message || error);
+         setIsLoggedIn(false);
+      }
+   });
+
    return (
       <UserContext.Provider value={{
          isLoggedIn,
@@ -71,7 +90,8 @@ const UserProvider = ({ children }) => {
          setPassword,
          handleLogin,
          userdetails,
-         handleLogout
+         handleLogout,
+         handelRegister
       }}>
          {children}
       </UserContext.Provider>

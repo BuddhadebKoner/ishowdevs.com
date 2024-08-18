@@ -94,3 +94,45 @@
    outline: none;
    box-shadow: 0px 0px 5px 0px #ccc;
 }
+
+.media_link_add_btn {
+   width: fit-content;
+   height: fit-content;
+   padding: 3px 20px;
+   background-color: #00A939;
+   margin-top: 10px;
+   color: white;
+   font-size: 1.2rem;
+   font-weight: 700;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.media_link_delete_btn {
+   width: fit-content;
+   height: fit-content;
+   padding: 3px 20px;
+   margin-top: 10px;
+   background-color: #AF0000;
+   color: white;
+   font-size: 1.2rem;
+   font-weight: 700;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.input_fild_media_link {
+   gap: 10px;
+}
+
+.media_link_add_delete_btns {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: row;
+   gap: 10px;
+}
