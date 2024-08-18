@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { assets } from '../assets/assets';
-import Notificationlevel from './Notificationlevel';
+import React, { useContext, useMemo } from 'react';
 import '../styles/Navbar.css';
-import { NavLink } from 'react-router-dom';
 import { UserContext } from '../context/user.context';
+import { NavLink } from 'react-router-dom';
 
-export default function components() {
-   const { isLoggedIn } = useContext(UserContext);
+export default function components({ isLoggedIn }) {
+   const { userdetails } = useContext(UserContext);
+
+   const userData = useMemo(() => ({
+      ...userdetails
+   }), [userdetails]);
 
    return (
 
@@ -23,9 +25,10 @@ export default function components() {
                <NavLink to={"blogpost"} className='navbar_links_btns'>Blog</NavLink>
                {isLoggedIn === true ?
                   <div className="my_profile">
-                     <button>
-                        <img src={assets.profile} alt="" className='my_profile_iamge' />
-                     </button>
+                     <NavLink to={"myacount"} >
+                        <img src={userData.avatar} alt="" className='my_profile_iamge' />
+                     </NavLink>
+
                      <button className='hero_btn'>Contribute</button>
                   </div>
                   :

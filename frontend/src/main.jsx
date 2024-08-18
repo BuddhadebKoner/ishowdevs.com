@@ -14,6 +14,7 @@ import Blogpost from './pages/Blogpost.jsx';
 import About from './pages/About.jsx';
 
 const Main = () => {
+  
   useEffect(() => {
     if (performance.getEntriesByType("navigation")[0].type === "reload") {
       const lastVisitedPath = localStorage.getItem("lastVisitedPath");
@@ -24,6 +25,7 @@ const Main = () => {
     // Store the current path in localStorage
     localStorage.setItem("lastVisitedPath", window.location.pathname);
   }, []);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<App />}>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/Alerts.css';
 import { assets } from '../../assets/assets';
 
-export default function Alerts({ type = "offer", message, setAlert }) {
+export default function Alerts({ type = "offer", message, AlertHeadtext }) {
    const alertIcons = {
       error: assets.error,
       info: assets.info,
@@ -66,7 +66,7 @@ export default function Alerts({ type = "offer", message, setAlert }) {
                   className="alart_container_head_type"
                />
                <h3 className='alart_container_head_type_text'>
-                  {alertText[type]}
+                  {AlertHeadtext}
                </h3>
                <img
                   src={assets.close}

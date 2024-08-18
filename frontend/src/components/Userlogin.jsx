@@ -11,7 +11,7 @@ export default function UserLogin() {
    const [userEnteredCaptureCode, setUserEnteredCaptureCode] = useState('');
    const [wrongCaptureAlert, setWrongCaptureAlert] = useState(false);
 
-   const { isLoggedIn, setUsername, setPassword, handleLogin } = useContext(UserContext);
+   const { setUsername, setPassword, handleLogin } = useContext(UserContext);
 
    useEffect(() => {
       setCaptureCode(generateCaptureCode());
@@ -38,12 +38,6 @@ export default function UserLogin() {
             <Alerts
                type="error"
                message="Entered Code is incorrect"
-            />
-         )}
-         {isLoggedIn && (
-            <Alerts
-               type="success"
-               message="You are already logged in"
             />
          )}
          <Notificationlevel

@@ -8,7 +8,9 @@ export default function Layout() {
 
    return (
       <>
-         <Navbar />
+         <Navbar
+            isLoggedIn={isLoggedIn}
+         />
          <Outlet />
       </>
    );
