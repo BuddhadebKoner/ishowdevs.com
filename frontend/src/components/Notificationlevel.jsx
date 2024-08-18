@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Notificationlevel.css';
+import { Link } from 'react-router-dom';
 
 export default function components({ note, link, linkText }) {
 
@@ -7,7 +8,7 @@ export default function components({ note, link, linkText }) {
       <>
          <div className="notification_container">
             <p>{note}</p>
-            <a href={link}>{linkText}</a>
+            <Link to={link}>{linkText}</Link>
          </div>
       </>
 

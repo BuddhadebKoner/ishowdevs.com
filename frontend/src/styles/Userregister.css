@@ -1,0 +1,96 @@
+.userregister_form_container {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   background-color: rgb(255, 255, 255);
+   padding: 0px 50px;
+}
+
+.rgisterlogin_form {
+   width: fit-content;
+   height: fit-content;
+   display: flex;
+   align-items: start;
+   justify-content: center;
+   flex-direction: column;
+   background-color: white;
+   padding: 50px 50px;
+   gap: 20px;
+   box-shadow: 0px 0px 5px 0px #ccc;
+   border-radius: 10px;
+}
+
+.input_fild_box {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.input_fild_box input {
+   width: 500px;
+   height: 50px;
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid #000000;
+   font-size: 1rem;
+}
+
+.input_fild_box label {
+   margin-bottom: 10px;
+   font-size: 1.2rem;
+   font-weight: 700;
+   color: #7B7B7B;
+   cursor: pointer;
+}
+
+.loginsubmit_btns {
+   margin-top: 50px;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.login_form_submit_btn {
+   width: 100%;
+   height: 50px;
+   background-color: #000000;
+   color: white;
+   font-size: 1.2rem;
+   font-weight: 700;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.cancel {
+   background-color: #AF0000;
+}
+
+
+.dropdown_style {
+   width: 500px;
+   height: 50px;
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid #000000;
+   font-size: 1rem;
+   background-color: white;
+   color: #000;
+   appearance: none;
+   cursor: pointer;
+}
+
+.dropdown_style:focus {
+   outline: none;
+   box-shadow: 0px 0px 5px 0px #ccc;
+}

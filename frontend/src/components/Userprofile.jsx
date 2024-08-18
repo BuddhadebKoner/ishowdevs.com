@@ -4,10 +4,42 @@ import { UserContext } from '../context/user.context';
 import '../styles/Userprofile.css';
 import { assets } from '../assets/assets';
 
-export default function Userprofile() { 
-   const { userdetails } = useContext(UserContext);
+export default function Userprofile() {
+   const { userdetails, handleLogout } = useContext(UserContext);
+
+   // const temp =
+   // {
+   //    "username": "ishospeed",
+   //    "fullName": "ishow speed",
+   //    "email": "ishospeed@gmail.com",
+   //    "password": "$2b$10$jTFXZiNmPcfhxuAdufT4dOyUEw0.v5Fqx4co6qYMmfLscvDP2Skwq",
+   //    "avatar": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1723913394/zenvug8bqkk88zfp8nwa.jpg",
+   //    "coverImage": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1723913395/ga9fa8xvsw1xsnzdyvel.webp",
+   //    "isVarified": false,
+   //    "portfolio": "example.com",
+   //    "mobile": "+91 8900280349",
+   //    "workAs": "softwer dev",
+   //    "role": "user",
+   //    "bio": "not in mood",
+   //    "mediaLinks": [
+   //       "\"https://github.com/BuddhadebKoner\""
+   //    ],
+   //    "keyWords": [
+   //       "\"app dev\""
+   //    ],
+   //    "isActive": false,
+   //    "createdAt": {
+   //       "$date": "2024-08-17T16:49:56.409Z"
+   //    },
+   //    "updatedAt": {
+   //       "$date": "2024-08-17T16:50:22.050Z"
+   //    },
+   //    "__v": 0,
+   //    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmMwZDRiNGUxOTViMDdiNThmNDg0YWQiLCJpYXQiOjE3MjM5MTM0MjIsImV4cCI6MTcyNjUwNTQyMn0.nS4sir_3n2oQ3b5qSUvq_tToTAfHcNZwYnFrZkztBKs"
+   // }
 
    const userData = useMemo(() => ({
+      // ...userdetails
       ...userdetails
    }), [userdetails]);
 
@@ -97,9 +129,11 @@ export default function Userprofile() {
                         }
                      </div>
                   </div>
+                  <div className="change_password_logout_btn">
+                     <button className='change_password_btn hero_btn' >Change Password</button>
+                     <button className='logout_btn hero_btn' onClick={() => { handleLogout() }}>Logout</button>
+                  </div>
                </div>
-               {/* Consider adding content or removing the following div */}
-               <div className="change_password_logout_btn"></div>
             </div>
          </div>
       </>

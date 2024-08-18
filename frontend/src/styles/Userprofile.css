@@ -211,3 +211,12 @@
    background-color: #A10091;
    color: white;
 }
+
+.change_password_logout_btn{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+   margin-top: 50px;
+}
