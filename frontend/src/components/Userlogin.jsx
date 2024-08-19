@@ -2,16 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import Herotext from './Herotext';
 import '../styles/Userlogin.css';
 import { assets } from '../assets/assets';
-import Alerts from './Alarts/Useralart';
 import Notificationlevel from './Notificationlevel';
 import { UserContext } from '../context/user.context';
 
 export default function UserLogin() {
    const [captureCode, setCaptureCode] = useState('');
    const [userEnteredCaptureCode, setUserEnteredCaptureCode] = useState('');
-   const [wrongCaptureAlert, setWrongCaptureAlert] = useState(false);
-
-   const { setUsername, setPassword, handleLogin } = useContext(UserContext);
+   const { setUsername, setPassword, handleLogin, isLoggedIn } = useContext(UserContext);
 
    useEffect(() => {
       setCaptureCode(generateCaptureCode());
@@ -23,7 +20,6 @@ export default function UserLogin() {
 
    const handleLoginClick = async () => {
       if (!verifyCaptureCode(userEnteredCaptureCode)) {
-         setWrongCaptureAlert(true);
          setCaptureCode(generateCaptureCode());
          setUserEnteredCaptureCode('');
          return;
@@ -34,72 +30,76 @@ export default function UserLogin() {
 
    return (
       <>
-         {wrongCaptureAlert && (
-            <Alerts
-               type="error"
-               message="Entered Code is incorrect"
-            />
-         )}
-         <Notificationlevel
-            note="To be our team member sign up or contact with website admin"
-            link="/registeruser"
-            linkText="Create Account"
-         />
-         <div className="userlogin_form_container">
-            <Herotext text="Hi fox!" />
-            <div className="userlogin_form">
-               <div className="input_fild_box">
-                  <label htmlFor="username">Enter Your Username</label>
-                  <input
-                     type="text"
-                     name="username"
-                     id="username"
-                     autoComplete="off"
-                     placeholder="Your username"
-                     onChange={handleInputChange(setUsername)}
-                     required
+
+         {
+            !isLoggedIn ? (
+               <>
+                  <Notificationlevel
+                     note="To be our team member sign up or contact with website admin"
+                     link="/registeruser"
+                     linkText="Create Account"
                   />
-               </div>
-               <div className="input_fild_box">
-                  <label htmlFor="password">Enter Your Password</label>
-                  <input
-                     type="password"
-                     name="password"
-                     id="password"
-                     autoComplete="off"
-                     placeholder="Your Password"
-                     onChange={handleInputChange(setPassword)}
-                     required
-                  />
-               </div>
-               <div className="capture_code">
-                  <p>{captureCode}</p>
-                  <button onClick={handleCaptureCode}>
-                     <img src={assets.reloadicon} alt="Reload Capture Code" />
-                  </button>
-               </div>
-               <div className="input_fild_box">
-                  <label htmlFor="userEnteredCaptureCode">Enter Capture Code</label>
-                  <input
-                     type="text"
-                     name="userEnteredCaptureCode"
-                     id="userEnteredCaptureCode"
-                     placeholder="Capture code"
-                     autoComplete="off"
-                     onChange={handleInputChange(setUserEnteredCaptureCode)}
-                     value={userEnteredCaptureCode}
-                  />
-               </div>
-               <div className="loginsubmit_btns">
-                  <button onClick={handleLoginClick} className="login_form_submit_btn login">
-                     Login
-                  </button>
-                  <button className="login_form_submit_btn cancel">
-                     Cancel
-                  </button>
-               </div>
-            </div>
-         </div>
+                  <div className="userlogin_form_container">
+                     <Herotext text="Hi fox!" />
+                     <div className="userlogin_form">
+                        <div className="input_fild_box">
+                           <label htmlFor="username">Enter Your Username</label>
+                           <input
+                              type="text"
+                              name="username"
+                              id="username"
+                              autoComplete="off"
+                              placeholder="Your username"
+                              onChange={handleInputChange(setUsername)}
+                              required
+                           />
+                        </div>
+                        <div className="input_fild_box">
+                           <label htmlFor="password">Enter Your Password</label>
+                           <input
+                              type="password"
+                              name="password"
+                              id="password"
+                              autoComplete="off"
+                              placeholder="Your Password"
+                              onChange={handleInputChange(setPassword)}
+                              required
+                           />
+                        </div>
+                        <div className="capture_code">
+                           <p>{captureCode}</p>
+                           <button onClick={handleCaptureCode}>
+                              <img src={assets.reloadicon} alt="Reload Capture Code" />
+                           </button>
+                        </div>
+                        <div className="input_fild_box">
+                           <label htmlFor="userEnteredCaptureCode">Enter Capture Code</label>
+                           <input
+                              type="text"
+                              name="userEnteredCaptureCode"
+                              id="userEnteredCaptureCode"
+                              placeholder="Capture code"
+                              autoComplete="off"
+                              onChange={handleInputChange(setUserEnteredCaptureCode)}
+                              value={userEnteredCaptureCode}
+                           />
+                        </div>
+                        <div className="loginsubmit_btns">
+                           <button onClick={handleLoginClick} className="login_form_submit_btn login">
+                              Login
+                           </button>
+                           <button className="login_form_submit_btn cancel">
+                              Cancel
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </>
+            ) : (
+               <div className="duv">You are Logedin so dont try to access the login page, </div>
+            )
+         }
+
       </>
    );
 }

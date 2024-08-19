@@ -34,14 +34,6 @@ export default function Alerts({ type = "offer", message, AlertHeadtext }) {
       },
    };
 
-   const alertText = {
-      error: 'Error',
-      info: 'Info',
-      success: 'Success',
-      offer: 'Offer',
-      warn: 'Warning',
-   };
-
    const [isVisible, setIsVisible] = useState(true);
 
    const handleClose = () => setIsVisible(false);

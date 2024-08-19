@@ -15,16 +15,16 @@ import About from './pages/About.jsx';
 
 const Main = () => {
 
-  useEffect(() => {
-    if (performance.getEntriesByType("navigation")[0].type === "reload") {
-      const lastVisitedPath = localStorage.getItem('lastVisitedPath');
-      if (!lastVisitedPath || lastVisitedPath === '/') {
-        window.location.href = './';
-      }
-    }
+  // useEffect(() => {
+  //   if (performance.getEntriesByType("navigation")[0].type === "reload") {
+  //     const lastVisitedPath = localStorage.getItem('lastVisitedPath');
+  //     if (!lastVisitedPath || lastVisitedPath === '/') {
+  //       window.location.href = './';
+  //     }
+  //   }
 
-    localStorage.setItem('lastVisitedPath', window.location.pathname);
-  }, []);
+  //   localStorage.setItem('lastVisitedPath', window.location.pathname);
+  // }, []);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
