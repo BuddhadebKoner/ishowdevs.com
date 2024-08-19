@@ -1,4 +1,4 @@
-# Project README
+# NFB Service-Oriented Project
 
 Welcome to our full-stack service-oriented project, designed to harness the power of modern web development technologies. In this repository, we are crafting a dynamic application that combines a sleek React frontend with a robust Node.js and Express backend. The project leverages Appwrite as the backend service, providing seamless integration and efficient data management.
 
