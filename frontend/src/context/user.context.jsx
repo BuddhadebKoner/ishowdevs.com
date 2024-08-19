@@ -9,25 +9,25 @@ const UserProvider = ({ children }) => {
    const [password, setPassword] = useState('');
    const [userdetails, setUserdetails] = useState(null);
 
-   useEffect(() => {
-      if (!isLoggedIn) {
-         const checkLoginStatus = async () => {
-            try {
-               const res = await getCurrentUser();
-               if (res?.success && res?.message.isActive) {
-                  setUserdetails((prevDetails) => (prevDetails === res.message ? prevDetails : res.message));
-                  setIsLoggedIn(true);
-               } else {
-                  setIsLoggedIn(false);
-               }
-            } catch (error) {
-               console.error('Error checking login status:', error.message || error);
-               setIsLoggedIn(false);
-            }
-         };
-         checkLoginStatus();
-      }
-   }, [isLoggedIn]);
+   // useEffect(() => {
+   //    if (!isLoggedIn) {
+   //       const checkLoginStatus = async () => {
+   //          try {
+   //             const res = await getCurrentUser();
+   //             if (res?.success && res?.message.isActive) {
+   //                setUserdetails((prevDetails) => (prevDetails === res.message ? prevDetails : res.message));
+   //                setIsLoggedIn(true);
+   //             } else {
+   //                setIsLoggedIn(false);
+   //             }
+   //          } catch (error) {
+   //             console.error('Error checking login status:', error.message || error);
+   //             setIsLoggedIn(false);
+   //          }
+   //       };
+   //       checkLoginStatus();
+   //    }
+   // }, [isLoggedIn]);
 
    const handleLogin = async () => {
       try {

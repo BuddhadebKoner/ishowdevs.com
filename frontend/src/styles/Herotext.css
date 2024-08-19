@@ -1,3 +1,5 @@
+
+
 .hero_text_container {
    width: 100%;
    height: fit-content;
@@ -8,11 +10,13 @@
    gap: 50px;
    padding: 10px 0px;
    background-color: white;
+   text-align: center;
 }
 
 .text_gradient {
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    width: fit-content;
-   font-size: 3rem;
+   font-size: 2.5rem;
    font-weight: 900;
    background: linear-gradient(to right, #F15A59, #000000);
    -webkit-background-clip: text;
