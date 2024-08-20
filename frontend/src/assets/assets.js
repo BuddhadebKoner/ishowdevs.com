@@ -15,6 +15,8 @@ import insta from './media/insta.png';
 import portfolio from './media/portfolio.png';
 import threads from './media/threads.png';
 import x from './media/x.png';
+// banners
+import testiminialsHero from './banners/testimonials_banner.svg';
 
 
 
@@ -35,4 +37,5 @@ export const assets = {
    portfolio: portfolio,
    threads: threads,
    x: x,
+   testiminialsHero: testiminialsHero
 }

@@ -2,23 +2,32 @@
 
 .home_container {
    width: 100%;
-   height: 500vh;
+   height: fit-content;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: flex-start;
+   position: relative;
+}
+
+.wave-top {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1;
 }
 
 .home_hero_container_headline {
    width: 100%;
    height: fit-content;
-   background: #ffffff;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    padding: 50px 50px 0 50px;
    gap: 3rem;
+   z-index: 1;
 }
 
 .home_hero_container_subheading {
@@ -36,18 +45,17 @@
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
-   background-color: white;
    display: flex;
    align-items: flex-start;
    justify-content: center;
-   padding-top: 230px;
+   padding-top: 200px;
 }
 
 .dropdown_container {
    width: 400px;
-   height: 60px;
+   height: 70px;
    border: 1px solid #333;
-   padding: 5px;
+   padding: 7px;
    border-radius: 70px;
    display: flex;
    align-items: center;
@@ -56,8 +64,8 @@
 
 .hero_btn_find {
    width: fit-content;
-   height: 100%;
-   padding: 5px 35px;
+   height: 90%;
+   padding: 5px 45px;
    background-color: #F15A59;
    color: white;
    font-size: 1.2rem;
@@ -69,20 +77,19 @@
    appearance: none;
    width: 100%;
    padding: 12px 16px;
-   border-radius: 50%;
-   font-size: 1rem;
+   background-color: transparent;
+   font-size: 1.3rem;
    font-family: 'Arial', sans-serif;
    color: #333;
-   background-color: #fff;
    cursor: pointer;
    outline: none;
 }
 
-/* .dropdown-container option {
+.dropdown-container option {
    width: fit-content;
-   font-size: 16px;
+   font-size: 20px;
    font-family: 'Arial', sans-serif;
    color: #333;
    background-color: #fff;
    border-radius: 8px;
-} */
+}

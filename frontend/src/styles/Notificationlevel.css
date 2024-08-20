@@ -8,13 +8,14 @@
    gap: 20px;
    padding: 10px 0px;
    background: linear-gradient(to right, #720000, #FFFFFF);
+   z-index: 2;
 }
 
 .notification_container p{
    color: #FFFFFF;
-   font-weight: 800;
+   font-weight: 500;
 }
 .notification_container a{
    color: #880000;
-   font-weight: 900;
+   font-weight: 500;
 }
