@@ -78,6 +78,12 @@
    outline: none;
 }
 
+.forgotpassword_btn{
+   font-size: 15px;
+   margin: 10px 0 0 10px;
+   color: #0085FF;
+   font-weight: 500;
+}
 
 .input_fild_box label {
    margin-bottom: 10px;

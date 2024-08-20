@@ -12,6 +12,8 @@ import Registeruser from './pages/Registeruser.jsx';
 import Explore from './pages/Explore.jsx';
 import Blogpost from './pages/Blogpost.jsx';
 import About from './pages/About.jsx';
+import Passwordchnage from './pages/Passwordchange.jsx';
+import Forgotpassword from './pages/Forgotpassword.jsx';
 
 const Main = () => {
 
@@ -37,6 +39,8 @@ const Main = () => {
         <Route path='explore' element={<Explore />} />
         <Route path='blogpost' element={<Blogpost />} />
         <Route path='about' element={<About />} />
+        <Route path='chnagepassword' element={<Passwordchnage />} />
+        <Route path='forgotpassword' element={<Forgotpassword />} />
       </Route>
     )
   );

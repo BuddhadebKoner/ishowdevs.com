@@ -25,11 +25,10 @@ export default function components({ isLoggedIn }) {
                <NavLink to={"blogpost"} className='navbar_links_btns'>Blog</NavLink>
                {isLoggedIn === true ?
                   <div className="my_profile">
+                     <button className='hero_btn'>Contribute</button>
                      <NavLink to={"myacount"} >
                         <img src={userData.avatar} alt="" className='my_profile_iamge' />
                      </NavLink>
-
-                     <button className='hero_btn'>Contribute</button>
                   </div>
                   :
                   <div className="login_signup">
@@ -38,10 +37,6 @@ export default function components({ isLoggedIn }) {
                }
             </div>
          </nav>
-         {/* <Notificationlevel
-            note={'Notice : To be our team member sign up or contact with website admiin'}
-            link={'#'}
-         /> */}
       </>
 
    )

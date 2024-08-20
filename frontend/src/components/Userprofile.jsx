@@ -4,6 +4,7 @@ import { UserContext } from '../context/user.context';
 import '../styles/Userprofile.css';
 import { assets } from '../assets/assets';
 import Alerts from '../components/Alarts/Useralart';
+import { Link } from 'react-router-dom';
 
 export default function Userprofile() {
    const { userdetails, handleLogout, isLoggedIn } = useContext(UserContext);
@@ -135,7 +136,8 @@ export default function Userprofile() {
                                  </div>
                               </div>
                               <div className="change_password_logout_btn">
-                                 <button className='change_password_btn hero_btn' >Change Password</button>
+                                 {/* <button className='change_password_btn hero_btn' >Change Password</button> */}
+                                 <Link to='/chnagepassword' className='change_password_btn hero_btn'>Change Password</Link>
                                  <button className='logout_btn hero_btn' onClick={() => { handleLogout() }}>Logout</button>
                               </div>
                            </div>
