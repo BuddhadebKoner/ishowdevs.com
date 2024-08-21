@@ -4,6 +4,7 @@ import '../styles/Userlogin.css';
 import { assets } from '../assets/assets';
 import Notificationlevel from './Notificationlevel';
 import { UserContext } from '../context/user.context';
+import { Link } from 'react-router-dom';
 
 export default function UserLogin() {
    const [captureCode, setCaptureCode] = useState('');
@@ -65,6 +66,8 @@ export default function UserLogin() {
                               onChange={handleInputChange(setPassword)}
                               required
                            />
+                           <Link to={"/forgotpassword"} className='forgotpassword_btn'>Forgot Password</Link>
+
                         </div>
                         <div className="capture_code">
                            <p>{captureCode}</p>

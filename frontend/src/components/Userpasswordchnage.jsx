@@ -38,7 +38,7 @@ export default function components() {
                <div className="input_fild_box">
                   <label htmlFor="password">New Password</label>
                   <input
-                     type="password"
+                     type="text"
                      name="password"
                      id="password"
                      autoComplete="off"

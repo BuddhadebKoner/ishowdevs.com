@@ -96,5 +96,16 @@ const updateCoverimage = async (formData) => {
    }
 }
 
+const getAllUsers = async () => {
+   try {
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_HOST}/users/all-users`, {
+         withCredentials: true,
+      });
+      return response.data;
+   } catch (error) {
+      console.error(error);
+   }
+}
 
-export { userLogin, userLogout, userRegister, AccessTokenRefreshed, getCurrentUser, changePassword, updateAvatar, updateCoverimage };
+
+export { userLogin, userLogout, userRegister, AccessTokenRefreshed, getCurrentUser, changePassword, updateAvatar, updateCoverimage, getAllUsers };

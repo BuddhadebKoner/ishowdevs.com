@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { changePassword, getCurrentUser, userLogin, userLogout, userRegister } from '../api/user.api';
+import { changePassword, getAllUsers, getCurrentUser, userLogin, userLogout, userRegister } from '../api/user.api';
 
 const UserContext = createContext();
 
@@ -7,29 +7,31 @@ const UserProvider = ({ children }) => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
-   const [userdetails, setUserdetails] = useState(null);
    const [oldPassword, setOldPassword] = useState('');
    const [newPassword, setNewPassword] = useState('');
+   // user details data
+   const [userdetails, setUserdetails] = useState(null);
+   const [allUsersdata, setAllUsersdata] = useState(null);
 
-   useEffect(() => {
-      if (!isLoggedIn) {
-         const checkLoginStatus = async () => {
-            try {
-               const res = await getCurrentUser();
-               if (res?.success && res?.message.isActive) {
-                  setUserdetails((prevDetails) => (prevDetails === res.message ? prevDetails : res.message));
-                  setIsLoggedIn(true);
-               } else {
-                  setIsLoggedIn(false);
-               }
-            } catch (error) {
-               console.error('Error checking login status:', error.message || error);
-               setIsLoggedIn(false);
-            }
-         };
-         checkLoginStatus();
-      }
-   }, [isLoggedIn]);
+   // useEffect(() => {
+   //    if (!isLoggedIn) {
+   //       const checkLoginStatus = async () => {
+   //          try {
+   //             const res = await getCurrentUser();
+   //             if (res?.success && res?.message.isActive) {
+   //                setUserdetails((prevDetails) => (prevDetails === res.message ? prevDetails : res.message));
+   //                setIsLoggedIn(true);
+   //             } else {
+   //                setIsLoggedIn(false);
+   //             }
+   //          } catch (error) {
+   //             console.error('Error checking login status:', error.message || error);
+   //             setIsLoggedIn(false);
+   //          }
+   //       };
+   //       checkLoginStatus();
+   //    }
+   // }, [isLoggedIn]);
 
    const handleLogin = async () => {
       try {
@@ -113,19 +115,40 @@ const UserProvider = ({ children }) => {
       }
    }
 
+   const handelAllUsersData = async () => {
+      try {
+         const res = await getAllUsers();
+
+         if (res?.success) {
+            console.log("All users data:", res.message);
+
+            setAllUsersdata(prevDetails =>
+               prevDetails === res.message ? prevDetails : res.message
+            );
+         } else {
+            console.error("Failed to get users data:", res?.message || "Unknown error");
+         }
+
+      } catch (error) {
+         console.error("Error fetching users data:", error.message || error);
+      }
+   }
+
+
 
    return (
       <UserContext.Provider value={{
          isLoggedIn,
          setUsername,
          setPassword,
+         setOldPassword,
+         setNewPassword,
          handleLogin,
          userdetails,
          handleLogout,
          handleRegister,
          handelChangepassword,
-         setOldPassword,
-         setNewPassword
+         handelAllUsersData,
       }}>
          {children}
       </UserContext.Provider>

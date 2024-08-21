@@ -16,13 +16,13 @@ export default function components() {
             <Herotext text="Hi fox!" />
             <div className="userlogin_form">
                <div className="input_fild_box">
-                  <label htmlFor="username">Current Password</label>
+                  <label htmlFor="username">Enter Your registered email</label>
                   <input
                      type="text"
                      name="username"
                      id="username"
                      autoComplete="off"
-                     placeholder="Current password"
+                     placeholder="Enter email"
                      // onChange={handleInputChange(setOldPassword)}
                      required
                   />
@@ -30,7 +30,7 @@ export default function components() {
                <div className="input_fild_box">
                   <label htmlFor="password">New Password</label>
                   <input
-                     type="password"
+                     type="text"
                      name="password"
                      id="password"
                      autoComplete="off"
@@ -44,7 +44,7 @@ export default function components() {
                      // onClick={handelChangepassword}
                      className="login_form_submit_btn login"
                   >
-                     Chnage Password
+                     Send
                   </button>
                   <button className="login_form_submit_btn cancel">
                      Cancel
