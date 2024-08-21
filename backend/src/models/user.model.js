@@ -64,7 +64,7 @@ const userSchema = new Schema(
          type: [String],
       },
       keyWords: {
-         type: [String],
+         type: String,
       },
       refreshToken: {
          type: String,
