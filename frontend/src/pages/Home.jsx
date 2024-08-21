@@ -7,8 +7,10 @@ export default function pages() {
    return (
 
       <>
-         <Userhome />
-         <Usertestimonial />
+         <div className="home_page_container">
+            <Userhome />
+            <Usertestimonial />
+         </div>
       </>
 
    )

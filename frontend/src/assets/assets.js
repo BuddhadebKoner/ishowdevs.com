@@ -15,12 +15,17 @@ import insta from './media/insta.png';
 import portfolio from './media/portfolio.png';
 import threads from './media/threads.png';
 import x from './media/x.png';
+import customerService from './icons/customar_services.png';
+import customerRich from './icons/customer_rich.png';
 // banners
 import testiminialsHero from './banners/testimonials_banner.svg';
+// temp
+import temp from './temp/profile.png';
 
 
 
 export const assets = {
+   temp: temp,
    profile: profile,
    reloadicon: reloadicon,
    close: close,
@@ -37,5 +42,7 @@ export const assets = {
    portfolio: portfolio,
    threads: threads,
    x: x,
-   testiminialsHero: testiminialsHero
+   testiminialsHero: testiminialsHero,
+   customerService: customerService,
+   customerRich: customerRich,
 }
