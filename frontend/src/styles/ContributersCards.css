@@ -12,8 +12,8 @@
 }
 
 .contributers_card_image_box img {
-   width: 27rem;
-   height: fit-content;
+   width: 450px;
+   height: 300px;
    object-fit: cover;
    border-radius: 30px;
 }
@@ -42,7 +42,6 @@
    height: 100%;
    margin-left: auto;
    border-radius: 0 30px 30px 0;
-   background: #000;
 }
 
 .peofile_name_sec {
@@ -99,7 +98,6 @@
 .profile_service_sec h1{
    font-size: 1.2rem;
    font-weight: 500;
-   color: #1A5319;
 }
 
 .services_batches{
@@ -107,7 +105,6 @@
    height: fit-content;
    padding: 5px 20px;
    border-radius: 10px;
-   background-color: #1A5319;
 }
 .services_batches p{
    font-size: 13px;

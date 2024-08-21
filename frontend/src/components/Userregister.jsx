@@ -5,7 +5,7 @@ import '../styles/Userregister.css';
 import { UserContext } from '../context/user.context';
 
 export default function UserRegister() {
-   const { handelRegister, isLoggedIn } = useContext(UserContext);
+   const { handleRegister, isLoggedIn } = useContext(UserContext);
    const [mediaLinks, setMediaLinks] = useState(['']);
    const [error, setError] = useState('');
 
@@ -52,7 +52,10 @@ export default function UserRegister() {
       const bio = event.target.Bio.value;
       const avatarFile = event.target.avatar.files[0];
       const coverImageFile = event.target.coverImage.files[0];
-      const Keywords = event.target.Keywords.value;
+
+      // Get Keywords as a plain string and remove trailing comma
+      let keywordsString = event.target.Keywords.value;
+      keywordsString = keywordsString.replace(/,\s*$/, '');
 
       formData.append('fullName', fullName);
       formData.append('username', username);
@@ -65,17 +68,17 @@ export default function UserRegister() {
       mediaLinks.forEach(link => {
          formData.append('mediaLinks[]', link);
       });
-      formData.append('keyWords', Keywords);
+      formData.append('keyWords', keywordsString);
       formData.append('avatar', avatarFile);
       formData.append('coverImage', coverImageFile);
+
       try {
-         const response = await handelRegister(formData);
+         const response = await handleRegister(formData);
          console.log("Registration response:", response);
       } catch (error) {
          console.error("Registration error:", error);
       }
    };
-
 
 
 

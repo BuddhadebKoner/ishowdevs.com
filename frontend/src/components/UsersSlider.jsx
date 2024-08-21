@@ -1,5 +1,4 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React, { useContext, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ContributersCards from './ContributersCards';
 
@@ -12,8 +11,20 @@ import '../styles/UsersSlider.css';
 
 // import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
+import { PublicContext } from '../context/public.context';
 
-export default function components() {
+export default function Components() {
+   const { allUsersdata } = useContext(PublicContext);
+   const [sliderLoading, setSliderLoading] = useState(true);
+
+   useEffect(() => {
+      if (allUsersdata) {
+         setSliderLoading(false);
+      } else {
+         setSliderLoading(true);
+      }
+   }, [allUsersdata]);
+
    return (
       <>
          <div className="users_swiper_slider">
@@ -30,21 +41,26 @@ export default function components() {
                modules={[Pagination, Autoplay]}
                className="mySwiper"
             >
-               <SwiperSlide>
-                  <ContributersCards />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <ContributersCards />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <ContributersCards />
-               </SwiperSlide>
-                <SwiperSlide>
-                  <ContributersCards />
-               </SwiperSlide>
-                <SwiperSlide>
-                  <ContributersCards />
-               </SwiperSlide>
+               {allUsersdata && allUsersdata
+                  .filter(user => user.isActive) 
+                  .map(user => (
+                     <SwiperSlide key={user._id}>
+                        <ContributersCards
+                           sliderLoading={sliderLoading}
+                           fullName={user.fullName}
+                           avatar={user.avatar}
+                           isVarified={user.isVarified}
+                           role={user.role}
+                           workAs={user.workAs}
+                           keywords={user.keyWords}
+                           userid={user._id}
+                           profileRich={user.profileRich}
+                           happyCustomer={user.happyCustomer}
+                           isActive={user.isActive}
+                        />
+                     </SwiperSlide>
+                  ))
+               }
             </Swiper>
          </div>
       </>

@@ -52,8 +52,9 @@ export default function Userprofile() {
       if (url.includes('instagram.com')) return assets.insta;
       if (url.includes('portfolio.com')) return assets.portfolio;
       if (url.includes('threads.net')) return assets.threads;
-      return '';
+      return assets.defaulticon; 
    }
+
 
    return (
       <>
@@ -116,7 +117,7 @@ export default function Userprofile() {
                                        userData.mediaLinks?.map((link, index) => (
                                           <div key={index} className="medialinks_fild_item">
                                              <a href={link} target='_blank' rel="noopener noreferrer">
-                                                <img src={getMediaIcon(link)} alt="Media icon" />
+                                                <img src={getMediaIcon(link)} alt="" />
                                              </a>
                                           </div>
                                        )) || <p>No media links available</p> // Added default media links text
@@ -127,12 +128,15 @@ export default function Userprofile() {
                                  <h2>Key Words</h2>
                                  <div className="keywords_fild">
                                     {
-                                       userData.keyWords?.map((key, index) => (
-                                          <div key={index} className="keywords_fild_item">
-                                             <p>{key}</p>
-                                          </div>
-                                       )) || <p>No keywords available</p> // Added default keywords text
+                                       userData.keyWords
+                                          ? userData.keyWords.split(',').map((key, index) => (
+                                             <div key={index} className="keywords_fild_item">
+                                                <p>{key.trim()}</p> {/* Trim to remove any extra spaces */}
+                                             </div>
+                                          ))
+                                          : <p>No keywords available</p> // Added default keywords text
                                     }
+
                                  </div>
                               </div>
                               <div className="change_password_logout_btn">

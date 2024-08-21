@@ -1,37 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js'; // Import anime.js
 import '../styles/Usertestimonial.css';
 import Herotext from '../components/Herotext';
 import UsersSlider from '../components/UsersSlider';
 import { assets } from '../assets/assets';
+import { PublicContext } from '../context/public.context';
 
 export default function Components() {
+   const { usercount } = useContext(PublicContext)
 
-   // useEffect(() => {
-   //    function randomValues() {
-   //       anime({
-   //          targets: '.square, .circle, .triangle',
-   //          translateX: function () {
-   //             return anime.random(-500, 500);
-   //          },
-   //          translateY: function () {
-   //             return anime.random(-300, 300);
-   //          },
-   //          rotate: function () {
-   //             return anime.random(0, 360);
-   //          },
-   //          scale: function () {
-   //             return anime.random(0.2, 2);
-   //          },
-   //          duration: 1000,
-   //          easing: 'easeInOutQuad',
-   //          complete: randomValues,
-   //       });
-   //    }
+   useEffect(() => {
+      function randomValues() {
+         anime({
+            targets: '.square, .circle, .triangle',
+            translateX: function () {
+               return anime.random(-500, 500);
+            },
+            translateY: function () {
+               return anime.random(-300, 300);
+            },
+            rotate: function () {
+               return anime.random(0, 360);
+            },
+            scale: function () {
+               return anime.random(0.2, 2);
+            },
+            duration: 1000,
+            easing: 'easeInOutQuad',
+            complete: randomValues,
+         });
+      }
 
-   //    randomValues();
+      randomValues();
 
-   // }, []);
+   }, []);
 
    return (
       <div className="testimonials_conntainer">
@@ -73,7 +75,7 @@ export default function Components() {
 
          <div className="we_devalopers_container">
             <Herotext
-               text={"11 Devalopers with us "}
+               text={`${usercount} Devalopers with us`}
             />
             <div className="all_services_container">
                <button className='service_btns' >web development</button>

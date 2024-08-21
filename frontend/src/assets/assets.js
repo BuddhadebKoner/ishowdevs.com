@@ -15,6 +15,7 @@ import insta from './media/insta.png';
 import portfolio from './media/portfolio.png';
 import threads from './media/threads.png';
 import x from './media/x.png';
+import defaulticon from './media/default.png';
 import customerService from './icons/customar_services.png';
 import customerRich from './icons/customer_rich.png';
 // banners
@@ -42,6 +43,7 @@ export const assets = {
    portfolio: portfolio,
    threads: threads,
    x: x,
+   defaulticon: defaulticon,
    testiminialsHero: testiminialsHero,
    customerService: customerService,
    customerRich: customerRich,
