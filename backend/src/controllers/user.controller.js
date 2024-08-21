@@ -143,7 +143,7 @@ const loginUser = asyncHandaller(async (req, res) => {
    );
 
    const logedInUser = await User.findById(user._id).select(
-      "-password -refreshToken"
+      "-password -refreshToken -mobile"
    );
 
    // send cookie
@@ -322,6 +322,29 @@ const updateUserCoverImage = asyncHandaller(async (req, res) => {
       .json(new ApiResponce(200, "Cover Image updated"));
 });
 
+const getAllUsers = asyncHandaller(async (req, res) => {
+   try {
+      // Fetch all users, excluding sensitive fields
+      const users = await User.find().select("-password -refreshToken -mobile");
+
+      // If no users found, return 404
+      if (!users.length) {
+         throw new ApiError(404, "No users found");
+      }
+
+      // Return the list of users
+      return res.status(200).json(
+         new ApiResponce(200, users, "Users fetched successfully")
+      );
+   } catch (error) {
+      console.error("Error fetching users:", error);
+      throw new ApiError(500, "Failed to fetch users");
+   }
+});
+
+
+
+
 
 export {
    registerUser,
@@ -332,4 +355,5 @@ export {
    getCurrentUser,
    updateUserAvatar,
    updateUserCoverImage,
+   getAllUsers,
 };
