@@ -73,10 +73,18 @@ const userSchema = new Schema(
          type: Boolean,
          default: false,
       },
+      profileRich: {
+         type: Number,
+         default: 0,
+      },
+      happyCustomer: {
+         type: Number,
+         default: 0,
+      },
       posts: [
          {
             type: Schema.Types.ObjectId,
-            ref: "Userpost",  
+            ref: "Userpost",
          },
       ],
    },
