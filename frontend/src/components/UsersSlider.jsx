@@ -1,4 +1,4 @@
-   import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ContributersCards from './ContributersCards';
@@ -10,19 +10,24 @@ import 'swiper/css/navigation';
 
 import '../styles/UsersSlider.css';
 
-
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 export default function components() {
    return (
       <>
          <div className="users_swiper_slider">
-
             <Swiper
                slidesPerView={2}
                spaceBetween={30}
-               modules={[Pagination]}
+               autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+               }}
+               pagination={{
+                  clickable: true,
+               }}
+               modules={[Pagination, Autoplay]}
                className="mySwiper"
             >
                <SwiperSlide>
@@ -32,6 +37,12 @@ export default function components() {
                   <ContributersCards />
                </SwiperSlide>
                <SwiperSlide>
+                  <ContributersCards />
+               </SwiperSlide>
+                <SwiperSlide>
+                  <ContributersCards />
+               </SwiperSlide>
+                <SwiperSlide>
                   <ContributersCards />
                </SwiperSlide>
             </Swiper>
