@@ -7,14 +7,10 @@ const userpostSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    description: {
+    content: {
       type: String,
       required: true,
-    },
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
+      trim: true,
     },
     projectLink: {
       type: String,
@@ -28,6 +24,7 @@ const userpostSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+      required: true,
     },
     keyWords: {
       type: String,
@@ -35,8 +32,14 @@ const userpostSchema = new mongoose.Schema(
     publishedAt: {
       type: Date,
     },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
 export const Userpost = mongoose.model('Userpost', userpostSchema);
+

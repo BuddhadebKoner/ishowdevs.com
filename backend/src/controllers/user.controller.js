@@ -97,7 +97,7 @@ const registerUser = asyncHandaller(async (req, res) => {
       workAs,
       bio,
       mediaLinks,
-      keyWords
+      keyWords,
    });
 
    // Respond with the newly created user

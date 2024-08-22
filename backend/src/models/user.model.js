@@ -81,7 +81,7 @@ const userSchema = new Schema(
          type: Number,
          default: 0,
       },
-      posts: [
+      Userpost: [
          {
             type: Schema.Types.ObjectId,
             ref: "Userpost",
@@ -92,6 +92,7 @@ const userSchema = new Schema(
 );
 
 // dont write here arrow function, because there dont have access of this
+
 userSchema.pre("save", async function (next) {
    if (!this.isModified("password")) {
       next();
