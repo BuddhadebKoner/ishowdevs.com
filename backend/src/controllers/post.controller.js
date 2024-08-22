@@ -4,6 +4,7 @@ import { User } from "../models/user.model.js";
 import { Userpost } from "../models/post.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { ApiResponce } from "../utils/Apiresponce.js";
 
 
 // create post 
@@ -81,9 +82,62 @@ const createPost = asyncHandaller(async (req, res) => {
       throw error;
    }
 });
+// get all posts
+const getAllPostsByUserId = asyncHandaller(async (req, res) => {
+   try {
+      // Extract the user ID from the request parameters
+      const { userId } = req.params;
 
+      // Validate user ID
+      if (!mongoose.Types.ObjectId.isValid(userId)) {
+         throw new ApiError(400, "Invalid user ID");
+      }
+
+      // Fetch all posts associated with the user
+      const posts = await Userpost.find({ author: userId }).populate("author", "fullName email");
+
+      // If no posts found, return 404
+      if (!posts.length) {
+         throw new ApiError(404, "No posts found for this user");
+      }
+
+      // Return the list of posts
+      return res.status(200).json(new ApiResponce(200, posts, "Posts fetched successfully"));
+   } catch (error) {
+      console.error("Error fetching posts by user:", error);
+      throw new ApiError(500, "Failed to fetch posts");
+   }
+});
+const deletePost = asyncHandaller(async (req, res) => {
+   try {
+      // Extract post ID from request parameters
+      const { postId } = req.params;
+
+      // Validate post ID
+      if (!mongoose.Types.ObjectId.isValid(postId)) {
+         throw new ApiError(400, "Invalid post ID");
+      }
+
+      // Find post by ID and delete it
+      const post = await Userpost.findByIdAndDelete(postId);
+
+      // If post not found, return 404
+      if (!post) {
+         throw new ApiError(404, "Post not found");
+      }
+
+      // Respond with success message
+      return res.status(200).json({
+         message: "Post deleted successfully",
+      });
+
+   } catch (error) {
+      console.error("Error deleting post:", error);
+      throw new ApiError(500, "Failed to delete post");
+   }
+});
 
 
 
 // export all functions
-export { createPost };
+export { createPost, getAllPostsByUserId, deletePost };

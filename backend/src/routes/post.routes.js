@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPost } from "../controllers/post.controller.js";
+import { createPost, deletePost, getAllPostsByUserId } from "../controllers/post.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import fs from "fs";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -26,6 +26,9 @@ router.route("/create-post").post(verifyJWT, (req, res, next) => {
       res.status(500).send({ error: "An unexpected error occurred" });
    }
 }, createPost);
-
+// get all posts by user id
+router.route("/:userId/posts").get(getAllPostsByUserId);
+// delete post by post id
+router.route("/:postId/delete-post").delete(verifyJWT, deletePost);
 
 export default router;
