@@ -342,6 +342,10 @@ const getAllUsers = asyncHandaller(async (req, res) => {
    }
 });
 
+const addPost = asyncHandaller(async (req, res) => { 
+   const { title, description, media } = req.body;
+});
+
 
 
 

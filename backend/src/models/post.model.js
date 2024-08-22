@@ -7,7 +7,7 @@ const userpostSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
@@ -16,12 +16,21 @@ const userpostSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
+    projectLink: {
+      type: String,
+    },
     tags: {
-      type: [String],
+      type: String,
     },
     isPublished: {
       type: Boolean,
       default: false,
+    },
+    image: {
+      type: String,
+    },
+    keyWords: {
+      type: String,
     },
     publishedAt: {
       type: Date,
