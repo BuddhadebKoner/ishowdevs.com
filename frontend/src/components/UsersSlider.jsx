@@ -47,16 +47,7 @@ export default function Components() {
                      <SwiperSlide key={user._id}>
                         <ContributersCards
                            sliderLoading={sliderLoading}
-                           fullName={user.fullName}
-                           avatar={user.avatar}
-                           isVarified={user.isVarified}
-                           role={user.role}
-                           workAs={user.workAs}
-                           keywords={user.keyWords}
-                           userid={user._id}
-                           profileRich={user.profileRich}
-                           happyCustomer={user.happyCustomer}
-                           isActive={user.isActive}
+                           user={user}
                         />
                      </SwiperSlide>
                   ))
