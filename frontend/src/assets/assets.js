@@ -22,6 +22,8 @@ import customerRich from './icons/customer_rich.png';
 import testiminialsHero from './banners/testimonials_banner.svg';
 // temp
 import temp from './temp/profile.png';
+// new imports
+import searchIocn from './icons/search_icon.svg';
 
 
 
@@ -47,4 +49,5 @@ export const assets = {
    testiminialsHero: testiminialsHero,
    customerService: customerService,
    customerRich: customerRich,
+   searchIocn: searchIocn
 }

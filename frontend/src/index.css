@@ -13,8 +13,8 @@ body {
   height: fit-content;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: 'Roboto', sans-serif;
-  background-color: #ffffff;
+  background-color: #021526;
+  color: white;
 }
 
 .hero_btn {

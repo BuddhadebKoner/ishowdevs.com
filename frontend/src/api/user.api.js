@@ -1,111 +1,103 @@
-import axios from 'axios';
+import axiosInstance from '../config/config';
 
-// login
+// Login
 const userLogin = async (username, password) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/login`, { username, password }, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/login', { username, password });
       return response.data;
    } catch (error) {
-      return error.response.data;
+      return error.response ? error.response.data : error.message;
    }
-}
+};
 
+// Logout
 const userLogout = async () => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/logout`, {}, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/logout');
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
+// Register
 const userRegister = async (formData) => {
-   console.log("FormData:", formData);
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/register`, formData, {
-         headers: { 'Content-Type': 'multipart/form-data' },
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/register', formData);
       return response.data;
    } catch (error) {
       console.error("Registration error:", error.response ? error.response.data : error.message);
    }
-}
+};
 
-// refresh the access token up to date on database
+// Refresh Access Token
 const AccessTokenRefreshed = async () => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/refresh_token`, {}, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/refresh_token');
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
-// get details of the current user (logged in)
+// Get Current User
 const getCurrentUser = async () => {
    try {
-      const response = await axios.get(`${import.meta.env.VITE_SERVER_HOST}/users/current-user`, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.get('/users/current-user');
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
-// change password (password reset must knowing the old password)
+// Change Password
 const changePassword = async (oldPassword, newPassword) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/chnage-password`, { oldPassword, newPassword }, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/change-password', { oldPassword, newPassword });
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
+// Update Avatar
 const updateAvatar = async (formData) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/update-avatar`, formData, {
-         headers: { 'Content-Type': 'multipart/form-data' },
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/update-avatar', formData);
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
+// Update Cover Image
 const updateCoverimage = async (formData) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/users/update-coverimage`, formData, {
-         headers: { 'Content-Type': 'multipart/form-data' },
-         withCredentials: true,
-      });
+      const response = await axiosInstance.post('/users/update-coverimage', formData);
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
+// Get All Users
 const getAllUsers = async () => {
    try {
-      const response = await axios.get(`${import.meta.env.VITE_SERVER_HOST}/users/all-users`, {
-         withCredentials: true,
-      });
+      const response = await axiosInstance.get('/users/all-users');
       return response.data;
    } catch (error) {
       console.error(error);
    }
-}
+};
 
-
-export { userLogin, userLogout, userRegister, AccessTokenRefreshed, getCurrentUser, changePassword, updateAvatar, updateCoverimage, getAllUsers };
+export {
+   userLogin,
+   userLogout,
+   userRegister,
+   AccessTokenRefreshed,
+   getCurrentUser,
+   changePassword,
+   updateAvatar,
+   updateCoverimage,
+   getAllUsers,
+};

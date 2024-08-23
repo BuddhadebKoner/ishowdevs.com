@@ -1,41 +1,36 @@
-import axios from "axios";
+import axiosInstance from '../config/config';
 
-// create post 
+// Create post
 const createUserPost = async (formData) => {
    try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_HOST}/posts/create-post`, formData, {
-         headers: { 'Content-Type': 'multipart/form-data' },
-         withCredentials: true,
-      });
-      return response.message;
+      const response = await axiosInstance.post('/posts/create-post', formData);
+      return response.data.message;
    } catch (error) {
       console.error("Error creating post: ", error);
+      throw error;
    }
 };
 
-// get all post by user id
+// Get all posts by user id
 const getAllPostsByUserId = async (userId) => {
    try {
-      const response = await axios.get(`${import.meta.env.VITE_SERVER_HOST}/posts/:${userId}/posts`, {
-         withCredentials: true,
-      });
-      return response.message;
+      const response = await axiosInstance.get(`/posts/${userId}/posts`);
+      return response.data.message;
    } catch (error) {
-      console.error("Error to accessing all user post", error);
+      console.error("Error accessing all user posts: ", error);
+      throw error;
    }
 };
 
-// delete post by post id
+// Delete post by post id
 const deletePostById = async (postId) => {
    try {
-      const response = await axios.delete(`${import.meta.env.VITE_SERVER_HOST}posts/:${postId}/delete-post}`, {
-         withCredentials: true,
-      });
-      return response.message;
+      const response = await axiosInstance.delete(`/posts/${postId}/delete-post`);
+      return response.data.message;
    } catch (error) {
-      console.error("Error deleting post", error);
+      console.error("Error deleting post: ", error);
+      throw error;
    }
 };
-
 
 export { createUserPost, getAllPostsByUserId, deletePostById };
