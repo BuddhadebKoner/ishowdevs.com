@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 import { getAllUsers } from '../api/user.api';
 
 const PublicContext = createContext();
@@ -7,7 +7,11 @@ const PublicProvider = ({ children }) => {
    const [allUsersdata, setAllUsersdata] = useState(null);
    const [usercount, setUsercount] = useState(0);
    // which public profile you are watching
-   const [watchingProfile, setWatchingProfile] = useState(null);
+   const [watchingProfile, setWatchingProfile] = useState(() => {
+      // Retrieve the value from localStorage on initial render, if available
+      const storedProfile = localStorage.getItem('watchingProfile');
+      return storedProfile ? JSON.parse(storedProfile) : null;
+   });
 
 
    const handelAllUsersData = async () => {
@@ -34,8 +38,12 @@ const PublicProvider = ({ children }) => {
    }, []);
 
    const handlePublicProfileAccess = useCallback((user) => {
-      setWatchingProfile(user)
-   });
+      if (user) {
+         // If user is provided, update both localStorage and state
+         localStorage.setItem('watchingProfile', JSON.stringify(user));
+         setWatchingProfile(user);
+      }
+   }, []);
 
 
 
