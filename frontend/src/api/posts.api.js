@@ -13,8 +13,9 @@ const createUserPost = async (formData) => {
    }
 };
 
+// get all post by user id
 const getAllPostsByUserId = async (userId) => {
-   try { 
+   try {
       const response = await axios.get(`${import.meta.env.VITE_SERVER_HOST}/posts/:${userId}/posts`, {
          withCredentials: true,
       });
@@ -23,3 +24,18 @@ const getAllPostsByUserId = async (userId) => {
       console.error("Error to accessing all user post", error);
    }
 };
+
+// delete post by post id
+const deletePostById = async (postId) => {
+   try {
+      const response = await axios.delete(`${import.meta.env.VITE_SERVER_HOST}posts/:${postId}/delete-post}`, {
+         withCredentials: true,
+      });
+      return response.message;
+   } catch (error) {
+      console.error("Error deleting post", error);
+   }
+};
+
+
+export { createUserPost, getAllPostsByUserId, deletePostById };

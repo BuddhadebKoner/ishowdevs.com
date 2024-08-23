@@ -60,6 +60,8 @@ const UserProvider = ({ children }) => {
          console.error('User not found');
       } else if (res?.error === "ACCOUNT_LOCKED") {
          console.error('Account is locked');
+      } else if (res?.error === "MONGO_DB_ERROR") {
+         console.error('MongoDB error');
       } else {
          console.error('Login failed');
       }
