@@ -324,25 +324,26 @@ const updateUserCoverImage = asyncHandaller(async (req, res) => {
 
 const getAllUsers = asyncHandaller(async (req, res) => {
    try {
-      // Fetch all users, excluding sensitive fields
-      const users = await User.find().select("-password -refreshToken -mobile");
+      // Fetch all active users, excluding sensitive fields
+      const users = await User.find({ isActive: true }).select("-password -refreshToken -mobile -isActive");
 
-      // If no users found, return 404
+      // If no active users are found, return 404
       if (!users.length) {
-         throw new ApiError(404, "No users found");
+         throw new ApiError(404, "No active users found");
       }
 
-      // Return the list of users
+      // Return the list of active users
       return res.status(200).json(
-         new ApiResponce(200, users, "Users fetched successfully")
+         new ApiResponce(200, users, "Active users fetched successfully")
       );
    } catch (error) {
-      console.error("Error fetching users:", error);
-      throw new ApiError(500, "Failed to fetch users");
+      console.error("Error fetching active users:", error);
+      throw new ApiError(500, "Failed to fetch active users");
    }
 });
 
-const addPost = asyncHandaller(async (req, res) => { 
+
+const addPost = asyncHandaller(async (req, res) => {
    const { title, description, media } = req.body;
 });
 
