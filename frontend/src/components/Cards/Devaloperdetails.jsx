@@ -29,8 +29,8 @@ export default function Cards({ user }) {
                </div>
             </div>
             <div className="dev_card_service">
-               <p>Work As</p>
-               <p>{user.workAs}</p>
+               <p className='dev_card_work_as'>Work As</p>
+               <p className='dev_card_work_as_text'>{user.workAs}</p>
             </div>
             <div className="dev_card_user_rich">
                <div className="dev_card_user_richable">
@@ -54,7 +54,5 @@ export default function Cards({ user }) {
             </div>
          </div>
       </>
-
    )
-
 }

@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import Welcomelevel from '../components/Welcomelevel';
 import Heighlightoffer from '../components/Heighlightoffer';
 import Devalopers from '../components/Devalopers';
+import Products from '../components/Products';
 // flobal style for all home children
 import '../styles/Home.css';
 
@@ -49,7 +50,7 @@ export default function pages() {
       keyWords: "Portfolio",
       priseBefore: 2999,
       priseNow: 1999,
-      offerEndDate: "2024-08-23T11:07:54.074Z",
+      offerEndDate: "2024-08-24T10:00:00.000Z"
    }
 
 
@@ -71,6 +72,9 @@ export default function pages() {
             </div>
             <div className="All_devalopers">
                <Devalopers />
+            </div>
+            <div className="all_services">
+               <Products />
             </div>
          </div>
       </>

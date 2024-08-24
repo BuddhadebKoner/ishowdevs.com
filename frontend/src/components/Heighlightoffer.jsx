@@ -4,7 +4,7 @@ export default function HighlightOffers({ heiglightOffers }) {
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
    useEffect(() => {
-      const countdownDate = new Date("2024-09-01T00:00:00").getTime(); // Set your countdown end date here
+      const countdownDate = new Date(new Date(heiglightOffers.offerEndDate).getTime() + (5.5 * 60 * 60 * 1000)).getTime();
 
       const timer = setInterval(() => {
          const now = new Date().getTime();
@@ -25,6 +25,7 @@ export default function HighlightOffers({ heiglightOffers }) {
 
       return () => clearInterval(timer);
    }, []);
+
 
    return (
       <>

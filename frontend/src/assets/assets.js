@@ -24,6 +24,7 @@ import temp from './temp/profile.png';
 // new imports
 import searchIocn from './icons/search_icon.svg';
 import profile from './icons/profile.svg';
+import arrow from './icons/arrow.svg';
 
 
 
@@ -49,5 +50,6 @@ export const assets = {
    customerService: customerService,
    customerRich: customerRich,
    searchIocn: searchIocn,
-   profile: profile
+   profile: profile,
+   arrow: arrow
 }

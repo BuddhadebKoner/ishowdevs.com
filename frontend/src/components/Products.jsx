@@ -2,15 +2,14 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 
-// components
-import Devaloperdetails from './Cards/Devaloperdetails';
+import Productdetails from './Cards/Productdetails';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { assets } from '../assets/assets';
 
-export default function UserSwiperSlider() {
+
+export default function components() {
+
    const allUserData = [{
       "_id": {
          "$oid": "66c640294ce2289ee4e7b895"
@@ -212,13 +211,14 @@ export default function UserSwiperSlider() {
    }]
 
    return (
+
       <>
          <div className="heiglight_devaloper_container">
             <h1 className='heiglight_devaloper_container_h1'>
-               Developers <span className='devaloper_Count'>{String(allUserData.length).padStart(2, '0')}</span>
+               Products
             </h1>
-            <button className='swiper_button_next'>
-               <img src={assets.arrow} alt="" />
+            <button className=''>
+               see more
             </button>
 
          </div>
@@ -227,23 +227,21 @@ export default function UserSwiperSlider() {
                slidesPerView={3}
                spaceBetween={30}
                loop={true}
-               navigation={{
-                  nextEl: '.swiper_button_next',
-                  prevEl: null,
-               }}
-               modules={[Navigation, Autoplay]}
+               modules={[ Autoplay]}
                className="mySwiper"
             >
                {
                   allUserData && allUserData
                      .map((user, index) => (
                         <SwiperSlide key={index}>
-                           <Devaloperdetails user={user} />
+                           <Productdetails user={user} />
                         </SwiperSlide>
                      ))
                }
             </Swiper>
          </div>
       </>
-   );
+
+   )
+
 }
