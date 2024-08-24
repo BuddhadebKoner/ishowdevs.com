@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @font-face {
    font-family: Itim-Regular;
    src: url(./assets/Itim/Itim-Regular.ttf);
+}
+
+:root {
+   --navbar-height: 90px;
+   --padding-x: 10rem;
+   --Regular-Inter: "Inter", sans-serif;
+   --Regular-Item : "Itim-Regular", sans-serif;
 }

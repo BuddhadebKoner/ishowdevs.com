@@ -1,0 +1,294 @@
+/* Welcome level */
+
+.welcome_level_home {
+   width: 100%;
+   height: fit-content;
+   padding: 1.3rem var(--padding-x);
+   background: linear-gradient(to right, #00345B, #00213A);
+   font-family: var(--Regular-Inter);
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   gap: 10px;
+}
+
+.welcome_level_title {
+   color: white;
+   font-size: 1rem;
+   font-weight: 700;
+   margin: 0;
+}
+
+.welcome_level_text {
+   color: white;
+   font-size: 2rem;
+   font-weight: 400;
+   margin: 0;
+}
+
+.heiglight_offers {
+   width: 100%;
+   height: fit-content;
+   padding: 3rem var(--padding-x);
+   font-family: var(--Regular-Item);
+}
+
+/* offers components */
+
+.heiglight_offers_container_box_heading {
+   font-size: 1.5rem;
+   font-weight: 500;
+   padding: 0 15px;
+}
+
+.heiglight_offers_details_container {
+   width: 100%;
+   height: 200px;
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   border: 1px solid #5F5F5F;
+   padding: 15px;
+   margin-top: 20px;
+   border-radius: 10px;
+   transition: all 0.3s ease-in-out;
+   cursor: pointer;
+}
+
+.heiglight_offers_details_container:hover {
+   border: 1px solid #00db1d;
+}
+
+.heiglight_offers_details_container:hover .buy_now_text {
+   background: #00db1d;
+   color: #000000;
+}
+
+.heiglight_offers_details_container:hover .heiglight_offers_details_title {
+   background: #00db1d;
+   color: #000000;
+}
+
+.heiglight_offers_image_container {
+   width: fit-content;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+   border-radius: 10px;
+}
+
+.heiglight_offers_image_container img {
+   width: 100%;
+   height: 100%;
+   aspect-ratio: 16 / 9;
+   object-fit: cover;
+   border-radius: inherit;
+}
+
+.heiglight_offers_details {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 0 0 0 40px;
+}
+
+.heiglight_offers_details_title {
+   width: fit-content;
+   height: fit-content;
+   padding: 0px 10px;
+   border-radius: 5px;
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: #5F5F5F;
+   transition: all 0.3s ease-in-out;
+}
+
+.heiglight_offers_details_content,
+.heiglight_offers_details_prise {
+   font-size: 1.9rem;
+   font-weight: 500;
+   color: #ffffff;
+   display: flex;
+   gap: 20px;
+}
+
+.buy_now_text {
+   width: fit-content;
+   height: fit-content;
+   padding: 5px 10px;
+   border-radius: 5px;
+   position: absolute;
+   right: 2rem;
+   top: 1rem;
+   transition: all 0.3s ease-in-out;
+}
+
+.priseBefore {
+   text-decoration: line-through;
+   color: #ffffff;
+}
+
+.priseNow {
+   color: #00db1d;
+}
+
+.countdown {
+   font-size: 1.1rem;
+   font-weight: 500;
+   color: #ffffff;
+}
+
+/* All devalopers components */
+.devaloper_Count {
+   color: #00db1d;
+}
+
+.All_devalopers {
+   width: 100%;
+   height: fit-content;
+   padding: 0rem var(--padding-x);
+   font-family: var(--Regular-Item);
+}
+
+.heiglight_devaloper_container {
+   width: 100%;
+   height: fit-content;
+   margin: 0;
+   padding: 0 15px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.heiglight_devaloper_container_h1 {
+   font-size: 1.5rem;
+   font-weight: 500;
+}
+
+.heiglight_devaloper_container_p {
+   font-size: 1.3rem;
+   font-weight: 400;
+}
+
+.users_swiper_slider {
+   width: 100%;
+   height: fit-content;
+   margin-top: 10px;
+   border-radius: 10px;
+}
+
+.swiper {
+   width: 100%;
+   height: 100%;
+   padding: 15px;
+}
+
+.swiper-slide {
+   width: 100%;
+   height: fit-content;
+}
+
+.indivisual_dev_cards_box {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: start;
+   gap: 10px;
+   padding: 15px;
+   border-radius: 10px;
+   background: linear-gradient(to right, #00345B, #00213A);
+}
+
+.dev_card_name_profile {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: #ffffff;
+   width: 100%;
+   height: auto;
+   /* Use 'auto' instead of 'fit-content' for better browser compatibility */
+}
+
+.dev_card_profile_img {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   overflow: hidden;
+}
+
+.dev_card_name_varify_tick_role {
+   display: flex;
+   align-items: flex-start;
+   gap: 15px;
+   height: auto;
+   width: auto;
+}
+
+.dev_card_name_varify_tick {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.dev_card_profile_role {
+   font-size: 1rem;
+   font-weight: 400;
+   color: #ffffff;
+}
+
+
+.dev_card_user_rich {
+   width: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+   width: auto;
+   height: auto;
+}
+
+.dev_card_user_richable,
+.dev_card_user_service {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   width: auto;
+   height: auto;
+}
+
+.dev_card_user_icons {
+   width: 40px;
+   height: 40px;
+}
+.dev_card_see_profile_btn{
+   width: 100%;
+   height: fit-content;
+   padding: 5px 10px;
+   border-radius: 5px;
+   font-size: 1.2rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+}
+
+.see_profile{
+   width: 100%;
+   height: fit-content;
+   padding: 5px 10px;
+   border-radius: 5px;
+   color: #ffffff;
+   font-size: 1.2rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+}

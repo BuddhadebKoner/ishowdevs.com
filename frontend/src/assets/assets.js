@@ -1,4 +1,3 @@
-import profile from './temp/profile.png';
 import reloadicon from './icons/reload.png';
 import close from './icons/close.png';
 import error from './icons/error.png';
@@ -24,12 +23,12 @@ import testiminialsHero from './banners/testimonials_banner.svg';
 import temp from './temp/profile.png';
 // new imports
 import searchIocn from './icons/search_icon.svg';
+import profile from './icons/profile.svg';
 
 
 
 export const assets = {
    temp: temp,
-   profile: profile,
    reloadicon: reloadicon,
    close: close,
    error: error,
@@ -49,5 +48,6 @@ export const assets = {
    testiminialsHero: testiminialsHero,
    customerService: customerService,
    customerRich: customerRich,
-   searchIocn: searchIocn
+   searchIocn: searchIocn,
+   profile: profile
 }
