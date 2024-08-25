@@ -22,6 +22,10 @@ const userpostSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    showOnHomePage: {
+      type: Boolean,
+      default: false,
+    },
     image: {
       type: String,
       required: true,

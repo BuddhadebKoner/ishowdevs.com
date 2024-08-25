@@ -19,9 +19,7 @@ const createPost = asyncHandaller(async (req, res) => {
          content,
          projectLink = "",
          tags = "",
-         isPublished = false,
          keyWords = "",
-         publishedAt = null
       } = req.body;
 
       const author = req.user._id;
@@ -42,6 +40,8 @@ const createPost = asyncHandaller(async (req, res) => {
       if (!image) {
          throw new ApiError(500, "Image upload failed");
       }
+      // publishedAt
+      const publishedAt = new Date();
 
       // Create a new post
       const post = await Userpost.create([{
@@ -49,7 +49,6 @@ const createPost = asyncHandaller(async (req, res) => {
          content,
          projectLink,
          tags,
-         isPublished,
          image: image.url,
          keyWords,
          publishedAt,

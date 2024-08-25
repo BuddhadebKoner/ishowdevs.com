@@ -31,11 +31,11 @@ const userSchema = new Schema(
       },
       avatar: {
          type: String,
-         required: true,
+         default: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
       },
       coverImage: {
          type: String,
-         required: true,
+         default: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
       },
       isVarified: {
          type: Boolean,
@@ -43,14 +43,15 @@ const userSchema = new Schema(
       },
       portfolio: {
          type: String,
-         required: true,
+         default: "",
       },
       mobile: {
          type: String,
+         default: "",
       },
       workAs: {
          type: String,
-         required: true,
+         default: "",
       },
       role: {
          type: String,
@@ -59,17 +60,25 @@ const userSchema = new Schema(
       },
       bio: {
          type: String,
+         default: "",
       },
       mediaLinks: {
          type: [String],
+         default: "",
+
       },
       keyWords: {
          type: String,
+         default: "",
       },
       refreshToken: {
          type: String,
       },
       isActive: {
+         type: Boolean,
+         default: false,
+      },
+      showOnHomePage: {
          type: Boolean,
          default: false,
       },

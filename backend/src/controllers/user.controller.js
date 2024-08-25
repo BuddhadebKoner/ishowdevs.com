@@ -39,16 +39,10 @@ const registerUser = asyncHandaller(async (req, res) => {
       username,
       email,
       password,
-      portfolio,
-      mobile,
-      workAs,
-      bio = "",
-      mediaLinks,
-      keyWords
    } = req.body;
 
    // Validate user details
-   if ([fullName, username, email, password, portfolio, mobile, workAs].some(field => !field.trim())) {
+   if ([fullName, username, email, password].some(field => !field.trim())) {
       throw new ApiError(400, "Please fill all required fields");
    }
 
@@ -61,43 +55,36 @@ const registerUser = asyncHandaller(async (req, res) => {
       throw new ApiError(409, "User already exists");
    }
 
-   // Check for images
-   const avatarLocalPath = req.files?.avatar?.[0]?.path;
-   const coverLocalPath = req.files?.coverImage?.[0]?.path;
+   // // Check for images
+   // const avatarLocalPath = req.files?.avatar?.[0]?.path;
+   // const coverLocalPath = req.files?.coverImage?.[0]?.path;
 
-   if (!avatarLocalPath) {
-      throw new ApiError(400, "Avatar is required");
-   }
+   // if (!avatarLocalPath) {
+   //    throw new ApiError(400, "Avatar is required");
+   // }
 
-   if (!coverLocalPath) {
-      throw new ApiError(400, "Cover image is required");
-   }
+   // if (!coverLocalPath) {
+   //    throw new ApiError(400, "Cover image is required");
+   // }
 
-   // Upload images to Cloudinary
-   const avatar = await uploadOnCloudinary(avatarLocalPath);
-   const coverImage = await uploadOnCloudinary(coverLocalPath);
+   // // Upload images to Cloudinary
+   // const avatar = await uploadOnCloudinary(avatarLocalPath);
+   // const coverImage = await uploadOnCloudinary(coverLocalPath);
 
-   if (!avatar) {
-      throw new ApiError(400, "Avatar upload failed");
-   }
-   if (!coverImage) {
-      throw new ApiError(500, "Cover image upload failed");
-   }
+   // if (!avatar) {
+   //    throw new ApiError(400, "Avatar upload failed");
+   // }
+   // if (!coverImage) {
+   //    throw new ApiError(500, "Cover image upload failed");
+   // }
 
+   
    // Create user object
    const user = await User.create({
       username: username.toLowerCase(),
       fullName,
       email,
-      password,
-      avatar: avatar.url,
-      coverImage: coverImage.url,
-      portfolio,
-      mobile,
-      workAs,
-      bio,
-      mediaLinks,
-      keyWords,
+      password
    });
 
    // Respond with the newly created user
@@ -343,9 +330,6 @@ const getAllUsers = asyncHandaller(async (req, res) => {
 });
 
 
-const addPost = asyncHandaller(async (req, res) => {
-   const { title, description, media } = req.body;
-});
 
 
 
