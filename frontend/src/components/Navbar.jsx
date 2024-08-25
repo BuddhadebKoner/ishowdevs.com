@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import '../styles/Navbar.css';
 // import { UserContext } from '../context/user.context';
 import { NavLink } from 'react-router-dom';
@@ -6,6 +6,17 @@ import { assets } from '../assets/assets';
 
 export default function components() {
    // const { userdetails } = useContext(UserContext);
+
+   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+   const handleDropdownToggle = () => {
+      setIsDropdownOpen(!isDropdownOpen);
+   };
+
+   const handleOptionClick = () => {
+      // Close dropdown when an option is clicked
+      setIsDropdownOpen(false);
+   };
 
 
 
@@ -92,9 +103,14 @@ export default function components() {
                <button className="navbar_link">
                   {
                      userData.avatar && isLoggedIn ? (
-                        <NavLink to={"/myacount"}>
-                           <img src={userData.avatar} alt="" className='navbar_profile' />
-                        </NavLink>
+                        <div>
+                           <img
+                              src={userData.avatar}
+                              className='navbar_profile'
+                              alt=""
+                              onClick={handleDropdownToggle}
+                           />
+                        </div>
                      ) : (
                         <NavLink to={"/login"}>
                            <img src={assets.profile} alt="" className='navbar_profile' />
@@ -103,6 +119,20 @@ export default function components() {
                   }
                </button>
             </div>
+
+            {isDropdownOpen && (
+               <div className="dropdown_menu">
+                  <NavLink to="/myacount" onClick={handleOptionClick}>
+                     Your Account
+                  </NavLink>
+                  <NavLink to="" onClick={handleOptionClick}>
+                     Payment Details
+                  </NavLink>
+                  <NavLink to="" onClick={handleOptionClick}>
+                     Sign Out
+                  </NavLink>
+               </div>
+            )}
          </nav>
 
       </>

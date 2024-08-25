@@ -80,15 +80,6 @@ const updateCoverimage = async (formData) => {
    }
 };
 
-// Get All Users
-const getAllUsers = async () => {
-   try {
-      const response = await axiosInstance.get('/users/all-users');
-      return response.data;
-   } catch (error) {
-      console.error(error);
-   }
-};
 
 export {
    userLogin,
