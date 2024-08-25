@@ -80,6 +80,10 @@ const createPost = asyncHandaller(async (req, res) => {
       session.endSession();
       throw error;
    }
+
+   return res.status(201).json(
+      new ApiResponce(201, "Post created successfully")
+   );
 });
 // get all posts
 const getAllPostsByUserId = asyncHandaller(async (req, res) => {
@@ -93,7 +97,7 @@ const getAllPostsByUserId = asyncHandaller(async (req, res) => {
       }
 
       // Fetch all posts associated with the user
-      const posts = await Userpost.find({ author: userId }).populate("author", "fullName email");
+      const posts = await Userpost.find({ author: userId }).select("-isPublished -showOnHomePage ");
 
       // If no posts found, return 404
       if (!posts.length) {

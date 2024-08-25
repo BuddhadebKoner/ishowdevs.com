@@ -36,6 +36,22 @@ const userpostSchema = new mongoose.Schema(
     publishedAt: {
       type: Date,
     },
+    isUnderBigdeal: {
+      type: Boolean,
+      default: false,
+    },
+    priseBefore: {
+      type: Number,
+      default: 0,
+    },
+    priseNow: {
+      type: Number,
+      default: 0,
+    },
+    offerEndDate: {
+      type: Date,
+      default: null,
+    },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',

@@ -302,10 +302,6 @@ const getAllUsers = asyncHandaller(async (req, res) => {
 
 
 
-
-
-
-
 export {
    registerUser,
    loginUser,

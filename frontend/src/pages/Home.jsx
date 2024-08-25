@@ -44,13 +44,13 @@ export default function pages() {
    }
 
    const heiglightOffers = {
-      // title: "Portfolio Website",
-      // content: "React js with stylist gsap animations",
-      // image: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724358441/z0nth4gmz90bzipzhgnm.jpg",
-      // keyWords: "Portfolio",
-      // priseBefore: 2999,
-      // priseNow: 1999,
-      // offerEndDate: "2024-08-24T10:00:00.000Z"
+      title: "Portfolio Website",
+      content: "React js with stylist gsap animations",
+      image: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724358441/z0nth4gmz90bzipzhgnm.jpg",
+      keyWords: "Portfolio",
+      priseBefore: 2999,
+      priseNow: 1999,
+      offerEndDate: "2024-08-24T10:00:00.000Z"
    }
 
 
