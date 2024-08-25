@@ -29,34 +29,41 @@ export default function HighlightOffers({ heiglightOffers }) {
 
    return (
       <>
-         <div className="heiglight_offers_container_box">
-            <h1 className='heiglight_offers_container_box_heading'>Big Deal</h1>
-            <div className="heiglight_offers_details_container">
-               <p className='buy_now_text'>Buy now</p>
-               <div className="heiglight_offers_image_container">
-                  <img src={heiglightOffers.image} alt="" />
-               </div>
-               <div className="heiglight_offers_details">
-                  <p className='heiglight_offers_details_title'>{heiglightOffers.title}</p>
-                  <p className='heiglight_offers_details_content'>{heiglightOffers.content}</p>
-                  <div className='heiglight_offers_details_prise'>
-                     <p className='priseBefore'>
-                        <span>₹</span>
-                        {heiglightOffers.priseBefore}
-                        <span>/-</span>
-                     </p>
-                     <p className='priseNow'>
-                        <span>₹</span>
-                        {heiglightOffers.priseNow}
-                        <span>/-</span>
-                     </p>
+         {
+            heiglightOffers.keyWords ? (
+               <div className="heiglight_offers_container_box">
+                  <h1 className='heiglight_offers_container_box_heading'>Big Deal</h1>
+                  <div className="heiglight_offers_details_container">
+                     <p className='buy_now_text'>Buy now</p>
+                     <div className="heiglight_offers_image_container">
+                        <img src={heiglightOffers.image} alt="" />
+                     </div>
+                     <div className="heiglight_offers_details">
+                        <p className='heiglight_offers_details_title'>{heiglightOffers.title}</p>
+                        <p className='heiglight_offers_details_content'>{heiglightOffers.content}</p>
+                        <div className='heiglight_offers_details_prise'>
+                           <p className='priseBefore'>
+                              <span>₹</span>
+                              {heiglightOffers.priseBefore}
+                              <span>/-</span>
+                           </p>
+                           <p className='priseNow'>
+                              <span>₹</span>
+                              {heiglightOffers.priseNow}
+                              <span>/-</span>
+                           </p>
+                        </div>
+                        <div className='countdown'>
+                           <p>{`${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}</p>
+                        </div>
+                     </div>
                   </div>
-                  <div className='countdown'>
-                     <p>{`${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}</p>
-                  </div>
                </div>
-            </div>
-         </div>
+            ) : (
+               <div className="heiglight_offers_container_box_skelliton"></div>
+            )
+         }
+
       </>
    )
 }
