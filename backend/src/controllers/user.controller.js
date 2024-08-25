@@ -280,35 +280,6 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
    return res.status(200).json(new ApiResponce(200, "Avatar updated"));
 });
 
-const updateUserCoverImage = asyncHandaller(async (req, res) => {
-   /*
-   check for image
-   upload image in cloudinary
-   update user avatar
-   */
-
-   const coverLocalPath = req.file?.path;
-   if (!coverLocalPath) {
-      throw new ApiError(400, "Avatar is required");
-   }
-   const coverImage = await uploadOnCloudinary(coverLocalPath);
-
-   if (!coverImage.url) {
-      throw new ApiError(500, "Error While uploading cover image");
-   }
-   await User.findByIdAndUpdate(
-      req.user?._id,
-      {
-         $set: {
-            coverImage: coverImage.url,
-         },
-      },
-   );
-   return res
-      .status(200)
-      .json(new ApiResponce(200, "Cover Image updated"));
-});
-
 const getAllUsers = asyncHandaller(async (req, res) => {
    try {
       // Fetch all active users, excluding sensitive fields
@@ -343,6 +314,5 @@ export {
    chnageCurrentPassword,
    getCurrentUser,
    updateUserAvatar,
-   updateUserCoverImage,
    getAllUsers,
 };

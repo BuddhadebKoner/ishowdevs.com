@@ -33,10 +33,6 @@ const userSchema = new Schema(
          type: String,
          default: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
       },
-      coverImage: {
-         type: String,
-         default: "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
-      },
       isVarified: {
          type: Boolean,
          default: false,

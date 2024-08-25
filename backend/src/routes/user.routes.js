@@ -8,7 +8,6 @@ import {
    refreshAccessToken,
    registerUser,
    updateUserAvatar,
-   updateUserCoverImage,
 } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import fs from "fs";
@@ -54,10 +53,6 @@ router.route("/current-user").get(verifyJWT, getCurrentUser);
 router
    .route("/update-avatar")
    .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
-router
-   .route("/update-coverimage")
-   .patch(verifyJWT, upload.single("coverImage"), updateUserCoverImage);
-
 router.route("/all-users").get(getAllUsers);
 
 
