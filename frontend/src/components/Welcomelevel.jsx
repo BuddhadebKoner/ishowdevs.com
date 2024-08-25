@@ -7,7 +7,14 @@ export default function components({ fullName = "Dear !" }) {
       <>
          <div className="welcome_level_home">
             <h1 className="welcome_level_title">Hi {fullName} !</h1>
-            <p className="welcome_level_text">Welcome To Code Bridge</p>
+            <div className="wellcome_message_container_text">
+               <p className="welcome_level_text">
+                  Welcome to Code Bridge!&nbsp;
+               </p>
+               <p className='heading_short_message'>
+                  ZERO platform fees
+               </p>
+            </div>
          </div>
       </>
 
