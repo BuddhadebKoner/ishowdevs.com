@@ -15,12 +15,12 @@ const homeContents = asyncHandaller(async (req, res) => {
 
       const devalopers = await User.find({ showOnHomePage: true }).select("fullName isVarified role workAs profileRich happyCustomer avatar");
       if (!devalopers) {
-         throw new ApiError(404, "No user found that showOnHomePage is true");
+         throw new ApiError(405, "No user found that showOnHomePage is true");
       }
 
       const bigDealOffer = await Userpost.find({ isUnderBigdeal: true }).select("title content priseBefore priseNow image");
       if (!bigDealOffer) {
-         throw new ApiError(404, "no post found that isUnderBigdeal is true");
+         throw new ApiError(406, "no post found that isUnderBigdeal is true");
       }
 
       return res.status(200).json(
