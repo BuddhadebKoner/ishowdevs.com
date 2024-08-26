@@ -78,7 +78,7 @@ const registerUser = asyncHandaller(async (req, res) => {
    //    throw new ApiError(500, "Cover image upload failed");
    // }
 
-   
+
    // Create user object
    const user = await User.create({
       username: username.toLowerCase(),
@@ -248,7 +248,7 @@ const getCurrentUser = asyncHandaller(async (req, res) => {
    return res
       .status(200)
       .json(
-         new ApiResponce(200, req.user, "current user fetched successfully")
+         new ApiResponce(200, "current user fetched successfully", req.user)
       );
 });
 

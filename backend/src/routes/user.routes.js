@@ -54,6 +54,16 @@ router
    .route("/update-avatar")
    .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
 router.route("/all-users").get(getAllUsers);
+router.route("/authcheck",).get(verifyJWT, (req, res) => {
+   verifyJWT, (req, res) => {
+      res.status(200).json(
+         {
+            message: "User is authenticated",
+            user: req.user
+         }
+      )
+   }
+});
 
 
 export default router;

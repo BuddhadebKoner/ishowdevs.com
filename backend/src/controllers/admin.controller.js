@@ -23,10 +23,9 @@ const homeContents = asyncHandaller(async (req, res) => {
          throw new ApiError(404, "no post found that isUnderBigdeal is true");
       }
 
-      // return value 
       return res.status(200).json(
-         new ApiResponce(200, "home contents fetched successfully", [userpost, devalopers, bigDealOffer])
-      )
+         { bigDealOffer, devalopers, userpost }
+      );
 
    } catch (error) {
       console.error("Error fetching course offers:", error);
