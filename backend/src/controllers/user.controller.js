@@ -130,7 +130,7 @@ const loginUser = asyncHandaller(async (req, res) => {
    );
 
    const logedInUser = await User.findById(user._id).select(
-      "-password -refreshToken -mobile"
+      "-password -refreshToken -mobile -showOnHomePage -isActive -__v"
    );
 
    // send cookie
@@ -146,8 +146,8 @@ const loginUser = asyncHandaller(async (req, res) => {
       .json(
          new ApiResponce(
             200,
-            { accessToken, refreshToken, user: logedInUser },
-            "User logged in successfully"
+            "User logged in successfully",
+            {  user: logedInUser }
          )
       );
 });
