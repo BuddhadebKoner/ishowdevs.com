@@ -27,12 +27,12 @@ const PublicProvider = ({ children }) => {
    const checkLoggedIn = async () => {
       try {
          const res = await getCurrentUser();
-         setUser(res.user); 
-         setIsLoggedIn(true);  
+         setUser(res.user);
+         setIsLoggedIn(true);
       } catch (error) {
          console.error("Error checking user authentication: ", error);
          setUser(null);
-         setIsLoggedIn(false); 
+         setIsLoggedIn(false);
       }
    };
 
@@ -45,8 +45,8 @@ const PublicProvider = ({ children }) => {
       bigDealOffer,
       devalopers,
       userpost,
-      user, 
-      isLoggedIn, 
+      user,
+      isLoggedIn,
    }), [bigDealOffer, devalopers, userpost, user, isLoggedIn]);
 
    return (

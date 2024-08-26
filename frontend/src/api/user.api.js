@@ -21,12 +21,12 @@ const userLogout = async () => {
 };
 
 // Register
-const userRegister = async (formData) => {
+const userRegister = async (user) => {
    try {
-      const response = await axiosInstance.post('/users/register', formData);
-      return response.data;
+      const response = await axiosInstance.post('/users/register', user);
+      return response;
    } catch (error) {
-      console.error("Registration error:", error.response ? error.response.data : error.message);
+      return error.response;
    }
 };
 
@@ -46,7 +46,7 @@ const getCurrentUser = async () => {
       const response = await axiosInstance.get('/users/current-user');
       return response.data;
    } catch (error) {
-      console.error(error,"faild to get current user");
+      console.error(error, "faild to get current user");
    }
 };
 
