@@ -46,7 +46,7 @@ const getCurrentUser = async () => {
       const response = await axiosInstance.get('/users/current-user');
       return response.data;
    } catch (error) {
-      console.error(error);
+      console.error(error,"faild to get current user");
    }
 };
 
@@ -90,5 +90,4 @@ export {
    changePassword,
    updateAvatar,
    updateCoverimage,
-   getAllUsers,
 };
