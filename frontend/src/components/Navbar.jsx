@@ -19,14 +19,11 @@ export default function components() {
    };
 
 
-
    const userdetails = {
       avatar: 'https://avatars.githubusercontent.com/u/583231?v=4',
-      name: 'John Doe',
-      email: '',
    }
 
-   const isLoggedIn = true;
+   const isLoggedIn = false;
 
    const userData = useMemo(() => ({
       ...userdetails

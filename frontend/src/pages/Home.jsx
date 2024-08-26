@@ -14,7 +14,8 @@ export default function pages() {
       <>
          <div className="home_page_container">
             <Welcomelevel
-            // fullName={userData.fullName}
+               fullName={"Buddhadeb"}
+               isBatchShow={true}
             />
             <div className="heiglight_offers">
                <Heighlightoffer />

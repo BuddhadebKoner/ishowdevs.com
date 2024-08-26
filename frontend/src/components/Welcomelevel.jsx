@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function components({ fullName = "Dear !" }) {
+export default function components({ fullName = "Fox ", isBatchShow = false }) {
 
    return (
 
@@ -11,9 +11,13 @@ export default function components({ fullName = "Dear !" }) {
                <p className="welcome_level_text">
                   Welcome to Code Bridge!&nbsp;
                </p>
-               <p className='heading_short_message'>
-                  ZERO platform fees
-               </p>
+               {
+                  isBatchShow && (
+                     <p className='heading_short_message'>
+                        ZERO platform fees
+                     </p>
+                  )
+               }
             </div>
          </div>
       </>

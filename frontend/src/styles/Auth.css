@@ -1,0 +1,117 @@
+.login_container,
+.register_container,
+.forgotPassword_container {
+   width: 100%;
+   height: 80vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 2rem;
+}
+
+.welcome_level_login {
+   width: 100%;
+   height: fit-content;
+   padding: 1.3rem var(--padding-x);
+   background: linear-gradient(to right, #00345B, #00213A);
+   font-family: var(--Regular-Item);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.welcome_level_login_big_text {
+   width: fit-content;
+   font-size: 2.5rem;
+   color: white;
+}
+
+.welcome_level_login_small_text {
+   width: fit-content;
+   font-size: 1.4rem;
+   color: white;
+}
+
+.signup_Link {
+   width: fit-content;
+   margin-left: 10px;
+   font-size: 1.2rem;
+   color: #00DB1D;
+   text-decoration: underline;
+   cursor: pointer;
+}
+
+.auth_card {
+   width: 500px;
+   height: fit-content;
+   padding: 2rem;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.form_group {
+   width: 100%;
+   margin-bottom: 1rem;
+}
+
+.form_group label {
+   display: block;
+   margin-bottom: 0.5rem;
+   color: #ffffff;
+   font-weight: 600;
+}
+
+.form_control {
+   outline: none;
+   width: 100%;
+   padding: 1rem;
+   background-color: transparent;
+   border: 1px solid #6D6D6D;
+   border-radius: 10px;
+   font-size: 1rem;
+
+}
+
+.btn {
+   width: 100%;
+   padding: 0.5rem 0rem;
+   border: none;
+   border-radius: 10px;
+   background-color: #AB3700;
+   color: #ffffff;
+   font-family: var(--Regular-Item);
+   font-size: 1.5rem;
+   font-weight: 400;
+   margin-top: 1.5rem;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+   background-color: #d84400;
+}
+
+.forgot_password {
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   margin-top: 0.5rem;
+   gap: 10px;
+}
+
+.forgot_password h1 {
+   font-family: var(--Regular-Item);
+   font-size: 1.2rem;
+   color: white;
+}
+
+.forgot_password a {
+   font-family: var(--Regular-Item);
+   text-decoration: underline;
+   font-size: 1.2rem;
+   color: white;
+}

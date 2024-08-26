@@ -1,10 +1,15 @@
 import React from 'react';
+import LoginCard from '../components/Cards/LoginCard';
+import '../styles/Auth.css';
 
-export default function pages (){
+export default function pages() {
 
-   return(
+   return (
 
       <>
+         <div className="login_container">
+            <LoginCard />
+         </div>
       </>
 
    )
