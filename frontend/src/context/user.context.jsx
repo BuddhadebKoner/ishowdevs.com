@@ -1,17 +1,22 @@
 import React, { createContext } from 'react';
-import { userRegister } from '../api/user.api';
+import { userLogin, userRegister } from '../api/user.api';
 import { Toaster } from 'react-hot-toast';
 import notify from '../utils/notify';
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
+   // register user state
    const [fullName, setFullName] = React.useState('');
    const [username, setUsername] = React.useState('');
    const [email, setEmail] = React.useState('');
    const [password, setPassword] = React.useState('');
+   // login user state
+   const [loginUsername, setLoginUsername] = React.useState('');
+   const [loginPassword, setLoginPassword] = React.useState('');
 
-   const validateFields = () => {
+   // Validate user input fields
+   const registerValidateFields = () => {
       if (!fullName || !username || !email || !password) {
          notify("Please fill all required fields");
          return false;
@@ -31,9 +36,9 @@ const UserProvider = ({ children }) => {
       }
       return true;
    };
-
+   // Handle user registration
    const handelUserRegister = async () => {
-      if (!validateFields()) {
+      if (!registerValidateFields()) {
          return;
       }
 
@@ -59,6 +64,62 @@ const UserProvider = ({ children }) => {
          notify("Failed to send data to server", 'error');
       }
    };
+   // Validate user login fields
+   const LoginValidateFields = () => {
+      if (!loginUsername || !loginPassword) {
+         notify("Please fill all required fields");
+         return false;
+      }
+      if (loginUsername.length > 30 || loginPassword.length > 30) {
+         notify("Fields must be less than 30 characters");
+         return false;
+      }
+      if (/\s/.test(loginUsername)) {
+         notify("Username cannot contain spaces");
+         return false;
+      }
+      return true;
+   };
+   // Handle user login
+   const handelLogin = async () => {
+      if (!LoginValidateFields()) {
+         return;
+      }
+
+      const user = {
+         username: loginUsername,
+         password: loginPassword,
+      };
+
+      console.log("User data being sent:", user);
+
+      try {
+         const res = await userLogin(user);
+         console.log("Response from server:", res);
+
+         if (res && res.status) {
+            if (res.status === 200) {
+               notify("User logged in successfully", 'success');
+            } else if (res.status === 400) {
+               notify("Username or email is required", 'error');
+            } else if (res.status === 404) {
+               notify("User does not exist", 'error');
+            } else if (res.status === 401) {
+               notify("Password is incorrect", 'error');
+            } else {
+               notify("Login error", 'error');
+            }
+         } else {
+            notify("Unexpected response from server", 'error');
+         }
+      } catch (error) {
+         notify("Failed to send data to server", 'error');
+         console.error("Error during login:", error);
+      }
+   };
+
+
+
 
    return (
       <UserContext.Provider value={{
@@ -67,6 +128,9 @@ const UserProvider = ({ children }) => {
          setEmail,
          setPassword,
          handelUserRegister,
+         setLoginUsername,
+         setLoginPassword,
+         handelLogin,
       }}>
          {children}
          <Toaster

@@ -1,10 +1,10 @@
 import axiosInstance from '../config/config';
 
 // Login
-const userLogin = async (username, password) => {
+const userLogin = async (user) => {
    try {
-      const response = await axiosInstance.post('/users/login', { username, password });
-      return response.data;
+      const response = await axiosInstance.post('/users/login', user);
+      return response;
    } catch (error) {
       return error.response ? error.response.data : error.message;
    }

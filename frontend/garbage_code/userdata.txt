@@ -1,82 +1,70 @@
-[
-    {
-        "_id": "66c2c086826fa4bda27e53cd",
-        "username": "buddhadebkoner",
-        "fullName": "Buddhadeb Koner",
-        "email": "iambuddhadebkoner@gmail.com",
-        "avatar": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724039293/f1mw3jsg4sx11l2ga32a.jpg",
-        "coverImage": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724039301/plqvrbmrnvidglahjql6.jpg",
-        "isVarified": true,
-        "portfolio": "https://github.com/BuddhadebKoner",
-        "workAs": "Web Developer",
-        "role": "user",
-        "bio": "Pro programmer",
-        "mediaLinks": [
-            "https://github.com/BuddhadebKoner",
-            "https://www.instagram.com/buddhadeb.exe",
-            "https://x.com/buddhadeb_koner"
-        ],
-        "keyWords": [
-            "App dev"
-        ],
-        "isActive": true,
-        "createdAt": "2024-08-19T03:48:22.578Z",
-        "updatedAt": "2024-08-21T13:28:24.141Z",
-        "__v": 1,
-        "happyCustomer": 0,
-        "posts": [],
-        "profileRich": 0
+{
+    "data": {
+        "statusCode": 200,
+        "message": "User logged in successfully",
+        "data": {
+            "user": {
+                "_id": "66cca1b9bbca0ca0d7959d1d",
+                "username": "example",
+                "fullName": "example",
+                "email": "example@gmail.com",
+                "avatar": "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
+                "isVarified": false,
+                "portfolio": "",
+                "workAs": "",
+                "role": "user",
+                "bio": "",
+                "mediaLinks": [
+                    ""
+                ],
+                "keyWords": "",
+                "profileRich": 0,
+                "happyCustomer": 0,
+                "Userpost": [],
+                "createdAt": "2024-08-26T15:39:37.283Z",
+                "updatedAt": "2024-08-26T16:25:24.537Z"
+            }
+        },
+        "success": true
     },
-    {
-        "profileRich": 0,
-        "happyCustomer": 0,
-        "_id": "66c432f6d2039d3d02546ff4",
-        "username": "ishowspeed",
-        "fullName": "iShow speed",
-        "email": "ishowspeed@gmail.com",
-        "avatar": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724134128/aly2kxtf7n7rkglb7qpn.jpg",
-        "coverImage": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724134134/gp9nh1kzcljbcmzl8jac.jpg",
-        "isVarified": false,
-        "portfolio": "https://github.com/BuddhadebKoner",
-        "workAs": "Web Developer",
-        "role": "user",
-        "bio": "",
-        "mediaLinks": [
-            "https://github.com/BuddhadebKoner"
-        ],
-        "keyWords": [
-            "App dev"
-        ],
-        "isActive": true,
-        "createdAt": "2024-08-20T06:08:54.512Z",
-        "updatedAt": "2024-08-21T03:16:59.639Z",
-        "__v": 1,
-        "posts": []
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+        "content-length": "520",
+        "content-type": "application/json; charset=utf-8"
     },
-    {
-        "_id": "66c5f05de35010c40f230986",
-        "username": "jeetkoner",
-        "fullName": "Jeet koner",
-        "email": "jeetkoner@gmail.com",
-        "avatar": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724248155/xuxabiuxhrhrjzaxm0bb.png",
-        "coverImage": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1724248157/vxgj6zhla0ai4k5z4uvy.jpg",
-        "isVarified": false,
-        "portfolio": "https://github.com/BuddhadebKoner",
-        "workAs": "Web Developer",
-        "role": "user",
-        "bio": "I am yours",
-        "mediaLinks": [
-            "https://github.com/BuddhadebKoner"
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "adapter": [
+            "xhr",
+            "http",
+            "fetch"
         ],
-        "keyWords": [
-            "Soft dev"
+        "transformRequest": [
+            null
         ],
-        "isActive": true,
-        "profileRich": 0,
-        "happyCustomer": 0,
-        "posts": [],
-        "createdAt": "2024-08-21T13:49:17.998Z",
-        "updatedAt": "2024-08-21T13:49:48.142Z",
-        "__v": 0
-    }
-]
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {},
+        "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        },
+        "baseURL": "http://localhost:8000/api/v1",
+        "withCredentials": true,
+        "method": "post",
+        "url": "/users/login",
+        "data": "{\"username\":\"example\",\"password\":\"example\"}"
+    },
+    "request": {}
+}
