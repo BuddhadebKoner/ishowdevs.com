@@ -1,11 +1,12 @@
 import React, { useContext, useMemo, useState } from 'react';
 import '../styles/Navbar.css';
-// import { UserContext } from '../context/user.context';
 import { NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import { PublicContext } from '../context/public.context';
 
 export default function components() {
-   // const { userdetails } = useContext(UserContext);
+   const { isLoggedIn } = useContext(PublicContext);
+
 
    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -22,8 +23,6 @@ export default function components() {
    const userdetails = {
       avatar: 'https://avatars.githubusercontent.com/u/583231?v=4',
    }
-
-   const isLoggedIn = false;
 
    const userData = useMemo(() => ({
       ...userdetails

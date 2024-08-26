@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState, useMemo } from 'react';
 import { homeContents } from '../api/admin.api';
 import { getCurrentUser } from '../api/user.api';
+import { Toaster } from 'react-hot-toast';
+import notify from '../utils/notify';
 
 const PublicContext = createContext();
 
@@ -8,8 +10,8 @@ const PublicProvider = ({ children }) => {
    const [bigDealOffer, setBigDealOffer] = useState([]);
    const [devalopers, setDevalopers] = useState([]);
    const [userpost, setUserpost] = useState([]);
-   const [user, setUser] = useState(null); // State to store user info
-   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to check if user is logged in
+   const [user, setUser] = useState(null);
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -19,7 +21,8 @@ const PublicProvider = ({ children }) => {
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
       } catch (error) {
-         console.error("Error accessing home contents: ", error);
+         notify("Failed to fetch details", 'error');
+         // console.error("Error accessing home contents: ", error);
       }
    };
 
@@ -27,10 +30,34 @@ const PublicProvider = ({ children }) => {
    const checkLoggedIn = async () => {
       try {
          const res = await getCurrentUser();
-         setUser(res.user);
-         setIsLoggedIn(true);
+         if (res && res.status) {
+            if (res.status === 404) {
+               notify("No userpost found that showOnHomePage is true", 'error');
+               setIsLoggedIn(false);
+            } else if (res.status === 405) {
+               notify("No user found that showOnHomePage is true", 'error');
+               setIsLoggedIn(false);
+            } else if (res.status === 406) {
+               notify("no post found that isUnderBigdeal is true", 'error');
+               setIsLoggedIn(false);
+            } else if (res.status === 500) {
+               notify("Failed to fetch course offers", 'error');
+               setIsLoggedIn(false);
+            } else if (res.status === 200) {
+               notify("Wellcome Back !", 'success');
+               setUser(res.user);
+               setIsLoggedIn(true);
+            } else {
+               notify("Unexpected response from server", 'error');
+               setIsLoggedIn(false);
+            }
+         } else {
+            console.log("user not logged in");
+            // notify("Unexpected response from server", 'error');
+            setIsLoggedIn(false);
+         }
       } catch (error) {
-         console.error("Error checking user authentication: ", error);
+         notify("Failed to check user authentication", 'error');
          setUser(null);
          setIsLoggedIn(false);
       }
@@ -52,6 +79,16 @@ const PublicProvider = ({ children }) => {
    return (
       <PublicContext.Provider value={contextValue}>
          {children}
+         <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+               className: '',
+               style: {
+                  marginBottom: '10px',
+               },
+            }}
+         />
       </PublicContext.Provider>
    );
 };

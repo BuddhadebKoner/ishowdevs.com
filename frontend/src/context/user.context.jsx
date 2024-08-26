@@ -91,11 +91,11 @@ const UserProvider = ({ children }) => {
          password: loginPassword,
       };
 
-      console.log("User data being sent:", user);
+      // console.log("User data being sent:", user);
 
       try {
          const res = await userLogin(user);
-         console.log("Response from server:", res);
+         // console.log("Response from server:", res);
 
          if (res && res.status) {
             if (res.status === 200) {
@@ -133,10 +133,6 @@ const UserProvider = ({ children }) => {
          handelLogin,
       }}>
          {children}
-         <Toaster
-            position="top-right"
-            reverseOrder={false}
-         />
       </UserContext.Provider>
    );
 };
