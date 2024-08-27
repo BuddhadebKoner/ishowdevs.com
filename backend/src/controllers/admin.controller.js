@@ -18,7 +18,7 @@ const homeContents = asyncHandaller(async (req, res) => {
          throw new ApiError(405, "No user found that showOnHomePage is true");
       }
 
-      const bigDealOffer = await Userpost.find({ isUnderBigdeal: true }).select("title content priseBefore priseNow image");
+      const bigDealOffer = await Userpost.find({ isUnderBigdeal: true }).select("title content priseBefore priseNow image offerEndDate");
       if (!bigDealOffer) {
          throw new ApiError(406, "no post found that isUnderBigdeal is true");
       }
