@@ -6,11 +6,13 @@ export default function HighlightOffers() {
 
    const { bigDealOffer } = useContext(PublicContext);
 
+   
    // Ensure we use the first item in the array if bigDealOffer is an array
    const offer = Array.isArray(bigDealOffer) ? bigDealOffer[0] : bigDealOffer;
 
    useEffect(() => {
       if (offer?.offerEndDate) {
+
          const countdownDate = new Date(new Date(offer.offerEndDate).getTime() + (5.5 * 60 * 60 * 1000)).getTime();
 
          const timer = setInterval(() => {
@@ -32,6 +34,7 @@ export default function HighlightOffers() {
 
          return () => clearInterval(timer);
       }
+
    }, [offer]);
 
    return (

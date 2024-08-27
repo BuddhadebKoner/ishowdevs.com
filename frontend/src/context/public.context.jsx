@@ -17,6 +17,8 @@ const PublicProvider = ({ children }) => {
    const handleHomeContents = async () => {
       try {
          const res = await homeContents();
+         console.log("Home contents: ", res);
+
          setBigDealOffer(res.bigDealOffer);
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
@@ -63,10 +65,10 @@ const PublicProvider = ({ children }) => {
       }
    };
 
-   useEffect(() => {
-      handleHomeContents();
-      checkLoggedIn();
-   }, []);
+   // useEffect(() => {
+   //    handleHomeContents();
+   //    checkLoggedIn();
+   // }, []);
 
    const contextValue = useMemo(() => ({
       bigDealOffer,

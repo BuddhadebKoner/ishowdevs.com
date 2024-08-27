@@ -2,6 +2,7 @@ import React, { createContext, useContext } from 'react';
 import { userLogin, userLogout, userRegister } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
+import { useNavigate } from 'react-router-dom';
 
 const UserContext = createContext();
 
@@ -16,6 +17,8 @@ const UserProvider = ({ children }) => {
    // login user state
    const [loginUsername, setLoginUsername] = React.useState('');
    const [loginPassword, setLoginPassword] = React.useState('');
+   // page navigation 
+   const navigate = useNavigate();
 
    // Validate user input fields
    const registerValidateFields = () => {
@@ -55,6 +58,8 @@ const UserProvider = ({ children }) => {
          const res = await userRegister(user);
          if (res.status === 201) {
             notify("User registered successfully", 'success');
+            navigate('/login');
+            console.log("User registered successfully:", res);
          } else if (res.status === 400) {
             notify("Please fill all required fields", 'error');
          } else if (res.status === 409) {
@@ -102,6 +107,8 @@ const UserProvider = ({ children }) => {
          if (res && res.status) {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
+               navigate('/');
+               setIsLoggedIn(true);
             } else if (res.status === 400) {
                notify("Username or email is required", 'error');
             } else if (res.status === 404) {

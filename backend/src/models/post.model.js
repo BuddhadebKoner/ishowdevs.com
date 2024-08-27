@@ -49,8 +49,8 @@ const userpostSchema = new mongoose.Schema(
       default: 0,
     },
     offerEndDate: {
-      type: Date,
-      default: "",
+      type: String,
+      default: '',
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
