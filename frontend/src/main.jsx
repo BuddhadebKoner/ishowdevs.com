@@ -37,7 +37,7 @@ const Main = () => {
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='myacount' element={<Myacount />} >
-          <Route path='myprofile' element={<Myprofile />} />
+          <Route index element={<Myprofile />} />
           <Route path='myposts' element={<Myposts />} />
           <Route path='paymentdetails' element={<Paymentdetails />} />
           <Route path='chnagepassword' element={<Passwordchnage />} />

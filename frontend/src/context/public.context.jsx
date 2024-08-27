@@ -17,8 +17,6 @@ const PublicProvider = ({ children }) => {
    const handleHomeContents = async () => {
       try {
          const res = await homeContents();
-         console.log("Home contents: ", res);
-
          setBigDealOffer(res.bigDealOffer);
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
@@ -46,7 +44,8 @@ const PublicProvider = ({ children }) => {
                notify("Failed to fetch course offers", 'error');
                setIsLoggedIn(false);
             } else if (res.status === 200) {
-               notify("Wellcome Back !", 'success');
+               console.log("unwanted response from server");
+               // notify("Wellcome Back !", 'success');
                setUser(res.user);
                setIsLoggedIn(true);
             } else {

@@ -7,7 +7,7 @@ export default function myacount (){
       <>
          <h1>my profile</h1>
       </>
-
+   
    )
 
 }

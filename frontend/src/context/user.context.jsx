@@ -107,7 +107,7 @@ const UserProvider = ({ children }) => {
          if (res && res.status) {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
-               navigate('/');
+               navigate('/myacount');
                setIsLoggedIn(true);
             } else if (res.status === 400) {
                notify("Username or email is required", 'error');
