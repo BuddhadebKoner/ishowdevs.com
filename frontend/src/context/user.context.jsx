@@ -1,11 +1,13 @@
-import React, { createContext } from 'react';
-import { userLogin, userRegister } from '../api/user.api';
-import { Toaster } from 'react-hot-toast';
+import React, { createContext, useContext } from 'react';
+import { userLogin, userLogout, userRegister } from '../api/user.api';
 import notify from '../utils/notify';
+import { PublicContext } from './public.context';
 
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
+   // puclic context api access
+   const { isLoggedIn, setIsLoggedIn } = useContext(PublicContext);
    // register user state
    const [fullName, setFullName] = React.useState('');
    const [username, setUsername] = React.useState('');
@@ -117,6 +119,28 @@ const UserProvider = ({ children }) => {
          console.error("Error during login:", error);
       }
    };
+   // Handle logout
+   const handelLogout = async () => {
+      try {
+         if (!isLoggedIn) {
+            notify("User is already logged out", 'info');
+            return;
+         }
+
+         const res = await userLogout();
+         if (res && res.status === 200) {
+            notify("User logged out successfully", 'success');
+            setIsLoggedIn(false);
+         } else {
+            console.error("Failed to logout: unexpected response", res);
+            notify("Failed to logout. Please try again.", 'error');
+         }
+      } catch (error) {
+         console.error("Failed to logout:", error);
+         notify("An error occurred during logout. Please try again.", 'error');
+      }
+   };
+
 
 
 
@@ -131,6 +155,7 @@ const UserProvider = ({ children }) => {
          setLoginUsername,
          setLoginPassword,
          handelLogin,
+         handelLogout,
       }}>
          {children}
       </UserContext.Provider>

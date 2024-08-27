@@ -3,9 +3,11 @@ import '../styles/Navbar.css';
 import { NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import { PublicContext } from '../context/public.context';
+import { UserContext } from '../context/user.context';
 
 export default function components() {
    const { isLoggedIn } = useContext(PublicContext);
+   const { handelLogout } = useContext(UserContext);
 
 
    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -16,6 +18,10 @@ export default function components() {
 
    const handleOptionClick = () => {
       // Close dropdown when an option is clicked
+      setIsDropdownOpen(false);
+   };
+   const handelSignOut = () => {
+      handelLogout();
       setIsDropdownOpen(false);
    };
 
@@ -106,13 +112,12 @@ export default function components() {
                   <NavLink to="" onClick={handleOptionClick}>
                      Payment Details
                   </NavLink>
-                  <NavLink to="" onClick={handleOptionClick}>
+                  <NavLink to="" onClick={handelSignOut}>
                      Sign Out
                   </NavLink>
                </div>
             )}
          </nav>
-
       </>
 
    )

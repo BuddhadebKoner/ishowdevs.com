@@ -21,7 +21,7 @@ const PublicProvider = ({ children }) => {
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
       } catch (error) {
-         notify("Failed to fetch details", 'error');
+         notify("Offline", 'error');
          // console.error("Error accessing home contents: ", error);
       }
    };
@@ -48,12 +48,12 @@ const PublicProvider = ({ children }) => {
                setUser(res.user);
                setIsLoggedIn(true);
             } else {
-               notify("Unexpected response from server", 'error');
+               notify("User not exist", 'error');
                setIsLoggedIn(false);
             }
          } else {
             console.log("user not logged in");
-            // notify("Unexpected response from server", 'error');
+            // notify("Unexpected response from server", 'error'); 
             setIsLoggedIn(false);
          }
       } catch (error) {
@@ -63,10 +63,10 @@ const PublicProvider = ({ children }) => {
       }
    };
 
-   // useEffect(() => {
-   //    handleHomeContents();
-   //    checkLoggedIn();
-   // }, []);
+   useEffect(() => {
+      handleHomeContents();
+      checkLoggedIn();
+   }, []);
 
    const contextValue = useMemo(() => ({
       bigDealOffer,
@@ -74,7 +74,8 @@ const PublicProvider = ({ children }) => {
       userpost,
       user,
       isLoggedIn,
-   }), [bigDealOffer, devalopers, userpost, user, isLoggedIn]);
+      setIsLoggedIn,
+   }), [bigDealOffer, devalopers, userpost, user, isLoggedIn, setIsLoggedIn]);
 
    return (
       <PublicContext.Provider value={contextValue}>

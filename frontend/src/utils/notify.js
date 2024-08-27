@@ -1,26 +1,21 @@
 import toast from 'react-hot-toast';
 
-const notify = (message, type = 'error') => {
+const notify = (message, type = 'error', duration = 10000) => {
+  const toastOptions = { duration };
+
   switch (type) {
-    case 'success':
-      toast.success(message, {
-        duration: 10000,
-      });
+    case 'success': 
+      toast.success(message, toastOptions);
       break;
     case 'error':
-      toast.error(message, {
-        duration: 10000,
-      });
+      toast.error(message, toastOptions);
       break;
-    case 'loading':
-      toast.loading(message, {
-        duration: Infinity,
-      });
+    case 'info':
+      toast(message, toastOptions);
       break;
     default:
-      toast(message, {
-        duration: 10000,
-      });
+      toast(message, toastOptions);
+      break;
   }
 };
 

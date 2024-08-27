@@ -14,7 +14,7 @@ const userLogin = async (user) => {
 const userLogout = async () => {
    try {
       const response = await axiosInstance.post('/users/logout');
-      return response.data;
+      return response;
    } catch (error) {
       console.error(error);
    }
