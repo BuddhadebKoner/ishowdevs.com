@@ -12,7 +12,10 @@ import Registeruser from './pages/Registeruser.jsx';
 import Explore from './pages/Explore.jsx';
 import Blogpost from './pages/Blogpost.jsx';
 import About from './pages/About.jsx';
-import Passwordchnage from './pages/Passwordchange.jsx';
+import Passwordchnage from './pages/myacount/Passwordchange.jsx';
+import Myprofile from './pages/myacount/Myprofile.jsx';
+import Myposts from './pages/myacount/Myposts.jsx';
+import Paymentdetails from './pages/myacount/Paymentdetails.jsx';
 import Forgotpassword from './pages/Forgotpassword.jsx';
 
 const Main = () => {
@@ -33,13 +36,17 @@ const Main = () => {
       <Route path='/' element={<App />}>
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
-        <Route path='myacount' element={<Myacount />} />
+        <Route path='myacount' element={<Myacount />} >
+          <Route path='myprofile' element={<Myprofile />} />
+          <Route path='myposts' element={<Myposts />} />
+          <Route path='paymentdetails' element={<Paymentdetails />} />
+          <Route path='chnagepassword' element={<Passwordchnage />} />
+        </Route>
         <Route path='publicacount' element={<Publicacount />} />
         <Route path='registeruser' element={<Registeruser />} />
         <Route path='explore' element={<Explore />} />
         <Route path='blogpost' element={<Blogpost />} />
         <Route path='about' element={<About />} />
-        <Route path='chnagepassword' element={<Passwordchnage />} />
         <Route path='forgotpassword' element={<Forgotpassword />} />
       </Route>
     )
