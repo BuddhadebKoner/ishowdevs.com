@@ -25,6 +25,11 @@ import temp from './temp/profile.png';
 import searchIocn from './icons/search_icon.svg';
 import profile from './icons/profile.svg';
 import arrow from './icons/arrow.svg';
+import changepass from './icons/chnagepass.svg';
+import logout from './icons/logout.svg';
+import myposts from './icons/myposts.svg';
+import myprofile from './icons/myprofile.svg';
+import paymentRupee from './icons/paymentRupee.svg';
 
 
 
@@ -51,5 +56,10 @@ export const assets = {
    customerRich: customerRich,
    searchIocn: searchIocn,
    profile: profile,
-   arrow: arrow
+   arrow: arrow,
+   changepass: changepass,
+   logout: logout,
+   myposts: myposts,
+   myprofile: myprofile,
+   paymentRupee: paymentRupee
 }

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-export default function myacount (){
+export default function myacount() {
+   
 
-   return(
+
+   return (
 
       <>
          <h1>my profile</h1>
       </>
-   
+
    )
 
 }
