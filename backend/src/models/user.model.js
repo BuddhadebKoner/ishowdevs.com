@@ -59,7 +59,7 @@ const userSchema = new Schema(
          default: "",
       },
       mediaLinks: {
-         type: [String],
+         type: String,
          default: "",
 
       },
