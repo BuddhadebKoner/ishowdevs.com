@@ -28,7 +28,7 @@ const homeContents = asyncHandaller(async (req, res) => {
       );
 
    } catch (error) {
-      console.error("Error fetching course offers:", error);
+      // console.error("Error fetching course offers:", error);
       throw new ApiError(500, "Failed to fetch course offers");
    }
 });

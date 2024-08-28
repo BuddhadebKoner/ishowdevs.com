@@ -147,7 +147,7 @@ const loginUser = asyncHandaller(async (req, res) => {
          new ApiResponce(
             200,
             "User logged in successfully",
-            {  user: logedInUser }
+            { user: logedInUser }
          )
       );
 });
@@ -245,12 +245,19 @@ const chnageCurrentPassword = asyncHandaller(async (req, res) => {
 });
 
 const getCurrentUser = asyncHandaller(async (req, res) => {
+   // Find the user by their ID and exclude the specified fields
+   const currentUser = await User.findById(req.user._id).select(
+      "-password -refreshToken -mobile -showOnHomePage -isActive -__v"
+   );
+
+   // Return the response with the filtered user data
    return res
       .status(200)
       .json(
-         new ApiResponce(200, "current user fetched successfully", req.user)
+         new ApiResponce(200, "Current user fetched successfully", currentUser)
       );
 });
+
 
 const updateUserAvatar = asyncHandaller(async (req, res) => {
    /*

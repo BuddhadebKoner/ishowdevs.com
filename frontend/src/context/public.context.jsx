@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState, useMemo } from 'react';
+import React, { createContext, useEffect, useState, useMemo, useContext } from 'react';
 import { homeContents } from '../api/admin.api';
 import { getCurrentUser } from '../api/user.api';
 import { Toaster } from 'react-hot-toast';
@@ -10,8 +10,9 @@ const PublicProvider = ({ children }) => {
    const [bigDealOffer, setBigDealOffer] = useState([]);
    const [devalopers, setDevalopers] = useState([]);
    const [userpost, setUserpost] = useState([]);
-   const [user, setUser] = useState(null);
    const [isLoggedIn, setIsLoggedIn] = useState(false);
+   // userData state
+   const [userData, setUserData] = useState(null);
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -21,62 +22,57 @@ const PublicProvider = ({ children }) => {
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
       } catch (error) {
-         notify("Offline", 'error');
-         // console.error("Error accessing home contents: ", error);
+         notify("Server Issue ! so take a coffe and Try again", 'error');
       }
    };
 
-   // Check if user is logged in and get user details
    const checkLoggedIn = async () => {
       try {
          const res = await getCurrentUser();
-         if (res && res.status) {
-            if (res.status === 404) {
-               notify("No userpost found that showOnHomePage is true", 'error');
-               setIsLoggedIn(false);
-            } else if (res.status === 405) {
-               notify("No user found that showOnHomePage is true", 'error');
-               setIsLoggedIn(false);
-            } else if (res.status === 406) {
-               notify("no post found that isUnderBigdeal is true", 'error');
-               setIsLoggedIn(false);
-            } else if (res.status === 500) {
-               notify("Failed to fetch course offers", 'error');
-               setIsLoggedIn(false);
-            } else if (res.status === 200) {
-               console.log("unwanted response from server");
-               // notify("Wellcome Back !", 'success');
-               setUser(res.user);
-               setIsLoggedIn(true);
-            } else {
-               notify("User not exist", 'error');
-               setIsLoggedIn(false);
-            }
-         } else {
-            console.log("user not logged in");
-            // notify("Unexpected response from server", 'error'); 
+
+         if (res && res.status === 200) {
+            setUserData(res.data.data);
+            setIsLoggedIn(true);
+         } else if (res && res.status === 401) {
+            notify("Session expired. Please log in again.", 'error');
             setIsLoggedIn(false);
+         } else {
+            handleErrorResponse(res);
          }
       } catch (error) {
          notify("Failed to check user authentication", 'error');
-         setUser(null);
          setIsLoggedIn(false);
       }
    };
 
-   // useEffect(() => {
-   //    handleHomeContents();
-   //    checkLoggedIn();
-   // }, []);
+   const handleErrorResponse = (res) => {
+      const errorMessages = {
+         404: "No user post found to display on the home page.",
+         405: "No user found with the criteria to display on the home page.",
+         406: "No post found under the 'Big Deal' offer.",
+         500: "Internal server error. Please try again later.",
+      };
+
+      const message = errorMessages[res.status] || "Unexpected server response";
+      setIsLoggedIn(false);
+   };
+
+
+
+   useEffect(() => {
+      handleHomeContents();
+      checkLoggedIn();
+   }, []);
 
    const contextValue = useMemo(() => ({
       bigDealOffer,
       devalopers,
       userpost,
-      user,
       isLoggedIn,
       setIsLoggedIn,
-   }), [bigDealOffer, devalopers, userpost, user, isLoggedIn, setIsLoggedIn]);
+      userData,
+      setUserData
+   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData]);
 
    return (
       <PublicContext.Provider value={contextValue}>

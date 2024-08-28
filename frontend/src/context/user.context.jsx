@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { userLogin, userLogout, userRegister } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
@@ -8,7 +8,7 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
    // puclic context api access
-   const { isLoggedIn, setIsLoggedIn } = useContext(PublicContext);
+   const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(PublicContext);
    // register user state
    const [fullName, setFullName] = React.useState('');
    const [username, setUsername] = React.useState('');
@@ -17,6 +17,7 @@ const UserProvider = ({ children }) => {
    // login user state
    const [loginUsername, setLoginUsername] = React.useState('');
    const [loginPassword, setLoginPassword] = React.useState('');
+
    // page navigation 
    const navigate = useNavigate();
 
@@ -108,6 +109,9 @@ const UserProvider = ({ children }) => {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
                navigate('/myacount');
+               // console.log("User logged in successfully:", res.data.data);
+               const UserData = res.data.data;
+               setUserData(UserData);
                setIsLoggedIn(true);
             } else if (res.status === 400) {
                notify("Username or email is required", 'error');
@@ -163,6 +167,7 @@ const UserProvider = ({ children }) => {
          setLoginPassword,
          handelLogin,
          handelLogout,
+
       }}>
          {children}
       </UserContext.Provider>
