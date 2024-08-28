@@ -130,7 +130,7 @@ const loginUser = asyncHandaller(async (req, res) => {
    );
 
    const logedInUser = await User.findById(user._id).select(
-      "-password -refreshToken -mobile -showOnHomePage -isActive -__v"
+      "-password -refreshToken -showOnHomePage -isActive -__v"
    );
 
    // send cookie
