@@ -247,7 +247,7 @@ const chnageCurrentPassword = asyncHandaller(async (req, res) => {
 const getCurrentUser = asyncHandaller(async (req, res) => {
    // Find the user by their ID and exclude the specified fields
    const currentUser = await User.findById(req.user._id).select(
-      "-password -refreshToken -mobile -showOnHomePage -isActive -__v"
+      "-password -refreshToken -showOnHomePage -isActive -__v"
    );
 
    // Return the response with the filtered user data
@@ -327,7 +327,7 @@ const updateMyProfile = asyncHandaller(async (req, res) => {
       mediaLinks: user.mediaLinks,
    };
 
-   return res.status(200).json(new ApiResponce("Profile updated", 200, updatedFields));
+   return res.status(200).json(new ApiResponce(200, "Profile updated", updatedFields));
 });
 
 

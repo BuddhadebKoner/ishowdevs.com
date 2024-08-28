@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { userLogin, userLogout, userRegister } from '../api/user.api';
+import { userLogin, userLogout, userRegister, updateProfileDetails } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,8 @@ const UserProvider = ({ children }) => {
    const [username, setUsername] = React.useState('');
    const [email, setEmail] = React.useState('');
    const [password, setPassword] = React.useState('');
+   // updated user details
+   const [updatedData, setUpdatedData] = React.useState('');
    // login user state
    const [loginUsername, setLoginUsername] = React.useState('');
    const [loginPassword, setLoginPassword] = React.useState('');
@@ -152,6 +154,75 @@ const UserProvider = ({ children }) => {
       }
    };
 
+   const isValidURL = (str) => {
+      try {
+         new URL(str);
+         return true;
+      } catch (_) {
+         return false;
+      }
+   };
+
+   // Handle profile update
+   const handelProfileUpdate = async (updatedData) => {
+      const { fullName, mobile, portfolio, keyWords } = updatedData;
+
+      // Check if fullName is empty
+      if (!fullName) {
+         notify("Full name cannot be empty", 'error');
+         return;
+      }
+
+      // Check length constraints
+      if (fullName.length > 30) {
+         notify("Full name must be less than 30 characters", 'error');
+         return;
+      }
+
+      if (mobile && mobile.length > 10) {
+         notify("Mobile number must be less than 10 digits", 'error');
+         return;
+      }
+
+      if (keyWords && keyWords.length > 30) {
+         notify("Keywords must be less than 30 characters", 'error');
+         return;
+      }
+
+      // Validate portfolio URL
+      if (portfolio && !isValidURL(portfolio)) {
+         notify("Portfolio must be a valid URL", 'error');
+         return;
+      }
+
+      // Validate keywords - must be a comma-separated string with a maximum of 4 words
+      const keyWordsArray = keyWords.split(',').map(word => word.trim());
+      if (keyWordsArray.length > 4) {
+         notify("Keywords must be a comma-separated string with a maximum of 4 words", 'error');
+         return;
+      }
+
+      // Call the update function
+      const res = await updateProfileDetails(updatedData);
+
+      // Handle the response
+      if (res && res.status === 200) {
+         notify("Profile updated successfully", 'success');
+      }
+      else if (res && res.status === 400) {
+         notify("Full name and work as are required", 'error');
+      } else if (res && res.status === 404) {
+         notify("User not found", 'error');
+      } else if (res && res.status === 500) {
+         notify("Internal server error", 'error');
+      } else if (res && res.status === 401) {
+         notify("Unauthorized", 'error');
+      }
+      else {
+         notify("Failed to update profile", 'error');
+      }
+   };
+
 
 
 
@@ -167,7 +238,7 @@ const UserProvider = ({ children }) => {
          setLoginPassword,
          handelLogin,
          handelLogout,
-
+         handelProfileUpdate,
       }}>
          {children}
       </UserContext.Provider>

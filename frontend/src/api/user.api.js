@@ -80,6 +80,16 @@ const updateCoverimage = async (formData) => {
    }
 };
 
+// update profile details
+const updateProfileDetails = async (updatedData) => {
+   try {
+      const response = await axiosInstance.patch('/users/update-myprofile', updatedData);
+      return response;
+   } catch (error) {
+      return error.response ? error.response.data : error.message;
+   }
+}
+
 
 export {
    userLogin,
@@ -90,4 +100,5 @@ export {
    changePassword,
    updateAvatar,
    updateCoverimage,
+   updateProfileDetails
 };

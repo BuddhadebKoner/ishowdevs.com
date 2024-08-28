@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../context/user.context';
 
 export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWords, mediaLinks }) {
+
+   // context api access
+   const { handelProfileUpdate } = useContext(UserContext);
+
    // Initialize state with props
    const [name, setName] = useState(fullName || '');
    const [phone, setPhone] = useState(mobile || '');
@@ -24,7 +29,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
    }, [fullName, mobile, portfolio, workAs, keyWords, mediaLinks]);
 
    // Check if there are any changes
-   const hasChanges = 
+   const hasChanges =
       name !== initialValues.name ||
       phone !== initialValues.phone ||
       site !== initialValues.site ||
@@ -33,7 +38,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
       links !== initialValues.links;
 
    const handleEdit = () => {
-      setIsEditing(true); // Enable editing mode
+      setIsEditing(true);
    };
 
    const handleSubmit = (e) => {
@@ -46,11 +51,11 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
          portfolio: site,
          workAs: job,
          keyWords: keywords,
-         mediaLinks: links // Directly use the string
+         mediaLinks: links
       };
 
       // Simulate form submission
-      console.log('Submitted Data:', updatedData);
+      handelProfileUpdate(updatedData);
    };
 
    return (

@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { PublicContext } from '../../context/public.context';
-import Profileeditcard from '../../components/Myacount/Profileeditcard';
+import Profileeditcard from '../../components/Myacount/Profilecditcard';
 
 export default function MyAccount() {
    const { userData, isLoggedIn } = useContext(PublicContext);
+
+   console.log('userData:', userData);
    
    // Handle null or undefined userData
    if (!userData || !isLoggedIn) {
@@ -15,11 +17,6 @@ export default function MyAccount() {
       fullName = 'No Name Provided',
       username = 'unknown',
       role = 'user',
-      mobile = '+91 ',
-      portfolio = '',
-      workAs = 'Not specified',
-      keyWords = 'None',
-      mediaLinks = "",
    } = userData;
 
    return (
@@ -34,13 +31,13 @@ export default function MyAccount() {
             </div>
          </div>
          <Profileeditcard
-            fullName={fullName}
-            mobile={mobile}
-            portfolio={portfolio}
-            workAs={workAs}
-            keyWords={keyWords}
-            mediaLinks={mediaLinks}
-            avatar={avatar}
+            fullName={userData.fullName}
+            mobile={userData.mobile}
+            portfolio={userData.portfolio}
+            workAs={userData.workAs}
+            keyWords={userData.keyWords}
+            mediaLinks={userData.mediaLinks}
+            avatar={userData.avatar}
          />
          <div className="profile_last_updated_box">
             <p>Account Last updated at: </p>
