@@ -290,6 +290,9 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
 const updateMyProfile = asyncHandaller(async (req, res) => {
    const { fullName, mobile, portfolio, workAs, keyWords, mediaLinks } = req.body;
 
+   if (!fullName || !workAs) {
+      return res.status(400).json(new ApiResponce(400, "Full name and work as are required"));
+   }
 
    // Update the user profile
    const user = await User.findByIdAndUpdate(
@@ -304,14 +307,27 @@ const updateMyProfile = asyncHandaller(async (req, res) => {
             mediaLinks,
          },
       },
-      { new: true } 
+      {
+         new: true,
+         select: 'fullName mobile portfolio workAs keyWords mediaLinks'
+      }
    );
 
    if (!user) {
       throw new ApiError(404, "User not found");
    }
 
-   return res.status(200).json(new ApiResponce("Profile updated", 200, user));
+   // Return only the specified fields
+   const updatedFields = {
+      fullName: user.fullName,
+      mobile: user.mobile,
+      portfolio: user.portfolio,
+      workAs: user.workAs,
+      keyWords: user.keyWords,
+      mediaLinks: user.mediaLinks,
+   };
+
+   return res.status(200).json(new ApiResponce("Profile updated", 200, updatedFields));
 });
 
 
