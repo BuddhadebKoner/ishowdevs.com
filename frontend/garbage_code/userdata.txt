@@ -1,70 +1,33 @@
-{
-    "data": {
-        "statusCode": 200,
-        "message": "User logged in successfully",
-        "data": {
-            "user": {
-                "_id": "66cca1b9bbca0ca0d7959d1d",
-                "username": "example",
-                "fullName": "example",
-                "email": "example@gmail.com",
-                "avatar": "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
-                "isVarified": false,
-                "portfolio": "",
-                "workAs": "",
-                "role": "user",
-                "bio": "",
-                "mediaLinks": [
-                    ""
-                ],
-                "keyWords": "",
-                "profileRich": 0,
-                "happyCustomer": 0,
-                "Userpost": [],
-                "createdAt": "2024-08-26T15:39:37.283Z",
-                "updatedAt": "2024-08-26T16:25:24.537Z"
-            }
-        },
-        "success": true
-    },
-    "status": 200,
-    "statusText": "OK",
-    "headers": {
-        "content-length": "520",
-        "content-type": "application/json; charset=utf-8"
-    },
-    "config": {
-        "transitional": {
-            "silentJSONParsing": true,
-            "forcedJSONParsing": true,
-            "clarifyTimeoutError": false
-        },
-        "adapter": [
-            "xhr",
-            "http",
-            "fetch"
-        ],
-        "transformRequest": [
-            null
-        ],
-        "transformResponse": [
-            null
-        ],
-        "timeout": 0,
-        "xsrfCookieName": "XSRF-TOKEN",
-        "xsrfHeaderName": "X-XSRF-TOKEN",
-        "maxContentLength": -1,
-        "maxBodyLength": -1,
-        "env": {},
-        "headers": {
-            "Accept": "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-        },
-        "baseURL": "http://localhost:8000/api/v1",
-        "withCredentials": true,
-        "method": "post",
-        "url": "/users/login",
-        "data": "{\"username\":\"example\",\"password\":\"example\"}"
-    },
-    "request": {}
-}
+  // const userData =
+   // {
+   //    "_id": {
+   //       "$oid": "66cb6bfc9e2aa26535582c5f"
+   //    },
+   //    "username": "jeetkoener",
+   //    "fullName": "Jeet Koner",
+   //    "email": "jeetkoenr@gmail.com",
+   //    "password": "$2b$10$Odcedk7s.Vf3BzYb.U7ln./kBbZXAib9AWjust9zebOK2XFa49IDC",
+   //    "avatar": "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
+   //    "isVarified": false,
+   //    "portfolio": "",
+   //    "mobile": "",
+   //    "workAs": "Web devaloper",
+   //    "role": "user",
+   //    "bio": "",
+   //    "mediaLinks": [
+   //       ""
+   //    ],
+   //    "keyWords": "",
+   //    "isActive": true,
+   //    "showOnHomePage": true,
+   //    "profileRich": 100,
+   //    "happyCustomer": 20,
+   //    "Userpost": [],
+   //    "createdAt": {
+   //       "$date": "2024-08-25T17:38:04.441Z"
+   //    },
+   //    "updatedAt": {
+   //       "$date": "2024-08-25T17:38:04.441Z"
+   //    },
+   //    "__v": 0
+   // }
