@@ -7,6 +7,7 @@ import {
    logoutUser,
    refreshAccessToken,
    registerUser,
+   updateMyProfile,
    updateUserAvatar,
 } from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -50,20 +51,10 @@ router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh-token").post(refreshAccessToken);
 router.route("/chnage-password").post(verifyJWT, chnageCurrentPassword);
 router.route("/current-user").get(verifyJWT, getCurrentUser);
-router
-   .route("/update-avatar")
-   .patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
+router.route("/update-avatar").patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
 router.route("/all-users").get(getAllUsers);
-router.route("/authcheck",).get(verifyJWT, (req, res) => {
-   verifyJWT, (req, res) => {
-      res.status(200).json(
-         {
-            message: "User is authenticated",
-            user: req.user
-         }
-      )
-   }
-});
+// update acount details
+router.route("/update-myprofile").patch(verifyJWT, updateMyProfile);
 
 
 export default router;

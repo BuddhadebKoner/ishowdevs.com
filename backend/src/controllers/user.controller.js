@@ -287,6 +287,34 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
    return res.status(200).json(new ApiResponce(200, "Avatar updated"));
 });
 
+const updateMyProfile = asyncHandaller(async (req, res) => {
+   const { fullName, mobile, portfolio, workAs, keyWords, mediaLinks } = req.body;
+
+
+   // Update the user profile
+   const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+         $set: {
+            fullName,
+            mobile,
+            portfolio,
+            workAs,
+            keyWords,
+            mediaLinks,
+         },
+      },
+      { new: true } 
+   );
+
+   if (!user) {
+      throw new ApiError(404, "User not found");
+   }
+
+   return res.status(200).json(new ApiResponce("Profile updated", 200, user));
+});
+
+
 const getAllUsers = asyncHandaller(async (req, res) => {
    try {
       // Fetch all active users, excluding sensitive fields
@@ -318,4 +346,5 @@ export {
    getCurrentUser,
    updateUserAvatar,
    getAllUsers,
+   updateMyProfile
 };
