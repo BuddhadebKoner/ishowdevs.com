@@ -110,7 +110,7 @@ const UserProvider = ({ children }) => {
                notify("User logged in successfully", 'success');
                navigate('/myacount');
                // console.log("User logged in successfully:", res.data.data);
-               const UserData = res.data.data;
+               const UserData = res.data.data.user;
                setUserData(UserData);
                setIsLoggedIn(true);
             } else if (res.status === 400) {
