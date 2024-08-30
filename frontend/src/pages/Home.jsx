@@ -6,15 +6,18 @@ import Devalopers from '../components/Devalopers';
 import Products from '../components/Products';
 // flobal style for all home children
 import '../styles/Home.css';
+import { PublicContext } from '../context/public.context';
 
 export default function pages() {
+   const { userData } = useContext(PublicContext);
+
 
    return (
 
       <>
          <div className="home_page_container">
             <Welcomelevel
-               fullName={"Buddhadeb"}
+               fullName={userData?.fullName}
                isBatchShow={true}
             />
             <div className="heiglight_offers">

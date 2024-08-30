@@ -1,33 +1,22 @@
-  // const userData =
-   // {
-   //    "_id": {
-   //       "$oid": "66cb6bfc9e2aa26535582c5f"
-   //    },
-   //    "username": "jeetkoener",
-   //    "fullName": "Jeet Koner",
-   //    "email": "jeetkoenr@gmail.com",
-   //    "password": "$2b$10$Odcedk7s.Vf3BzYb.U7ln./kBbZXAib9AWjust9zebOK2XFa49IDC",
+   // for testing
+   // const userData = {
+   //    "_id": "66cd6090ee8ea91e80767c08",
+   //    "username": "srgoramos",
+   //    "fullName": "Gourav Ganguly",
+   //    "email": "srgoramos@gmail.com",
    //    "avatar": "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
    //    "isVarified": false,
-   //    "portfolio": "",
-   //    "mobile": "",
-   //    "workAs": "Web devaloper",
+   //    "portfolio": "http://localhost:5173/myacount",
+   //    "mobile": "1986912869",
+   //    "workAs": "App dev",
    //    "role": "user",
    //    "bio": "",
-   //    "mediaLinks": [
-   //       ""
-   //    ],
-   //    "keyWords": "",
-   //    "isActive": true,
-   //    "showOnHomePage": true,
-   //    "profileRich": 100,
-   //    "happyCustomer": 20,
+   //    "mediaLinks": "www.com",
+   //    "keyWords": "app dev",
+   //    "profileRich": 0,
+   //    "happyCustomer": 0,
    //    "Userpost": [],
-   //    "createdAt": {
-   //       "$date": "2024-08-25T17:38:04.441Z"
-   //    },
-   //    "updatedAt": {
-   //       "$date": "2024-08-25T17:38:04.441Z"
-   //    },
-   //    "__v": 0
+   //    "createdAt": "2024-08-27T05:13:52.623Z",
+   //    "updatedAt": "2024-08-29T16:17:02.869Z"
    // }
+   // const isLoggedIn = true;

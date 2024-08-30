@@ -6,7 +6,7 @@ import { PublicContext } from '../context/public.context';
 import { UserContext } from '../context/user.context';
 
 export default function components() {
-   const { isLoggedIn } = useContext(PublicContext);
+   const { isLoggedIn, userData } = useContext(PublicContext);
    const { handelLogout } = useContext(UserContext);
 
 
@@ -24,15 +24,6 @@ export default function components() {
       handelLogout();
       setIsDropdownOpen(false);
    };
-
-
-   const userdetails = {
-      avatar: 'https://avatars.githubusercontent.com/u/583231?v=4',
-   }
-
-   const userData = useMemo(() => ({
-      ...userdetails
-   }), [userdetails]);
 
    return (
 

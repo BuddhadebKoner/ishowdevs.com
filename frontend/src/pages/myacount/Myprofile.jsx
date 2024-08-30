@@ -1,33 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { PublicContext } from '../../context/public.context';
 import Profileeditcard from '../../components/Myacount/ProfileCarddetails';
+import { UserContext } from '../../context/user.context';
 
 export default function MyAccount() {
    const { userData, isLoggedIn } = useContext(PublicContext);
-
-
-   // for testing
-   // const userData = {
-   //    "_id": "66cd6090ee8ea91e80767c08",
-   //    "username": "srgoramos",
-   //    "fullName": "Gourav Ganguly",
-   //    "email": "srgoramos@gmail.com",
-   //    "avatar": "https://res.cloudinary.com/dsfztnp9x/image/upload/v1724268582/cieg5qs9ryg7arxbioym.webp",
-   //    "isVarified": false,
-   //    "portfolio": "http://localhost:5173/myacount",
-   //    "mobile": "1986912869",
-   //    "workAs": "App dev",
-   //    "role": "user",
-   //    "bio": "",
-   //    "mediaLinks": "www.com",
-   //    "keyWords": "app dev",
-   //    "profileRich": 0,
-   //    "happyCustomer": 0,
-   //    "Userpost": [],
-   //    "createdAt": "2024-08-27T05:13:52.623Z",
-   //    "updatedAt": "2024-08-29T16:17:02.869Z"
-   // }
-   // const isLoggedIn = true;
+   const { handelAvatarChange, avatarUploading } = useContext(UserContext)
 
    // Handle null or undefined userData
    if (!userData || !isLoggedIn) {
@@ -46,6 +24,10 @@ export default function MyAccount() {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
    });
 
 
@@ -53,13 +35,31 @@ export default function MyAccount() {
       <div className="my_profile_details_container">
          <div className="profile_name_details_box">
             <div className="profile_avatar">
-               <img src={avatar} alt={fullName} />
+               <label htmlFor="avatarUpload" className="upload_avatar_label">
+                  {
+                     avatarUploading ? (
+                        <img src={avatar} alt={fullName} className="avatar_image" />
+                     ) : (
+                        <>
+                           <img src={avatar} alt={fullName} className="avatar_image" />
+                           <input
+                              type="file"
+                              id="avatarUpload"
+                              className="upload_avatar_input"
+                              accept="image/*"
+                              onChange={(e) => handelAvatarChange(e.target.files[0])}
+                           />
+                        </>
+                     )
+                  }
+               </label>
             </div>
             <div className="profile_name">
                <p>@{username}</p>
                <span>({role})</span>
             </div>
          </div>
+
          <Profileeditcard
             fullName={userData.fullName}
             mobile={userData.mobile}
@@ -67,7 +67,7 @@ export default function MyAccount() {
             workAs={userData.workAs}
             keyWords={userData.keyWords}
             mediaLinks={userData.mediaLinks}
-            avatar={userData.avatar}
+            avatar={avatar}
          />
          <div className="profile_last_updated_box">
             <p>Last updated at : {formattedUpdatedAt}</p>

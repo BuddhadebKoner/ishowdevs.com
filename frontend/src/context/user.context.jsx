@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { userLogin, userLogout, userRegister, updateProfileDetails, changePassword } from '../api/user.api';
+import { userLogin, userLogout, userRegister, updateProfileDetails, changePassword, updateAvatar } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +22,9 @@ const UserProvider = ({ children }) => {
    // chnage password 
    const [oldPassword, setOldPassword] = useState('');
    const [newPassword, setNewPassword] = useState('');
+   // avatarUploading state
+   const [avatarUploading, setAvatarUploading] = useState(false);
+
 
    // page navigation 
    const navigate = useNavigate();
@@ -260,6 +263,32 @@ const UserProvider = ({ children }) => {
       }
    };
 
+   const handelAvatarChange = async (file) => {
+      // Define avatarUploading state
+      notify("Hold on few secound", 'info');
+      // Set avatarUploading to true when the upload starts
+      setAvatarUploading(true);
+
+      const formData = new FormData();
+      formData.append('avatar', file);
+
+      try {
+         const res = await updateAvatar(formData);
+         if (res && res.status === 200) {
+            notify("Avatar updated successfully", 'success');
+            // console.log("Avatar updated successfully:", res.data.data.avatar);
+            setUserData({ ...userData, avatar: res.data.data.avatar });
+         } else {
+            notify("Failed to update avatar", 'error');
+         }
+      } catch (error) {
+         notify("An error occurred while updating the avatar", 'error');
+         console.error('Error uploading avatar:', error);
+      } finally {
+         setAvatarUploading(false);
+      }
+   };
+
 
 
 
@@ -278,6 +307,8 @@ const UserProvider = ({ children }) => {
          setOldPassword,
          setNewPassword,
          handelPasswordChange,
+         handelAvatarChange,
+         avatarUploading,
       }}>
          {children}
       </UserContext.Provider>
