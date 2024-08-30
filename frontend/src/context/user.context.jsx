@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { userLogin, userLogout, userRegister, updateProfileDetails } from '../api/user.api';
+import { userLogin, userLogout, userRegister, updateProfileDetails, changePassword } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
@@ -19,6 +19,9 @@ const UserProvider = ({ children }) => {
    // login user state
    const [loginUsername, setLoginUsername] = React.useState('');
    const [loginPassword, setLoginPassword] = React.useState('');
+   // chnage password 
+   const [oldPassword, setOldPassword] = useState('');
+   const [newPassword, setNewPassword] = useState('');
 
    // page navigation 
    const navigate = useNavigate();
@@ -125,7 +128,7 @@ const UserProvider = ({ children }) => {
                notify("Login error", 'error');
             }
          } else {
-            notify("Unexpected response from server", 'error');
+            notify("Password is incorrect", 'error');
          }
       } catch (error) {
          notify("Failed to send data to server", 'error');
@@ -222,7 +225,40 @@ const UserProvider = ({ children }) => {
          notify("Failed to update profile", 'error');
       }
    };
-
+   // chnage password
+   const handelPasswordChange = async () => {
+      if (!oldPassword || !newPassword) {
+         notify("Please fill all required fields", 'error');
+         return;
+      }
+      if (oldPassword === newPassword) {
+         notify("Old password and new password cannot be the same", 'error');
+         return;
+      }
+      try {
+         // call the password change 
+         const res = await changePassword(oldPassword, newPassword);
+         if (res && res.status === 200) {
+            notify("Password changed successfully", 'success');
+            notify("keep your new password safe", 'info');
+            navigate('/myacount');
+         } else if (res && res.status === 400) {
+            notify("Old password and new password are required", 'error');
+         } else if (res && res.status === 401) {
+            notify("Password is incorrect", 'error');
+         } else if (res && res.status === 404) {
+            notify("User not found", 'error');
+         } else if (res && res.status === 500) {
+            notify("Internal server error", 'error');
+         } else if (res && res.status === 403) {
+            notify("Wrong Old password", 'error');
+         } else {
+            notify("Failed to change password", 'error');
+         }
+      } catch (error) {
+         notify("Failed to send data to server", 'error');
+      }
+   };
 
 
 
@@ -239,6 +275,9 @@ const UserProvider = ({ children }) => {
          handelLogin,
          handelLogout,
          handelProfileUpdate,
+         setOldPassword,
+         setNewPassword,
+         handelPasswordChange,
       }}>
          {children}
       </UserContext.Provider>

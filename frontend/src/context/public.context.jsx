@@ -30,8 +30,8 @@ const PublicProvider = ({ children }) => {
       try {
          const res = await getCurrentUser();
 
-         if (res && res.status === 200) {            
-            setUserData(res.data.data);            
+         if (res && res.status === 200) {
+            setUserData(res.data.data);
             setIsLoggedIn(true);
          } else if (res && res.status === 401) {
             notify("Session expired. Please log in again.", 'error');

@@ -30,12 +30,12 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
 
    // Check if there are any changes
    const hasChanges =
-      name !== initialValues.name ||
-      phone !== initialValues.phone ||
-      site !== initialValues.site ||
-      job !== initialValues.job ||
-      keywords !== initialValues.keywords ||
-      links !== initialValues.links;
+      name.trim() !== initialValues.name.trim() ||
+      phone.trim() !== initialValues.phone.trim() ||
+      site.trim() !== initialValues.site.trim() ||
+      job.trim() !== initialValues.job.trim() ||
+      keywords.trim() !== initialValues.keywords.trim() ||
+      links.trim() !== initialValues.links.trim();
 
    const handleEdit = () => {
       setIsEditing(true);
@@ -73,7 +73,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
                <label htmlFor="full_name">Full Name</label>
                <input
                   type="text"
-                  className="my_profile_form_control"
+                  className="my_profile_form_control "
                   id="full_name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}

@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 
 export default function Myacount() {
-   const location = useLocation(); // Use useLocation hook here
+   const location = useLocation(); 
 
    return (
       <div className="myacount_sidebar_container">

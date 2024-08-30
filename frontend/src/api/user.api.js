@@ -4,6 +4,8 @@ import axiosInstance from '../config/config';
 const userLogin = async (user) => {
    try {
       const response = await axiosInstance.post('/users/login', user);
+      console.log("Response from server:", response);
+      
       return response;
    } catch (error) {
       return error.response ? error.response.data : error.message;
@@ -53,8 +55,8 @@ const getCurrentUser = async () => {
 // Change Password
 const changePassword = async (oldPassword, newPassword) => {
    try {
-      const response = await axiosInstance.post('/users/change-password', { oldPassword, newPassword });
-      return response.data;
+      const response = await axiosInstance.post('/users/chnage-password', {   oldPassword, newPassword });
+      return response;
    } catch (error) {
       console.error(error);
    }
