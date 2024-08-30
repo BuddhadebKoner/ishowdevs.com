@@ -6,7 +6,7 @@ export default function Myacount({userid}) {
    return (
 
       <>
-         <h1>{ userid}</h1>
+         <h1>{userid}</h1>
       </>
 
    )
