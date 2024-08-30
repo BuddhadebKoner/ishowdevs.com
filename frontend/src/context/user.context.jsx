@@ -3,6 +3,7 @@ import { userLogin, userLogout, userRegister, updateProfileDetails, changePasswo
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
+import { createUserPost } from '../api/posts.api';
 
 const UserContext = createContext();
 
@@ -24,6 +25,13 @@ const UserProvider = ({ children }) => {
    const [newPassword, setNewPassword] = useState('');
    // avatarUploading state
    const [avatarUploading, setAvatarUploading] = useState(false);
+   // create post state
+   const [title, setTitle] = useState('');
+   const [content, setContent] = useState('');
+   const [projectLink, setProjectLink] = useState('');
+   const [tags, setTags] = useState('');
+   const [image, setImage] = useState(null);
+   const [keywords, setKeywords] = useState('');
 
 
    // page navigation 
@@ -288,6 +296,40 @@ const UserProvider = ({ children }) => {
          setAvatarUploading(false);
       }
    };
+   // create post 
+   const handelCreatePost = async () => {
+      if (!title || !content || !projectLink || !tags || !image || !keywords) {
+         notify("Please fill all required fields", 'error');
+         return;
+      }
+
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('content', content);
+      formData.append('projectLink', projectLink);
+      formData.append('tags', tags);
+      formData.append('image', image);
+      formData.append('keywords', keywords);
+      try {
+         console.log("Post data being sent:", formData);
+         const res = await createUserPost(formData);
+         if (res && res.status === 201) {
+            notify("Post created successfully", 'success');
+            // navigate('/myacount/myposts');
+         } else if (res && res.status === 400) {
+            notify("Title, content, project link, tags, image, and keywords are required", 'error');
+         } else if (res && res.status === 404) {
+            notify("User not found", 'error');
+         } else if (res && res.status === 500) {
+            notify("Internal server error", 'error');
+         } else {
+            notify("Failed to create post", 'error');
+         }
+      } catch (error) {
+         notify("Failed to send data to server", 'error');
+      }
+   };
+
 
 
 
@@ -309,6 +351,13 @@ const UserProvider = ({ children }) => {
          handelPasswordChange,
          handelAvatarChange,
          avatarUploading,
+         handelCreatePost,
+         setTitle,
+         setContent,
+         setProjectLink,
+         setTags,
+         setImage,
+         setKeywords,
       }}>
          {children}
       </UserContext.Provider>

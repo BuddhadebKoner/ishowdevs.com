@@ -15,13 +15,13 @@ import portfolio from './media/portfolio.png';
 import threads from './media/threads.png';
 import x from './media/x.png';
 import defaulticon from './media/default.png';
-import customerService from './icons/customar_services.png';
-import customerRich from './icons/customer_rich.png';
 // banners
 import testiminialsHero from './banners/testimonials_banner.svg';
 // temp
 import temp from './temp/profile.png';
 // new imports
+import customerService from './icons/customar_services.png';
+import customerRich from './icons/customer_rich.png';
 import searchIocn from './icons/search_icon.svg';
 import profile from './icons/profile.svg';
 import arrow from './icons/arrow.svg';
@@ -31,6 +31,7 @@ import myposts from './icons/myposts.svg';
 import myprofile from './icons/myprofile.svg';
 import paymentRupee from './icons/paymentRupee.svg';
 import addbtn from './icons/add.svg'
+import arrowBack from './icons/arrowBack.svg';
 
 
 
@@ -63,5 +64,6 @@ export const assets = {
    myposts: myposts,
    myprofile: myprofile,
    paymentRupee: paymentRupee,
-   addbtn: addbtn
+   addbtn: addbtn,
+   arrowBack: arrowBack,
 }

@@ -1,17 +1,18 @@
 .myacount_container {
    width: 100%;
-   height: 90vh;
+   height: fit-content;
    padding: 0 var(--padding-x);
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
    font-family: var(--Regular-Item);
+   margin-top: 2rem;
 }
 
 .myacount_container_card {
    width: 100%;
-   height: 70vh;
+   height: fit-content;
    display: flex;
    flex-direction: row;
    align-items: start;
@@ -206,19 +207,43 @@
    width: 100%;
    height: fit-content;
    display: flex;
-   flex-direction: row;
-   align-items: center;
+   flex-direction: column;
+   align-items: start;
    justify-content: space-between;
-   background-color: #007bff;
 }
 
 .newpost_card_container_headline {
    width: 100%;
    height: fit-content;
    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-start;
+   background-color: #002749;
+   padding: 5px 10px;
+   border-radius: 10px;
+   gap: 20px;
 }
 
+.newpost_card_container_headline img {
+   width: 40px;
+   border-radius: 50%;
+}
 
+.newpost_card_container_headline h1 {
+   font-size: 1.5rem;
+}
+
+.post_form_container {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   justify-content: center;
+   margin-top: 25px;
+   gap: 10px;
+}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

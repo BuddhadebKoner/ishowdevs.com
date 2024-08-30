@@ -3,13 +3,18 @@ import axiosInstance from '../config/config';
 // Create post
 const createUserPost = async (formData) => {
    try {
-      const response = await axiosInstance.post('/posts/create-post', formData);
-      return response.data.message;
+      const response = await axiosInstance.post('/posts/create-post', formData, {
+         headers: {
+            'Content-Type': 'multipart/form-data'
+         }
+      });
+      return response;
    } catch (error) {
       console.error("Error creating post: ", error);
       throw error;
    }
 };
+
 
 // Get all posts by user id
 const getAllPostsByUserId = async (userId) => {
