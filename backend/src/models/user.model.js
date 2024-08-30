@@ -54,10 +54,6 @@ const userSchema = new Schema(
          enum: ["user", "admin", "superAdmin"],
          default: "user",
       },
-      bio: {
-         type: String,
-         default: "",
-      },
       mediaLinks: {
          type: String,
          default: "",

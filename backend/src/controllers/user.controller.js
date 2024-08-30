@@ -236,12 +236,12 @@ const chnageCurrentPassword = asyncHandaller(async (req, res) => {
    const user = await User.findById(req.user?._id);
    const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
    if (!isPasswordCorrect) {
-      throw new ApiError(400, "Old password is incorrect");
+      throw new ApiError(403, "Old password is incorrect");
    }
    user.password = newPassword;
    await user.save({ validateBeforeSave: false });
 
-   return res.status(200).json(new ApiResponce(200, {}, "Password changed"));
+   return res.status(200).json(new ApiResponce(200, "Password changed", {}));
 });
 
 const getCurrentUser = asyncHandaller(async (req, res) => {
