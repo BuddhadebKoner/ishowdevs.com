@@ -284,7 +284,7 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
       },
    );
 
-   return res.status(200).json(new ApiResponce(200, "Avatar updated"));
+   return res.status(200).json(new ApiResponce(200, "Avatar updated", { avatar: avatar.url }));
 });
 
 const updateMyProfile = asyncHandaller(async (req, res) => {
