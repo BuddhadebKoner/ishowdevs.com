@@ -7,7 +7,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponce } from "../utils/Apiresponce.js";
 
 
-// create post 
+// Create post
 const createPost = asyncHandaller(async (req, res) => {
    const session = await mongoose.startSession();
    session.startTransaction();
@@ -25,7 +25,7 @@ const createPost = asyncHandaller(async (req, res) => {
       const author = req.user._id;
 
       // Validate required fields
-      if ([title, content].some(field => !field.trim())) {
+      if (![title, content].every(field => field.trim())) {
          throw new ApiError(400, "Title and content are required");
       }
 
@@ -37,10 +37,11 @@ const createPost = asyncHandaller(async (req, res) => {
 
       // Upload image to Cloudinary
       const image = await uploadOnCloudinary(postImage);
-      if (!image) {
+      if (!image.url) {
          throw new ApiError(500, "Image upload failed");
       }
-      // publishedAt
+
+      // Define publishedAt date
       const publishedAt = new Date();
 
       // Create a new post
@@ -58,8 +59,8 @@ const createPost = asyncHandaller(async (req, res) => {
       // Update the author's posts array
       const updatedUser = await User.findByIdAndUpdate(
          author,
-         { $push: { posts: post._id } },
-         { session }
+         { $push: { posts: post[0]._id } },
+         { session, new: true }
       );
 
       if (!updatedUser) {
@@ -71,19 +72,15 @@ const createPost = asyncHandaller(async (req, res) => {
       session.endSession();
 
       // Respond with the newly created post
-      res.status(201).json({
-         message: "Post created successfully",
-         post: post[0],
-      });
+      return res.status(201).json(
+         new ApiResponce(201, "Post created successfully", post[0])
+      );
    } catch (error) {
+      // Abort transaction and end session on error
       await session.abortTransaction();
       session.endSession();
       throw error;
    }
-
-   return res.status(201).json(
-      new ApiResponce(201, "Post created successfully")
-   );
 });
 // get all posts
 const getAllPostsByUserId = asyncHandaller(async (req, res) => {
