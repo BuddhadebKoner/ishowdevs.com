@@ -30,6 +30,7 @@ import logout from './icons/logout.svg';
 import myposts from './icons/myposts.svg';
 import myprofile from './icons/myprofile.svg';
 import paymentRupee from './icons/paymentRupee.svg';
+import addbtn from './icons/add.svg'
 
 
 
@@ -61,5 +62,6 @@ export const assets = {
    logout: logout,
    myposts: myposts,
    myprofile: myprofile,
-   paymentRupee: paymentRupee
+   paymentRupee: paymentRupee,
+   addbtn: addbtn
 }

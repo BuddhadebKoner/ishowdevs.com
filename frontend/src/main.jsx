@@ -17,6 +17,7 @@ import Myprofile from './pages/myacount/Myprofile.jsx';
 import Myposts from './pages/myacount/Myposts.jsx';
 import Paymentdetails from './pages/myacount/Paymentdetails.jsx';
 import Forgotpassword from './pages/Forgotpassword.jsx';
+import Addpost from './pages/myacount/Addpost.jsx';
 
 const Main = () => {
 
@@ -39,6 +40,7 @@ const Main = () => {
         <Route path='myacount' element={<Myacount />} >
           <Route index element={<Myprofile />} />
           <Route path='myposts' element={<Myposts />} />
+            <Route path='addpost' element={<Addpost />} />
           <Route path='paymentdetails' element={<Paymentdetails />} />
           <Route path='chnagepassword' element={<Passwordchnage />} />
         </Route>
