@@ -5,7 +5,7 @@ import axiosInstance from '../config/config';
 const userLogin = async (user) => {
    try {
       const response = await axiosInstance.post('/users/login', user);
-      console.log("Response from server:", response);
+      // console.log("Response from server:", response);
 
       return response;
    } catch (error) {

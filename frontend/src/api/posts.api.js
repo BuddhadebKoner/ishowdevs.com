@@ -20,10 +20,9 @@ const createUserPost = async (formData) => {
 const getAllPostsByUserId = async (userId) => {
    try {
       const response = await axiosInstance.get(`/posts/${userId}/posts`);
-      return response.data.message;
+      return response;
    } catch (error) {
-      console.error("Error accessing all user posts: ", error);
-      throw error;
+      console.log("Error accessing all user posts: ");
    }
 };
 
@@ -31,7 +30,7 @@ const getAllPostsByUserId = async (userId) => {
 const deletePostById = async (postId) => {
    try {
       const response = await axiosInstance.delete(`/posts/${postId}/delete-post`);
-      return response.data.message;
+      return response;
    } catch (error) {
       console.error("Error deleting post: ", error);
       throw error;

@@ -245,6 +245,105 @@
    gap: 10px;
 }
 
+.myaccount-container {
+   padding: 20px;
+   width: 100%;
+   margin: 40px 0 0 0;
+   /* Centered with more margin from the top */
+   border-radius: 10px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.post-item {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   align-items: center;
+   background-color: #002749;
+   margin-bottom: 20px;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.post-image {
+   width: 300px;
+   height: 150px;
+   aspect-ratio: 16 / 9;
+   object-fit: cover;
+   border-radius: 8px;
+   margin-right: 20px;
+}
+
+.post-content {
+   flex: 1;
+}
+
+.post-title {
+   font-size: 20px;
+   font-weight: bold;
+   /* Add more space below title */
+   color: #f0f0f0;
+}
+
+.post-description {
+   font-size: 15px;
+   color: #d3d3d3;
+}
+
+.post-link {
+   display: inline-block;
+   margin-top: 12px;
+   font-size: 14px;
+   color: #1e90ff;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.post-link:hover {
+   text-decoration: underline;
+}
+
+.post-tags {
+   margin-top: 8px;
+   /* Add margin on top for better spacing */
+   font-size: 13px;
+   color: #ffffff;
+}
+.pagination-controls{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 20px;
+}
+.pagination-controls button{
+   padding: 10px 20px;
+   border-radius: 5px;
+   border: none;
+   background-color: #007bff;
+   color: #fff;
+   cursor: pointer;
+}
+.post-title-delete-container{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.post-title-delete-container button{
+   padding: 5px 10px;
+   border-radius: 5px;
+   border: none;
+   background-color: #730000;
+   color: #fff;
+   cursor: pointer;
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
    .myacount_container {

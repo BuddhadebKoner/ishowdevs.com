@@ -3,7 +3,7 @@ import { userLogin, userLogout, userRegister, updateProfileDetails, changePasswo
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
-import { createUserPost } from '../api/posts.api';
+import { createUserPost, deletePostById, getAllPostsByUserId } from '../api/posts.api';
 
 const UserContext = createContext();
 
@@ -32,6 +32,8 @@ const UserProvider = ({ children }) => {
    const [tags, setTags] = useState('');
    const [image, setImage] = useState(null);
    const [keywords, setKeywords] = useState('');
+   // user posted data
+   const [userPosts, setUserPosts] = useState([]);
 
 
    // page navigation 
@@ -329,6 +331,38 @@ const UserProvider = ({ children }) => {
          notify("Failed to send data to server", 'error');
       }
    };
+   // get user post
+   const handelGetpost = async (userid) => {
+      // console.log("User id:", userid);
+
+      try {
+         const res = await getAllPostsByUserId(userid);
+         if (res.status === 200) {
+            // console.log("Fetched posts:", res.data.data);
+            setUserPosts(res.data.data);
+         } else {
+            notify("Failed to get user posts", 'error');
+            // console.error("Error getting all posts by user:", res);
+         }
+      } catch (error) {
+         // notify("Failed to get user posts", 'error');
+         console.log("Error getting all posts by user:");
+      }
+   };
+   const handelDeletePost = async (postid) => {
+      try {
+         const res = await deletePostById(postid);
+         if (res.status === 200) {
+            notify("Post deleted successfully", 'success');
+            // Update the userPosts state by filtering out the deleted post
+            setUserPosts(prevPosts => prevPosts.filter(post => post._id !== postid));
+         } else {
+            notify("Failed to delete post", 'error');
+         }
+      } catch (error) {
+         notify("Failed to delete post", 'error');
+      }
+   };
 
 
 
@@ -358,6 +392,9 @@ const UserProvider = ({ children }) => {
          setTags,
          setImage,
          setKeywords,
+         handelGetpost,
+         userPosts,
+         handelDeletePost,
       }}>
          {children}
       </UserContext.Provider>

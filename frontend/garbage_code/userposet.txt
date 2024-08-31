@@ -1,0 +1,38 @@
+const userPosts = [
+      {
+         "_id": "66d1f78def21c6560f7ae9bc",
+         "title": "C++ cource lounch",
+         "content": "Most updated and wanted course now",
+         "projectLink": "https://github.com/hiteshchoudhary",
+         "tags": "c++",
+         "image": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1725036428/yxgkdwofax9uruly2u0e.jpg",
+         "keyWords": "",
+         "publishedAt": "2024-08-30T16:47:09.342Z",
+         "isUnderBigdeal": true,
+         "priseBefore": 9999,
+         "priseNow": 0,
+         "offerEndDate": "2024-08-31T16:47:09.343+00:00",
+         "author": "66d1f562ef21c6560f7ae988",
+         "createdAt": "2024-08-30T16:47:09.343Z",
+         "updatedAt": "2024-08-30T16:47:09.343Z",
+         "__v": 0
+      },
+      {
+         "_id": "66d27ae401cc8c328af32d32",
+         "title": "Javascript with Dsa",
+         "content": "Interview peparation with proper guidence",
+         "projectLink": "http://localhost:5173/myacount/addpost",
+         "tags": "app devs",
+         "image": "http://res.cloudinary.com/dsfztnp9x/image/upload/v1725070051/qkn1mcvcwjckdb95p8vn.jpg",
+         "keyWords": "",
+         "publishedAt": "2024-08-31T02:07:32.009Z",
+         "isUnderBigdeal": false,
+         "priseBefore": 0,
+         "priseNow": 0,
+         "offerEndDate": "",
+         "author": "66d1f562ef21c6560f7ae988",
+         "createdAt": "2024-08-31T02:07:32.011Z",
+         "updatedAt": "2024-08-31T02:07:32.011Z",
+         "__v": 0
+      }
+   ]
