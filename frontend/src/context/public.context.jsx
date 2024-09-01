@@ -13,23 +13,28 @@ const PublicProvider = ({ children }) => {
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    // userData state
    const [userData, setUserData] = useState(null);
+   // loading component state
+   const [loading, setLoading] = useState(false);
 
    // Fetch home contents data
    const handleHomeContents = async () => {
+      setLoading(true);
       try {
          const res = await homeContents();
          setBigDealOffer(res.bigDealOffer);
          setDevalopers(res.devalopers);
          setUserpost(res.userpost);
+         setLoading(false);
       } catch (error) {
          notify("Server Issue ! so take a coffe and Try again", 'error');
+         setLoading(false);
       }
    };
 
    const checkLoggedIn = async () => {
+      setLoading(true);
       try {
          const res = await getCurrentUser();
-
          if (res && res.status === 200) {
             setUserData(res.data.data);
             setIsLoggedIn(true);
@@ -38,10 +43,12 @@ const PublicProvider = ({ children }) => {
             setIsLoggedIn(false);
          } else {
             handleErrorResponse(res);
+            setLoading(false);
          }
       } catch (error) {
          notify("Failed to check user authentication", 'error');
          setIsLoggedIn(false);
+         setLoading(false);
       }
    };
 
@@ -71,8 +78,10 @@ const PublicProvider = ({ children }) => {
       isLoggedIn,
       setIsLoggedIn,
       userData,
-      setUserData
-   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData]);
+      setUserData,
+      setLoading,
+      loading,
+   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading]);
 
    return (
       <PublicContext.Provider value={contextValue}>

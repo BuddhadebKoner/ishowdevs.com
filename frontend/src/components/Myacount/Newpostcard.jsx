@@ -10,7 +10,7 @@ export default function UserPostForm() {
       setProjectLink,
       setTags,
       setImage,
-      setKeywords, } = useContext(UserContext);
+      setKeyWords, } = useContext(UserContext);
 
    return (
       <>
@@ -73,7 +73,7 @@ export default function UserPostForm() {
                   className="form_control"
                   id="keywords"
                   placeholder="Enter Keywords"
-                  onChange={(e) => setKeywords(e.target.value)}
+                  onChange={(e) => setKeyWords(e.target.value)}
                />
             </div>
             <button type="submit" className="btn" onClick={ handelCreatePost } >Submit Post</button>

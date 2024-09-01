@@ -22,7 +22,8 @@ const getAllPostsByUserId = async (userId) => {
       const response = await axiosInstance.get(`/posts/${userId}/posts`);
       return response;
    } catch (error) {
-      console.log("Error accessing all user posts: ");
+      return;  
+      // console.log("Error accessing all user posts: ");
    }
 };
 

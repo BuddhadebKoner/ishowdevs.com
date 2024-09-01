@@ -7,7 +7,8 @@ export default function pages() {
    const {
       setOldPassword,
       setNewPassword,
-      handelPasswordChange
+      handelPasswordChange,
+      isLoggedIn
    } = useContext(UserContext);
 
 
