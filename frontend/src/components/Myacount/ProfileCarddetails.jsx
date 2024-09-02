@@ -3,7 +3,7 @@ import { UserContext } from '../../context/user.context';
 
 export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWords, mediaLinks }) {
 
-   // context api access
+   // Context API access
    const { handelProfileUpdate } = useContext(UserContext);
 
    // Initialize state with props
@@ -12,7 +12,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
    const [site, setSite] = useState(portfolio || '');
    const [job, setJob] = useState(workAs || '');
    const [keywords, setKeywords] = useState(keyWords || '');
-   const [links, setLinks] = useState(mediaLinks || ''); // Directly set as string
+   const [links, setLinks] = useState(mediaLinks || '');
    const [isEditing, setIsEditing] = useState(false);
    const [initialValues, setInitialValues] = useState({ name, phone, site, job, keywords, links });
 
@@ -73,7 +73,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
                <label htmlFor="full_name">Full Name</label>
                <input
                   type="text"
-                  className="my_profile_form_control "
+                  className="my_profile_form_control"
                   id="full_name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -107,15 +107,30 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
             </div>
             <div className="my_profile_form_group">
                <label htmlFor="work_as">Work As</label>
-               <input
-                  type="text"
-                  className="my_profile_form_control"
-                  id="work_as"
-                  value={job}
-                  onChange={(e) => setJob(e.target.value)}
-                  placeholder="Enter your job title"
-                  disabled={!isEditing}
-               />
+               {isEditing ? (
+                  <select
+                     className="my_profile_form_control"
+                     id="work_as"
+                     value={job}
+                     onChange={(e) => setJob(e.target.value)}
+                     disabled={!isEditing}
+                  >
+                     <option value="Web Developer">Web Developer</option>
+                     <option value="Designer">Designer</option>
+                     <option value="App Devaloper">App Devaloper</option>
+                     <option value="Artificial Intelligence">Artificial Intelligence</option>
+                     <option value="Teacher">Teacher</option>
+                  </select>
+               ) : (
+                  <input
+                     type="text"
+                     className="my_profile_form_control"
+                     id="work_as"
+                     value={job}
+                     readOnly
+                     placeholder='Select your job title'
+                  />
+               )}
             </div>
             <div className="my_profile_form_group">
                <label htmlFor="key_words">Key Words</label>

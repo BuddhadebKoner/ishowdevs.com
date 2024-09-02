@@ -48,8 +48,9 @@ export default function components() {
                      </option>
                      <option value="Web Developer">Web Developer</option>
                      <option value="Designer">Designer</option>
-                     <option value="Project Manager">Project Manager</option>
-                     <option value="QA Engineer">QA Engineer</option>
+                     <option value="App Devaloper">App Devaloper</option>
+                     <option value="Artificial Intelligence">Artificial Intelligence</option>
+                     <option value="Teacher">Teacher</option>
                   </select>
                   <button>
                      <img src={assets.searchIocn} alt="" />

@@ -315,14 +315,16 @@
    font-size: 13px;
    color: #ffffff;
 }
-.pagination-controls{
+
+.pagination-controls {
    width: 100%;
    display: flex;
    justify-content: space-between;
    align-items: center;
    margin-top: 20px;
 }
-.pagination-controls button{
+
+.pagination-controls button {
    padding: 10px 20px;
    border-radius: 5px;
    border: none;
@@ -330,12 +332,14 @@
    color: #fff;
    cursor: pointer;
 }
-.post-title-delete-container{
+
+.post-title-delete-container {
    display: flex;
    justify-content: space-between;
    align-items: center;
 }
-.post-title-delete-container button{
+
+.post-title-delete-container button {
    padding: 5px 10px;
    border-radius: 5px;
    border: none;
@@ -479,4 +483,17 @@
    border-radius: 0.25rem;
    cursor: pointer;
    font-size: 1rem;
+}
+
+.my_profile_form_group select {
+   width: 100%;
+   height: 100%;
+   font-size: 1.1rem;
+   background-color: #002749;
+   color: #f5f5f5;
+}
+
+.my_profile_form_group select:disabled {
+   background-color: #395a77;
+   color: #777;
 }
