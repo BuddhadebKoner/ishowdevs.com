@@ -82,6 +82,10 @@ const userSchema = new Schema(
          type: Number,
          default: 0,
       },
+      rating: {
+         type: Number,
+         default: 0,
+      },
       Userpost: [
          {
             type: Schema.Types.ObjectId,

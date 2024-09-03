@@ -75,7 +75,7 @@ const createPost = asyncHandaller(async (req, res) => {
    }
 });
 
-// get all posts
+// get all posts by user id
 const getAllPostsByUserId = asyncHandaller(async (req, res) => {
    try {
       const { userId } = req.params;
@@ -126,7 +126,26 @@ const deletePost = asyncHandaller(async (req, res) => {
    }
 });
 
+// get all posts
+const getAllPosts = asyncHandaller(async (req, res) => {
+   try {
+      const posts = await Userpost.find({ isPublished: true })
+         .select("-__v")
+         .sort({ rating: -1 }); 
+
+      if (!posts.length) {
+         throw new ApiError(404, "No posts found");
+      }
+
+      return res.status(200)
+         .json(new ApiResponce(200, "Posts fetched successfully", posts));
+   } catch (error) {
+      return res.status(500).json(new ApiResponce(500, "Failed to fetch posts"));
+   }
+});
+
+
 
 
 // export all functions
-export { createPost, getAllPostsByUserId, deletePost };
+export { createPost, getAllPostsByUserId, deletePost, getAllPosts };

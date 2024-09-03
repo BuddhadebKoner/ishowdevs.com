@@ -20,7 +20,7 @@ const userpostSchema = new mongoose.Schema(
     },
     isPublished: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     showOnHomePage: {
       type: Boolean,
@@ -51,6 +51,10 @@ const userpostSchema = new mongoose.Schema(
     offerEndDate: {
       type: String,
       default: '',
+    },
+    rating: {
+      type: Number,
+      default: 0,
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,

@@ -8,17 +8,17 @@ import { Userpost } from "./../models/post.model.js";
 const homeContents = asyncHandaller(async (req, res) => {
    try {
       const userpost = await Userpost.find({ showOnHomePage: true })
-         .select('title content image priseBefore priseNow offerEndDate');
+         .select('-showOnHomePage -isUnderBigdeal -__v');
       if (!userpost) {
          throw new ApiError(404, "No userpost found that showOnHomePage is true");
       }
 
-      const devalopers = await User.find({ showOnHomePage: true }).select("fullName isVarified role workAs profileRich happyCustomer avatar");
+      const devalopers = await User.find({ showOnHomePage: true } && { isActive: true }).select("-password -__v -showOnHomePage -refreshToken");
       if (!devalopers) {
          throw new ApiError(405, "No user found that showOnHomePage is true");
       }
 
-      const bigDealOffer = await Userpost.find({ isUnderBigdeal: true }).select("title content priseBefore priseNow image offerEndDate");
+      const bigDealOffer = await Userpost.find({ isUnderBigdeal: true }).select("-showOnHomePage -isUnderBigdeal -__v");
       if (!bigDealOffer) {
          throw new ApiError(406, "no post found that isUnderBigdeal is true");
       }
