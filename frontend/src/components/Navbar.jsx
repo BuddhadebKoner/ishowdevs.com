@@ -50,7 +50,7 @@ export default function components() {
                      <option value="Designer">Designer</option>
                      <option value="App Devaloper">App Devaloper</option>
                      <option value="Artificial Intelligence">Artificial Intelligence</option>
-                     <option value="Teacher">Teacher</option>
+                     <option value="metarial">metarial</option>
                   </select>
                   <button>
                      <img src={assets.searchIocn} alt="" />

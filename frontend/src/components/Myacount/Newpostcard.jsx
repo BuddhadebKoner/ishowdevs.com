@@ -48,13 +48,25 @@ export default function UserPostForm() {
             </div>
             <div className="form_group">
                <label htmlFor="tags">Tags*</label>
-               <input
+               {/* <input
                   type="text"
-                  className="form_control"
-                  id="tags"
+                 
+                  
                   placeholder="Enter Tags (comma separated)"
                   onChange={(e) => setTags(e.target.value)}
-               />
+               /> */}
+               <select
+                  className="form_control"
+                  id="tags"
+                  onChange={(e) => setTags(e.target.value)}
+               >
+                  <option value="">Select your catagory</option>
+                  <option value="Web Developer">Web Developer</option>
+                  <option value="Designer">Designer</option>
+                  <option value="App Devaloper">App Devaloper</option>
+                  <option value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option value="metarial">metarial</option>
+               </select>
             </div>
             <div className="form_group">
                <label htmlFor="image">Image*</label>
@@ -76,7 +88,7 @@ export default function UserPostForm() {
                   onChange={(e) => setKeyWords(e.target.value)}
                />
             </div>
-            <button type="submit" className="btn" onClick={ handelCreatePost } >Submit Post</button>
+            <button type="submit" className="btn" onClick={handelCreatePost} >Submit Post</button>
          </div>
       </>
    )
