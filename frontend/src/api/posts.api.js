@@ -22,7 +22,7 @@ const getAllPostsByUserId = async (userId) => {
       const response = await axiosInstance.get(`/posts/${userId}/posts`);
       return response;
    } catch (error) {
-      return;  
+      return;
       // console.log("Error accessing all user posts: ");
    }
 };
@@ -38,4 +38,15 @@ const deletePostById = async (postId) => {
    }
 };
 
-export { createUserPost, getAllPostsByUserId, deletePostById };
+// get all post 
+const getallposts = async () => {
+   try {
+      const response = await axiosInstance.get(`/posts/get-all-posts`);
+      return response;
+   } catch (error) {
+      console.error("Error getting all posts: ", error);
+      throw error;
+   }
+}
+
+export { createUserPost, getAllPostsByUserId, deletePostById, getallposts };

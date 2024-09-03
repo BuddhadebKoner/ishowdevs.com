@@ -6,7 +6,7 @@ import { PublicContext } from '../context/public.context';
 import { UserContext } from '../context/user.context';
 
 export default function components() {
-   const { isLoggedIn, userData } = useContext(PublicContext);
+   const { isLoggedIn, userData, handelExplorePosts } = useContext(PublicContext);
    const { handelLogout } = useContext(UserContext);
 
 
@@ -23,6 +23,10 @@ export default function components() {
    const handelSignOut = () => {
       handelLogout();
       setIsDropdownOpen(false);
+   };
+
+   window.onload = function () {
+      handelExplorePosts();
    };
 
    return (
@@ -58,7 +62,7 @@ export default function components() {
                </div>
             </div>
             <div className="right_navbar_container">
-               <NavLink to={"/explore"} className="navbar_link">
+               <NavLink to={"/explore"} className="navbar_link" onClick={handelExplorePosts}>
                   Explore
                </NavLink>
                <NavLink to={"/about"} className="navbar_link">

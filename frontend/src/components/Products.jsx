@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Productdetails from './Cards/Productdetails';
 import { PublicContext } from '../context/public.context';
+import { Link } from 'react-router-dom';
 
 export default function ProductSection() {
    const { userpost } = useContext(PublicContext);
@@ -13,9 +14,9 @@ export default function ProductSection() {
             <h1 className='product_section_title'>
                Products
             </h1>
-            <button className='product_section_button'>
+            <Link to={"/explore"} className='product_section_button'>
                See More
-            </button>
+            </Link>
          </div>
          <div className="product_list">
             {

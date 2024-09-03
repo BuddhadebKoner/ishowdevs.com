@@ -40,7 +40,7 @@ const Main = () => {
         <Route path='myacount' element={<Myacount />} >
           <Route index element={<Myprofile />} />
           <Route path='myposts' element={<Myposts />} />
-            <Route path='addpost' element={<Addpost />} />
+          <Route path='addpost' element={<Addpost />} />
           <Route path='paymentdetails' element={<Paymentdetails />} />
           <Route path='chnagepassword' element={<Passwordchnage />} />
         </Route>

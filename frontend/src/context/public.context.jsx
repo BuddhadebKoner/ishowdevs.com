@@ -3,6 +3,7 @@ import { homeContents } from '../api/admin.api';
 import { getCurrentUser } from '../api/user.api';
 import { Toaster } from 'react-hot-toast';
 import notify from '../utils/notify';
+import { getallposts } from '../api/posts.api';
 
 const PublicContext = createContext();
 
@@ -15,6 +16,8 @@ const PublicProvider = ({ children }) => {
    const [userData, setUserData] = useState(null);
    // loading component state
    const [loading, setLoading] = useState(false);
+   // explore section posts data 
+   const [explorePosts, setExplorePosts] = useState([]);
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -64,6 +67,29 @@ const PublicProvider = ({ children }) => {
       setIsLoggedIn(false);
    };
 
+   const handelExplorePosts = async () => {
+      setLoading(true);
+         try {
+            const res = await getallposts();
+            if (res && res.status === 200) {
+               setExplorePosts(res.data.data);
+               setLoading(false);
+            } else if (res && res.status === 404) {
+               notify("No post found to display on the explore page.", 'error');
+               setLoading(false);
+            } else if (res && res.status === 500) {
+               notify("Internal server error. Please try again later.", 'error');
+               setLoading(false);
+            } else {
+               handleErrorResponse(res);
+               setLoading(false);
+            }
+         } catch (error) {
+            notify("Server Issue ! so take a coffe and Try again", 'error');
+            setLoading(false);
+         }
+   };
+
 
 
    useEffect(() => {
@@ -81,7 +107,9 @@ const PublicProvider = ({ children }) => {
       setUserData,
       setLoading,
       loading,
-   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading]);
+      explorePosts,
+      handelExplorePosts
+   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts]);
 
    return (
       <PublicContext.Provider value={contextValue}>
