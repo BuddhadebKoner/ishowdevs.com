@@ -69,25 +69,25 @@ const PublicProvider = ({ children }) => {
 
    const handelExplorePosts = async () => {
       setLoading(true);
-         try {
-            const res = await getallposts();
-            if (res && res.status === 200) {
-               setExplorePosts(res.data.data);
-               setLoading(false);
-            } else if (res && res.status === 404) {
-               notify("No post found to display on the explore page.", 'error');
-               setLoading(false);
-            } else if (res && res.status === 500) {
-               notify("Internal server error. Please try again later.", 'error');
-               setLoading(false);
-            } else {
-               handleErrorResponse(res);
-               setLoading(false);
-            }
-         } catch (error) {
-            notify("Server Issue ! so take a coffe and Try again", 'error');
+      try {
+         const res = await getallposts();
+         if (res && res.status === 200) {
+            setExplorePosts(res.data.data);
+            setLoading(false);
+         } else if (res && res.status === 404) {
+            notify("No post found to display on the explore page.", 'error');
+            setLoading(false);
+         } else if (res && res.status === 500) {
+            notify("Internal server error. Please try again later.", 'error');
+            setLoading(false);
+         } else {
+            handleErrorResponse(res);
             setLoading(false);
          }
+      } catch (error) {
+         console.log("Server Issue ! so take a coffe and Try again", 'error');
+         setLoading(false);
+      }
    };
 
 

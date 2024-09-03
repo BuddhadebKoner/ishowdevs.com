@@ -13,7 +13,7 @@ const homeContents = asyncHandaller(async (req, res) => {
          throw new ApiError(404, "No userpost found that showOnHomePage is true");
       }
 
-      const devalopers = await User.find({ showOnHomePage: true } && { isActive: true }).select("-password -__v -showOnHomePage -refreshToken");
+      const devalopers = await User.find({ showOnHomePage: true }).select("-password -__v -showOnHomePage -refreshToken");
       if (!devalopers) {
          throw new ApiError(405, "No user found that showOnHomePage is true");
       }
