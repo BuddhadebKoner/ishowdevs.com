@@ -18,6 +18,8 @@ const PublicProvider = ({ children }) => {
    const [loading, setLoading] = useState(false);
    // explore section posts data 
    const [explorePosts, setExplorePosts] = useState([]);
+   // public post page data
+   const [publicPost, setPublicPost] = useState();
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -108,8 +110,10 @@ const PublicProvider = ({ children }) => {
       setLoading,
       loading,
       explorePosts,
-      handelExplorePosts
-   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts]);
+      handelExplorePosts,
+      setPublicPost,
+      publicPost
+   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost]);
 
    return (
       <PublicContext.Provider value={contextValue}>

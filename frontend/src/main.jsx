@@ -18,6 +18,7 @@ import Myposts from './pages/myacount/Myposts.jsx';
 import Paymentdetails from './pages/myacount/Paymentdetails.jsx';
 import Forgotpassword from './pages/Forgotpassword.jsx';
 import Addpost from './pages/myacount/Addpost.jsx';
+import Publicpost from './pages/Publicpost.jsx';
 
 const Main = () => {
 
@@ -47,6 +48,7 @@ const Main = () => {
         <Route path='publicacount' element={<Publicacount />} />
         <Route path='registeruser' element={<Registeruser />} />
         <Route path='explore' element={<Explore />} />
+        <Route path='publicpost' element={<Publicpost />} />
         <Route path='blogpost' element={<Blogpost />} />
         <Route path='about' element={<About />} />
         <Route path='forgotpassword' element={<Forgotpassword />} />

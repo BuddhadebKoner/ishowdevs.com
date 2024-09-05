@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { PublicContext } from '../../context/public.context';
 
 export default function Cards({ post }) {
-   return (
+   const { setPublicPost } = useContext(PublicContext);
 
-      <>
-         <div className="indivisual_dev_cards_box_products">
+   const publicPostClicked = () => {
+      setPublicPost(post);
+      localStorage.setItem('publicPost', JSON.stringify(post)); 
+   };
+
+   return (
+      <div className="indivisual_dev_cards_box_products" onClick={publicPostClicked}>
+         <Link to='/publicpost' className='dev_products_link'>
             <div className="dev_products_image_box">
                <img src={post.image} alt="" className='dev_products_image' />
             </div>
@@ -18,21 +26,12 @@ export default function Cards({ post }) {
                      <span>/-</span>
                   </p>
                   <p className='priseNow'>
-                     {post.priseNow === 0 ? (
-                        <span>Free</span>
-                     ) : (
-                        <>
-                           <span>₹</span>
-                           {post.priseNow}
-                           <span>/-</span>
-                        </>
-                     )}
+                     {post.priseNow === 0 ? <span>Free</span> : <><span>₹</span>{post.priseNow}<span>/-</span></>}
                   </p>
                </div>
                <button className='buynow_btn_product_card'>Buy now</button>
             </div>
-         </div>
-      </>
-   )
-
+         </Link>
+      </div>
+   );
 }
