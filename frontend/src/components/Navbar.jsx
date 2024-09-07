@@ -97,7 +97,7 @@ export default function components() {
                         }
                      </button>
                   ) : (
-                     <NavLink to={"/login"} className="navbar_link">
+                     <NavLink to={"/login"} className="navbar_link login_navbar_link">
                         Log in
                      </NavLink>
                   )

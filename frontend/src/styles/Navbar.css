@@ -144,3 +144,10 @@
    margin: 0;
    padding: 0;
 }
+
+.login_navbar_link {
+   background-color: #FF671F;
+   color: white;
+   padding: 2px 15px;
+   border-radius: 5px;
+}
