@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 
 export default function Myacount() {
-   const location = useLocation(); 
+   const location = useLocation();
 
    return (
       <div className="myacount_sidebar_container">
@@ -40,7 +40,7 @@ export default function Myacount() {
          </NavLink>
          <button className='myacount_sidebar_link'>
             <img src={assets.logout} alt="" />
-            Sign out
+            Delete Acount
          </button>
       </div >
    );

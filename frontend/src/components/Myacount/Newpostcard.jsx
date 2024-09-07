@@ -63,9 +63,9 @@ export default function UserPostForm() {
                   <option value="">Select your catagory</option>
                   <option value="Web Developer">Web Developer</option>
                   <option value="Designer">Designer</option>
-                  <option value="App Devaloper">App Devaloper</option>
+                  <option value="App Devaloper">App Developer</option>
                   <option value="Artificial Intelligence">Artificial Intelligence</option>
-                  <option value="metarial">metarial</option>
+                  <option value="metarial">Material</option>
                </select>
             </div>
             <div className="form_group">

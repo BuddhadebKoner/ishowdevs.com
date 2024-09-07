@@ -12,7 +12,6 @@
    align-items: center;
    justify-content: center;
    flex-direction: row;
-   gap: 5rem;
 }
 
 .navbar_logo {
@@ -37,6 +36,7 @@
 
 .input_field_container {
    width: 300px;
+   margin-left: 30px;
    padding: 0px 10px;
    border: 2px solid #555;
    border-radius: 10px;
@@ -113,4 +113,34 @@
 
 .dropdown_menu a:hover {
    background-color: #f1f1f1;
+}
+
+.navbar_link_github {
+   width: 30px;
+   height: 30px;
+   margin-left: 20px;
+}
+
+.navbar_link_tweeter {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   padding: 6px;
+   border-radius: 5px;
+   gap: 5px;
+   background-color: #00345B;
+}
+
+.navbar_link_tweeter img {
+   width: 20px;
+   height: 20px;
+}
+
+.navbar_link_tweeter p {
+   color: white;
+   font-size: 15px;
+   font-weight: 500;
+   margin: 0;
+   padding: 0;
 }

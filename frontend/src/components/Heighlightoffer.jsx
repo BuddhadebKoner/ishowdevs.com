@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PublicContext } from '../context/public.context';
+import { Link } from 'react-router-dom';
 
 export default function HighlightOffers() {
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-   const { bigDealOffer } = useContext(PublicContext);
+   //context api
+   const { bigDealOffer, setPublicPost } = useContext(PublicContext);
 
-   
+
    // Ensure we use the first item in the array if bigDealOffer is an array
    const offer = Array.isArray(bigDealOffer) ? bigDealOffer[0] : bigDealOffer;
 
@@ -37,47 +39,62 @@ export default function HighlightOffers() {
 
    }, [offer]);
 
+   const handelSetPublicPost = () => {
+      console.log(offer);
+      setPublicPost(offer);
+      localStorage.setItem('publicPost', JSON.stringify(offer));
+   }
+
    return (
       <>
          {offer ? (
             <div className="heiglight_offers_container_box">
                <h1 className='heiglight_offers_container_box_heading'>Big Deal</h1>
-               <div className="heiglight_offers_details_container">
-                  <p className='buy_now_text'>Buy now</p>
-                  <div className="heiglight_offers_image_container">
-                     <img src={offer.image} alt="" />
-                  </div>
-                  <div className="heiglight_offers_details">
-                     <p className='heiglight_offers_details_title'>{offer.title}</p>
-                     <p className='heiglight_offers_details_content'>{offer.content}</p>
-                     <div className='heiglight_offers_details_prise'>
-                        <p className='priseBefore'>
-                           <span>₹</span>
-                           {offer.priseBefore}
-                           <span>/-</span>
-                        </p>
-                        <p className='priseNow'>
-                           {offer.priseNow === 0 ? (
-                              <span>Free</span>
+               <Link to={"/publicpost"}>
+                  <div className="heiglight_offers_details_container" onClick={handelSetPublicPost}>
+                     <p className='buy_now_text'>Buy now</p>
+                     <div className="heiglight_offers_image_container">
+                        <img src={offer.image} alt="" />
+                     </div>
+                     <div className="heiglight_offers_details">
+                        <p className='heiglight_offers_details_title'>{offer.title}</p>
+                        <p className='heiglight_offers_details_content'>{offer.content}</p>
+                        <div className='heiglight_offers_details_prise'>
+                           <p className='priseBefore'>
+                              <span>₹</span>
+                              {offer.priseBefore}
+                              <span>/-</span>
+                           </p>
+                           <p className='priseNow'>
+                              {offer.priseNow === 0 ? (
+                                 <span>Free</span>
+                              ) : (
+                                 <>
+                                    <span>₹</span>
+                                    {offer.priseNow}
+                                    <span>/-</span>
+                                 </>
+                              )}
+                           </p>
+                        </div>
+                        {
+                           offer.offerEndDate ? (
+                              <div className='countdown'>
+                                 <p>{`${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}</p>
+                              </div>
                            ) : (
-                              <>
-                                 <span>₹</span>
-                                 {offer.priseNow}
-                                 <span>/-</span>
-                              </>
-                           )}
-                        </p>
-                     </div>
+                              <p></p>
+                           )
+                        }
 
-                     <div className='countdown'>
-                        <p>{`${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}</p>
                      </div>
                   </div>
-               </div>
-            </div>
+               </Link>
+            </div >
          ) : (
             <div className="heiglight_offers_container_box_skelliton"></div>
-         )}
+         )
+         }
       </>
    );
 }

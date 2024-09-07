@@ -224,6 +224,7 @@
    right: 2rem;
    top: 1rem;
    transition: all 0.3s ease-in-out;
+   color: white;
 }
 
 .priseBefore {

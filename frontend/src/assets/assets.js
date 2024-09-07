@@ -8,12 +8,6 @@ import warn from './icons/warn.png';
 import varified from './icons/varified.svg';
 import forword_arrow from './icons/forword_arrow.png';
 // media icons
-import github from './media/github.png';
-import linkedin from './media/linkedin.png';
-import insta from './media/insta.png';
-import portfolio from './media/portfolio.png';
-import threads from './media/threads.png';
-import x from './media/x.png';
 import defaulticon from './media/default.png';
 // banners
 import testiminialsHero from './banners/testimonials_banner.svg';
@@ -32,6 +26,8 @@ import myprofile from './icons/myprofile.svg';
 import paymentRupee from './icons/paymentRupee.svg';
 import addbtn from './icons/add.svg'
 import arrowBack from './icons/arrowBack.svg';
+import githubmarkwhite from './media/github-mark-white.svg';
+import x_logo__logo from './media/x_logo__logo.svg';
 
 
 
@@ -46,12 +42,6 @@ export const assets = {
    warn: warn,
    varified: varified,
    forword_arrow: forword_arrow,
-   github: github,
-   linkedin: linkedin,
-   insta: insta,
-   portfolio: portfolio,
-   threads: threads,
-   x: x,
    defaulticon: defaulticon,
    testiminialsHero: testiminialsHero,
    customerService: customerService,
@@ -66,4 +56,6 @@ export const assets = {
    paymentRupee: paymentRupee,
    addbtn: addbtn,
    arrowBack: arrowBack,
+   githubmarkwhite: githubmarkwhite,
+   x: x_logo__logo
 }

@@ -60,14 +60,13 @@
 }
 
 .publicpost_ifream_container {
-   width: 90%;
-   height: 75vh;
+   width: 100%;
+   height: 40rem;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
    justify-content: space-evenly;
    margin-top: 10px;
-   border: 2px solid #ffffff;
    border-radius: 10px;
 }
 
@@ -82,6 +81,43 @@
    height: fit-content;
 }
 
+.publicpost_feature_product_details_container {
+   width: 100%;
+   margin-top: 20px;
+}
+
 .publicpost_container_heading_container h1 {
    font-size: 2rem;
+}
+
+.title_order_btn {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.title_order_btn h1 {
+   font-size: 2.5rem;
+}
+
+.title_order_btn button {
+   padding: 0.5rem 1rem;
+   border: none;
+   border-radius: 10px;
+   background: #007810;
+   color: white;
+   font-size: 1.2rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.desc_post_container {
+   width: 100%;
+}
+
+.desc_post_container p{
+   font-size: 1.3rem;
 }
