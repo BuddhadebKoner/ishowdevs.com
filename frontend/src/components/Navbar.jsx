@@ -63,10 +63,10 @@ export default function components() {
                </a>
             </div>
             <div className="right_navbar_container">
-               <NavLink to={"/explore"} className="navbar_link" onClick={handelExplorePosts}>
+               <NavLink to={"/explore"} className="navbar_link navbar_link_explore" onClick={handelExplorePosts}>
                   Explore
                </NavLink>
-               <NavLink to={"/about"} className="navbar_link">
+               <NavLink to={"/about"} className="navbar_link navbar_link_about">
                   About
                </NavLink>
                <a href="https://x.com/buddhadeb_koner" className='navbar_link_tweeter' target='_blank'>
@@ -78,7 +78,7 @@ export default function components() {
                </NavLink> */}
                {
                   isLoggedIn ? (
-                     <button className="navbar_link">
+                     <button className="navbar_link navbar_link_profile">
                         {
                            userData.avatar ? (
                               <div>
@@ -98,7 +98,7 @@ export default function components() {
                      </button>
                   ) : (
                      <NavLink to={"/login"} className="navbar_link login_navbar_link">
-                        Log in
+                        Sign in
                      </NavLink>
                   )
                }
