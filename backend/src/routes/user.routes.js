@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
    chnageCurrentPassword,
+   deleteUser,
    getAllUsers,
    getCurrentUser,
    loginUser,
@@ -55,6 +56,8 @@ router.route("/update-avatar").patch(verifyJWT, upload.single("avatar"), updateU
 router.route("/all-users").get(getAllUsers);
 // update acount details
 router.route("/update-myprofile").patch(verifyJWT, updateMyProfile);
+// delete account
+router.route("/delete-account").delete(verifyJWT, deleteUser);
 
 
 export default router;

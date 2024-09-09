@@ -111,11 +111,12 @@ const loginUser = asyncHandaller(async (req, res) => {
    }
 
    // find the user
-   const user = await User.findOne({
-      $or: [{ username }, { email }],
-   });
+   const user = await User.findOne({ $or: [{ username }, { email }] }, { isActive: true });
    if (!user) {
       throw new ApiError(404, "User does not exist");
+   }
+   if (user.isActive === false) {
+      throw new ApiError(405, "User is deleted");
    }
 
    // password check
@@ -258,7 +259,6 @@ const getCurrentUser = asyncHandaller(async (req, res) => {
       );
 });
 
-
 const updateUserAvatar = asyncHandaller(async (req, res) => {
    /*
    check for image
@@ -271,7 +271,7 @@ const updateUserAvatar = asyncHandaller(async (req, res) => {
       throw new ApiError(400, "Avatar is required");
    }
 
-   const folderName = `avatars-${req.user.username}`; 
+   const folderName = `avatars-${req.user.username}`;
 
    const avatar = await uploadOnCloudinary(avatarLocalPath, folderName);
 
@@ -333,7 +333,6 @@ const updateMyProfile = asyncHandaller(async (req, res) => {
    return res.status(200).json(new ApiResponce(200, "Profile updated", updatedFields));
 });
 
-
 const getAllUsers = asyncHandaller(async (req, res) => {
    try {
       // Fetch all active users, excluding sensitive fields
@@ -354,6 +353,35 @@ const getAllUsers = asyncHandaller(async (req, res) => {
    }
 });
 
+// delete acount
+const deleteUser = asyncHandaller(async (req, res) => {
+   await User.findByIdAndUpdate(
+      req.user._id,
+      {
+         $set: {
+            isActive: false,
+         },
+         $unset: {
+            refreshToken: 1,
+         },
+      },
+      {
+         new: true,
+      }
+   );
+   const options = {
+      httpOnly: true,
+      secure: true,
+   };
+
+   return res
+      .status(200)
+      .clearCookie("accessToken", options)
+      .clearCookie("refreshToken", options)
+      .json(new ApiResponce(200, {}, "User deleted successfully"));
+
+})
+
 
 
 export {
@@ -365,5 +393,6 @@ export {
    getCurrentUser,
    updateUserAvatar,
    getAllUsers,
-   updateMyProfile
+   updateMyProfile,
+   deleteUser
 };
