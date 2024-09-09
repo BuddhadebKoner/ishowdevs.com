@@ -1,9 +1,15 @@
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { assets } from '../../assets/assets';
+import { UserContext } from '../../context/user.context';
 
 export default function Myacount() {
-   const location = useLocation();
+   const { handelDeleteAccount } = useContext(UserContext)
+   const deleteAccount = () => {
+      console.log("delete");
+      
+      handelDeleteAccount()
+   }
 
    return (
       <div className="myacount_sidebar_container">
@@ -38,8 +44,8 @@ export default function Myacount() {
             <img src={assets.changepass} alt="" />
             Change Password
          </NavLink>
-         <button className='myacount_sidebar_link'>
-            <img src={assets.logout} alt="" />
+         <button className='myacount_sidebar_link' onClick={deleteAccount}>
+            <img src={assets.deleteforever} alt="" />
             Delete Acount
          </button>
       </div >

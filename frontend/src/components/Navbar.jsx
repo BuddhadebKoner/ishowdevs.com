@@ -110,10 +110,14 @@ export default function components() {
                   <NavLink to="/myacount" onClick={handleOptionClick}>
                      Your Account
                   </NavLink>
+                  <NavLink to={"/explore"} onClick={handleOptionClick}>
+                     Explore
+                  </NavLink>
                   <NavLink to="" onClick={handleOptionClick}>
                      Payment Details
                   </NavLink>
                   <NavLink to="" onClick={handelSignOut}>
+                     <img src={assets.logout} alt="" className='dropdown_menu_logout' />
                      Sign Out
                   </NavLink>
                </div>

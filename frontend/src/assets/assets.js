@@ -21,6 +21,7 @@ import profile from './icons/profile.svg';
 import arrow from './icons/arrow.svg';
 import changepass from './icons/chnagepass.svg';
 import logout from './icons/logout.svg';
+import deleteforever from './icons/delete_forever.svg';
 import myposts from './icons/myposts.svg';
 import myprofile from './icons/myprofile.svg';
 import paymentRupee from './icons/paymentRupee.svg';
@@ -51,6 +52,7 @@ export const assets = {
    arrow: arrow,
    changepass: changepass,
    logout: logout,
+   deleteforever: deleteforever,
    myposts: myposts,
    myprofile: myprofile,
    paymentRupee: paymentRupee,

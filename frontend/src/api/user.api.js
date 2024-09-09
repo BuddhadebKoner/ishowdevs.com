@@ -6,10 +6,9 @@ const userLogin = async (user) => {
    try {
       const response = await axiosInstance.post('/users/login', user);
       // console.log("Response from server:", response);
-
       return response;
    } catch (error) {
-      return error.response ? error.response.data : error.message;
+      return error.response;
    }
 };
 
@@ -76,8 +75,6 @@ const updateAvatar = async (formData) => {
    }
 };
 
-
-
 // update profile details
 const updateProfileDetails = async (updatedData) => {
    try {
@@ -88,6 +85,16 @@ const updateProfileDetails = async (updatedData) => {
    }
 }
 
+// delete account
+const deleteAccount = async () => {
+   try {
+      const response = await axiosInstance.delete('/users/delete-account');
+      return response;
+   } catch (error) {
+      return error.response ? error.response.data : error.message;
+   }
+};
+
 
 export {
    userLogin,
@@ -97,5 +104,6 @@ export {
    getCurrentUser,
    changePassword,
    updateAvatar,
-   updateProfileDetails
+   updateProfileDetails,
+   deleteAccount,
 };

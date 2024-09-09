@@ -1,3 +1,6 @@
+#tempotary files
+/temp_garbage_code
+
 # Node modules
 node_modules/
 package-lock.json

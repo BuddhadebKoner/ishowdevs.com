@@ -5,6 +5,7 @@ export default function Pages() {
    const { publicPost, setPublicPost } = useContext(PublicContext);
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
+
    useEffect(() => {
       const savedPost = localStorage.getItem('publicPost');
       if (savedPost) {
@@ -46,7 +47,7 @@ export default function Pages() {
                      <h1>Try the product</h1>
                   </div>
                   <div className="publicpost_ifream_container">
-                     <iframe src={publicPost.projectLink} frameborder="0"></iframe>
+                     <iframe src={publicPost.projectLink} frameBorder="0"></iframe>
                   </div>
                </div>
                <div className="publicpost_feature_product_details_container">

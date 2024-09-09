@@ -40,7 +40,7 @@ export default function HighlightOffers() {
    }, [offer]);
 
    const handelSetPublicPost = () => {
-      console.log(offer);
+      // console.log(offer);
       setPublicPost(offer);
       localStorage.setItem('publicPost', JSON.stringify(offer));
    }

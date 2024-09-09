@@ -40,10 +40,10 @@ export default function Pages() {
                   Designer
                </li>
                <li
-                  className={getLiClass('App Developer')}
-                  onClick={() => setSelectedTag('App Developer')}
+                  className={getLiClass('App Devaloper')}
+                  onClick={() => setSelectedTag('App Devaloper')}
                >
-                  App Developer
+                  App Devaloper
                </li>
                <li
                   className={getLiClass('Artificial Intelligence')}

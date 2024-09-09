@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
-import { userLogin, userLogout, userRegister, updateProfileDetails, changePassword, updateAvatar } from '../api/user.api';
+import { userLogin, userLogout, userRegister, updateProfileDetails, changePassword, updateAvatar, deleteAccount } from '../api/user.api';
 import notify from '../utils/notify';
 import { PublicContext } from './public.context';
 import { useNavigate } from 'react-router-dom';
@@ -141,7 +141,7 @@ const UserProvider = ({ children }) => {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
                navigate('/myacount');
-               // console.log("User logged in successfully:", res.data.data);
+               // console.log("User logged in successfully:", res);
                const UserData = res.data.data.user;
                setUserData(UserData);
                setIsLoggedIn(true);
@@ -155,7 +155,11 @@ const UserProvider = ({ children }) => {
             } else if (res.status === 401) {
                notify("Password is incorrect", 'error');
                setLoading(false);
-            } else {
+            } else if (res.status === 405) {
+               notify("User is deleted, Contact to admin for recover account", 'error');
+               setLoading(false);
+            }
+            else {
                notify("Login error", 'error');
                setLoading(false);
             }
@@ -432,7 +436,27 @@ const UserProvider = ({ children }) => {
          setLoading(false);
       }
    };
-
+   // delete account
+   const handelDeleteAccount = async () => {
+      setLoading(true);
+      try {
+         const res = await deleteAccount();
+         // console.log("Response from server:", res);
+         if (res && res.status === 200) {
+            notify("Account deleted successfully", 'success');
+            navigate('/');
+            setIsLoggedIn(false);
+            setLoading(false);
+         } else {
+            notify("Failed to delete account", 'error');
+            setLoading(false);
+         }
+      } catch (error) {
+         notify("An error occurred while deleting the account", 'error');
+         console.error('Error deleting account:', error);
+         setLoading(false);
+      }
+   }
 
 
 
@@ -463,6 +487,7 @@ const UserProvider = ({ children }) => {
          handelGetpost,
          userPosts,
          handelDeletePost,
+         handelDeleteAccount,
       }}>
          {children}
       </UserContext.Provider>
