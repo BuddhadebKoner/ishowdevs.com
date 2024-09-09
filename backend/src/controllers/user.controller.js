@@ -111,7 +111,8 @@ const loginUser = asyncHandaller(async (req, res) => {
    }
 
    // find the user
-   const user = await User.findOne({ $or: [{ username }, { email }] }, { isActive: true });
+   const user = await User.findOne({ $or: [{ username }, { email }] });
+   
    if (!user) {
       throw new ApiError(404, "User does not exist");
    }
