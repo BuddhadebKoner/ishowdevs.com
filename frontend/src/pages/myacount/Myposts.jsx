@@ -20,7 +20,6 @@ export default function myacount() {
             <img src={assets.addbtn} alt="" />
          </Link>
          <div className="previous_post_container">
-            <p>Previous posts</p>
             <Prevposts
                userid={userData._id}
             />

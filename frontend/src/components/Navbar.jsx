@@ -50,7 +50,7 @@ export default function components() {
                      <option value="">Select your catagory</option>
                      <option value="Web Developer">Web Developer</option>
                      <option value="Designer">Designer</option>
-                     <option value="App Devaloper">App Developer</option>
+                     <option value="App Developer">App Developer</option>
                      <option value="Artificial Intelligence">Artificial Intelligence</option>
                      <option value="metarial">Material</option>
                   </select>

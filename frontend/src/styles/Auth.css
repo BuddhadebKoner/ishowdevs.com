@@ -15,7 +15,7 @@
    height: fit-content;
    padding: 1.3rem var(--padding-x);
    background: linear-gradient(to right, #00345B, #00213A);
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -83,7 +83,7 @@
    border-radius: 10px;
    background-color: #AB3700;
    color: #ffffff;
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    font-size: 1.5rem;
    font-weight: 400;
    margin-top: 1.5rem;
@@ -104,13 +104,13 @@
 }
 
 .forgot_password h1 {
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    font-size: 1.2rem;
    color: white;
 }
 
 .forgot_password a {
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    text-decoration: underline;
    font-size: 1.2rem;
    color: white;

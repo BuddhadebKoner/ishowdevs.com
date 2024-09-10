@@ -122,57 +122,64 @@ const UserProvider = ({ children }) => {
    // Handle user login
    const handelLogin = async () => {
       setLoading(true);
+
+      // Validate login fields
       if (!LoginValidateFields()) {
+         setLoading(false);
          return;
       }
 
-      const user = {
-         username: loginUsername,
-         password: loginPassword,
-      };
+      // Regular expression to check if the input is an email
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      // console.log("User data being sent:", user);
+      // Initialize the user object
+      let user;
+
+      // Check if the login input is an email or a username
+      if (re.test(loginUsername)) {
+         user = {
+            email: loginUsername,  
+            password: loginPassword,
+         };
+      } else {
+         user = {
+            username: loginUsername, 
+            password: loginPassword,
+         };
+      }
 
       try {
          const res = await userLogin(user);
-         // console.log("Response from server:", res);
 
          if (res && res.status) {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
                navigate('/myacount');
-               // console.log("User logged in successfully:", res);
                const UserData = res.data.data.user;
                setUserData(UserData);
                setIsLoggedIn(true);
-               setLoading(false);
             } else if (res.status === 400) {
                notify("Username or email is required", 'error');
-               setLoading(false);
             } else if (res.status === 404) {
                notify("User does not exist", 'error');
-               setLoading(false);
             } else if (res.status === 401) {
                notify("Password is incorrect", 'error');
-               setLoading(false);
             } else if (res.status === 405) {
-               notify("User is deleted, Contact to admin for recover account", 'error');
-               setLoading(false);
-            }
-            else {
+               notify("User is deleted, contact admin for account recovery", 'error');
+            } else {
                notify("Login error", 'error');
-               setLoading(false);
             }
          } else {
             notify("Password is incorrect", 'error');
-            setLoading(false);
          }
       } catch (error) {
          notify("Failed to send data to server", 'error');
-         setLoading(false);
          console.error("Error during login:", error);
+      } finally {
+         setLoading(false);
       }
    };
+
    // Handle logout
    const handelLogout = async () => {
       setLoading(true);

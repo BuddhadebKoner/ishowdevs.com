@@ -9,7 +9,7 @@ const PublicContext = createContext();
 
 const PublicProvider = ({ children }) => {
    const [bigDealOffer, setBigDealOffer] = useState([]);
-   const [devalopers, setDevalopers] = useState([]);
+   const [Developers, setDevelopers] = useState([]);
    const [userpost, setUserpost] = useState([]);
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    // userData state
@@ -27,7 +27,7 @@ const PublicProvider = ({ children }) => {
       try {
          const res = await homeContents();
          setBigDealOffer(res.bigDealOffer);
-         setDevalopers(res.devalopers);
+         setDevelopers(res.Developers);
          setUserpost(res.userpost);
          setLoading(false);
       } catch (error) {
@@ -101,7 +101,7 @@ const PublicProvider = ({ children }) => {
 
    const contextValue = useMemo(() => ({
       bigDealOffer,
-      devalopers,
+      Developers,
       userpost,
       isLoggedIn,
       setIsLoggedIn,
@@ -113,7 +113,7 @@ const PublicProvider = ({ children }) => {
       handelExplorePosts,
       setPublicPost,
       publicPost
-   }), [bigDealOffer, devalopers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost]);
+   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost]);
 
    return (
       <PublicContext.Provider value={contextValue}>

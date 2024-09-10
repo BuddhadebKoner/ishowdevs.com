@@ -13,8 +13,8 @@ const homeContents = asyncHandaller(async (req, res) => {
          throw new ApiError(404, "No userpost found that showOnHomePage is true");
       }
 
-      const devalopers = await User.find({ showOnHomePage: true }).select("-password -__v -showOnHomePage -refreshToken");
-      if (!devalopers) {
+      const Developers = await User.find({ showOnHomePage: true }).select("-password -__v -showOnHomePage -refreshToken");
+      if (!Developers) {
          throw new ApiError(405, "No user found that showOnHomePage is true");
       }
 
@@ -24,7 +24,7 @@ const homeContents = asyncHandaller(async (req, res) => {
       }
 
       return res.status(200).json(
-         { bigDealOffer, devalopers, userpost }
+         { bigDealOffer, Developers, userpost }
       );
 
    } catch (error) {

@@ -6,7 +6,7 @@
    flex-direction: row;
    align-items: center;
    justify-content: center;
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    margin-top: 2rem;
 }
 
@@ -37,7 +37,7 @@
 
 /* sidebar */
 .myacount_sidebar_container {
-   width: 20%;
+   width: 22%;
    height: fit-content;
    display: flex;
    flex-direction: column;
@@ -56,7 +56,8 @@
    padding-left: 20px;
    color: white;
    text-decoration: none;
-   font-size: 1.5rem;
+   font-size: 1.3rem;
+   font-weight: 600;
    position: relative;
    overflow: hidden;
    transition: background-color 0.5s ease, color 0.5s ease;
@@ -200,7 +201,8 @@
 }
 
 .previous_post_container p {
-   font-size: 1.5rem;
+   font-size: 1rem;
+   margin-top: 10px;
 }
 
 .newpost_card_container {
@@ -246,9 +248,7 @@
 }
 
 .myaccount-container {
-   padding: 20px;
    width: 100%;
-   margin: 40px 0 0 0;
    /* Centered with more margin from the top */
    border-radius: 10px;
    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -285,9 +285,8 @@
 }
 
 .post-title {
-   font-size: 20px;
-   font-weight: bold;
-   /* Add more space below title */
+   font-size: 1.2rem;
+   font-weight: 500;
    color: #f0f0f0;
 }
 

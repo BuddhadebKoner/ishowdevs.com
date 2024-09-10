@@ -13,13 +13,13 @@ import 'swiper/css/pagination';
 import { assets } from '../assets/assets';
 
 export default function UserSwiperSlider() {
-   const { devalopers } = useContext(PublicContext);
+   const { Developers } = useContext(PublicContext);
 
    return (
       <>
          <div className="heiglight_devaloper_container">
             <h1 className='heiglight_devaloper_container_h1'>
-               Developers <span className='devaloper_Count'>{String(devalopers.length).padStart(2, '0')}</span>
+               Developers <span className='devaloper_Count'>{String(Developers.length).padStart(2, '0')}</span>
             </h1>
             <button className='swiper_button_next'>
                <img src={assets.arrow} alt="" />
@@ -39,8 +39,8 @@ export default function UserSwiperSlider() {
                className="mySwiper"
             >
                {
-                  devalopers.length ? (
-                     devalopers && devalopers
+                  Developers.length ? (
+                     Developers && Developers
                         .map((user, index) => (
                            <SwiperSlide key={index}>
                               <Devaloperdetails user={user} />

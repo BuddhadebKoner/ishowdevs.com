@@ -57,9 +57,9 @@ const Main = () => {
   );
 
   return (
-    <StrictMode>
+    // <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>
+    // </StrictMode>
   );
 };
 

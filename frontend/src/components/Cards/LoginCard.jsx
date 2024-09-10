@@ -25,11 +25,11 @@ export default function Cards() {
          </div>
          <div className="auth_card">
             <div className="form_group">
-               <label htmlFor="email">Username or Email*</label>
+               <label htmlFor="username">Username*</label>
                <input
-                  type="email"
+                  type="text"
                   className="form_control"
-                  id="email"
+                  id="username"
                   placeholder="Enter Your username"
                   autoComplete='off'
                   onChange={(e) => setLoginUsername(e.target.value)}

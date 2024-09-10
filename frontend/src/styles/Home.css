@@ -80,7 +80,7 @@
 
 .welcome_level_text {
    color: white;
-   font-size: 2rem;
+   font-size: 1.5rem;
    font-weight: 400;
    margin: 0;
 }
@@ -98,7 +98,7 @@
    width: 100%;
    height: fit-content;
    padding: 3rem var(--padding-x);
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
 }
 
 .heading_short_message {
@@ -200,16 +200,19 @@
    height: fit-content;
    padding: 0px 10px;
    border-radius: 5px;
-   font-size: 1.5rem;
+   font-size: 1.1rem;
    font-weight: 500;
    color: #5F5F5F;
    transition: all 0.3s ease-in-out;
 }
+.heiglight_offers_details_prise{
+   margin-top: 10px
+}
 
 .heiglight_offers_details_content,
 .heiglight_offers_details_prise {
-   font-size: 1.9rem;
-   font-weight: 500;
+   font-size: 1.3rem;
+   font-weight: 600;
    color: #ffffff;
    display: flex;
    gap: 20px;
@@ -242,23 +245,23 @@
    color: #ffffff;
 }
 
-/* All devalopers components */
+/* All Developers components */
 .devaloper_Count {
    color: #00db1d;
 }
 
-.All_devalopers {
+.All_Developers {
    width: 100%;
    height: fit-content;
    padding: 0rem var(--padding-x);
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
 }
 
 .all_services {
    width: 100%;
    height: fit-content;
    padding: 0rem var(--padding-x);
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    margin-top: 100px;
 }
 
@@ -416,8 +419,8 @@
 }
 
 .dev_card_work_as_text {
-   font-size: 1.5rem;
-   font-weight: 400;
+   font-size: 1.2rem;
+   font-weight: 500;
 }
 
 /* products */
@@ -425,7 +428,7 @@
 .product_section_container {
    width: 100%;
    height: fit-content;
-   font-family: var(--Regular-Item);
+   font-family: var(--Regular-Inter);
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -484,15 +487,15 @@
 }
 
 .dev_products_title {
-   font-size: 1.4rem;
-   font-weight: 500;
+   font-size: 1rem;
+   font-weight: 700;
    margin-top: 10px;
    color: #ffffff;
 }
 
 .dev_products_content {
-   font-size: 1.1rem;
-   font-weight: 400;
+   font-size: 1rem;
+   font-weight: 500;
    margin-top: 10px;
    color: #C3C3C3;
 }

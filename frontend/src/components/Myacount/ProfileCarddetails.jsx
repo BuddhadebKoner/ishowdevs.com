@@ -118,7 +118,7 @@ export default function MyAccount({ fullName, mobile, portfolio, workAs, keyWord
                      <option value="">Select your job title</option>
                      <option value="Web Developer">Web Developer</option>
                      <option value="Designer">Designer</option>
-                     <option value="App Devaloper">App Devaloper</option>
+                     <option value="App Developer">App Developer</option>
                      <option value="Artificial Intelligence">Artificial Intelligence</option>
                      <option value="metarial">metarial</option>
                   </select>
