@@ -142,7 +142,7 @@
 
 .heiglight_offers_details_container {
    width: 100%;
-   height: 200px;
+   height: 150px;
    position: relative;
    display: flex;
    flex-direction: row;
@@ -187,7 +187,7 @@
 }
 
 .heiglight_offers_details {
-   width: 100%;
+   width: fit-content;
    height: 100%;
    display: flex;
    flex-direction: column;
@@ -306,7 +306,7 @@
 
 .indivisual_dev_cards_box {
    width: 100%;
-   height: 22rem;
+   height: 20rem;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
@@ -413,13 +413,14 @@
 }
 
 .dev_card_work_as {
-   font-size: 1.5rem;
+   font-size: 1.1rem;
    font-weight: 500;
    color: #989898;
 }
 
 .dev_card_work_as_text {
    font-size: 1.2rem;
+   margin-top: 10px;
    font-weight: 500;
 }
 
