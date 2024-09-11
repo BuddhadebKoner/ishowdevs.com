@@ -38,30 +38,30 @@ export default function components() {
                   <span className="logo_normal_text">CODE</span>
                   <span className="text_gradient">BRIDGE</span>
                </NavLink>
+               <div className="input_field_container">
+                  <select
+                     name="WorkAs"
+                     id="WorkAs"
+                     autoComplete="off"
+                     className="dark_mode_dropdown"
+                     required
+                     defaultValue="Select your catagory"
+                  >
+                     <option value="">Select your catagory</option>
+                     <option value="Web Developer">Web Developer</option>
+                     <option value="Designer">Designer</option>
+                     <option value="App Developer">App Developer</option>
+                     <option value="Artificial Intelligence">Artificial Intelligence</option>
+                     <option value="metarial">Material</option>
+                  </select>
+                  <button>
+                     <img src={assets.searchIocn} alt="" />
+                  </button>
+               </div>
+               <a href="https://github.com/BuddhadebKoner" className='navbar_link_github' target='_blank'>
+                  <img src={assets.githubmarkwhite} alt="" />
+               </a>
             </div>
-            <div className="input_field_container">
-               <select
-                  name="WorkAs"
-                  id="WorkAs"
-                  autoComplete="off"
-                  className="dark_mode_dropdown"
-                  required
-                  defaultValue="Select your catagory"
-               >
-                  <option value="">Select your catagory</option>
-                  <option value="Web Developer">Web Developer</option>
-                  <option value="Designer">Designer</option>
-                  <option value="App Developer">App Developer</option>
-                  <option value="Artificial Intelligence">Artificial Intelligence</option>
-                  <option value="metarial">Material</option>
-               </select>
-               <button>
-                  <img src={assets.searchIocn} alt="" />
-               </button>
-            </div>
-            <a href="https://github.com/BuddhadebKoner" className='navbar_link_github' target='_blank'>
-               <img src={assets.githubmarkwhite} alt="" />
-            </a>
             <div className="right_navbar_container">
                <NavLink to={"/explore"} className="navbar_link navbar_link_explore" onClick={handelExplorePosts}>
                   Explore

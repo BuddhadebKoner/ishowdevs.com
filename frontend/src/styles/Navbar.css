@@ -1,7 +1,7 @@
 .navbar_container {
    width: 100%;
    height: var(--navbar-height);
-   padding: 0 var(--padding-x);
+   padding: 20px var(--padding-x);
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -103,7 +103,7 @@
 .dropdown_menu {
    width: 200px;
    position: absolute;
-   top: var(--navbar-height);
+   top: 80px;
    right: var(--padding-x);
    background-color: #00345B;
    color: #ffffff;

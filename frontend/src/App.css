@@ -6,7 +6,7 @@
 }
 
 :root {
-   --navbar-height: 90px;
+   --navbar-height: fit-content;
    --padding-x: 10rem;
    --Regular-Inter: "Inter", sans-serif;
    --Regular-Item: "Itim-Regular", sans-serif;

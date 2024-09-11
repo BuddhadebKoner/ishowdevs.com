@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { PublicContext } from '../../context/public.context';
 
 export default function Cards({ user }) {
-   const { handelPublicUserPostByid } = useContext(PublicContext);
+   const { handelPublicUserPostByid, setPublicAccountShow } = useContext(PublicContext);
    const navigate = useNavigate();
 
    const roleClasses = {
@@ -21,6 +21,7 @@ export default function Cards({ user }) {
 
       // Use navigate to redirect to the profile page with the username in the URL
       navigate(`/public/${user.username}`);
+      setPublicAccountShow(user);
    };
 
 
