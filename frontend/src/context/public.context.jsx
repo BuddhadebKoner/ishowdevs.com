@@ -20,6 +20,8 @@ const PublicProvider = ({ children }) => {
    const [explorePosts, setExplorePosts] = useState([]);
    // public post page data
    const [publicPost, setPublicPost] = useState();
+   // public account user posts
+   const [publicUserPosts, setPublicUserPosts] = useState([]);
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -36,6 +38,7 @@ const PublicProvider = ({ children }) => {
       }
    };
 
+   // check if user is logged in
    const checkLoggedIn = async () => {
       setLoading(true);
       try {
@@ -57,6 +60,7 @@ const PublicProvider = ({ children }) => {
       }
    };
 
+   // handle error response
    const handleErrorResponse = (res) => {
       const errorMessages = {
          404: "No user post found to display on the home page.",
@@ -69,6 +73,7 @@ const PublicProvider = ({ children }) => {
       setIsLoggedIn(false);
    };
 
+   // get all posts for explore page
    const handelExplorePosts = async () => {
       setLoading(true);
       try {
@@ -91,8 +96,27 @@ const PublicProvider = ({ children }) => {
          setLoading(false);
       }
    };
-
-
+   // get public acount user post 
+   const handelPublicUserPostByid = async (userid) => {
+      setLoading(true);
+      // console.log("User id:", userid);
+      try {
+         const res = await getAllPostsByUserId(userid);
+         if (res.status === 200) {
+            // console.log("Fetched posts:", res.data.data);
+            setPublicUserPosts(res.data.data);
+            setLoading(false);
+         } else {
+            notify("Failed to get user posts", 'error');
+            // console.error("Error getting all posts by user:", res);
+            setLoading(false);
+         }
+      } catch (error) {
+         // notify("Failed to get user posts", 'error');
+         console.log("Error getting all posts by user:");
+         setLoading(false);
+      }
+   };
 
    useEffect(() => {
       handleHomeContents();
@@ -112,8 +136,10 @@ const PublicProvider = ({ children }) => {
       explorePosts,
       handelExplorePosts,
       setPublicPost,
-      publicPost
-   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost]);
+      publicPost,
+      publicUserPosts,
+      handelPublicUserPostByid,
+   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost, publicUserPosts, handelPublicUserPostByid,]);
 
    return (
       <PublicContext.Provider value={contextValue}>

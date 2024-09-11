@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PublicContext } from '../../context/public.context';
 
 export default function Cards({ post }) {
    const { setPublicPost } = useContext(PublicContext);
+   const navigate = useNavigate();
 
    const publicPostClicked = () => {
       setPublicPost(post);
       localStorage.setItem('publicPost', JSON.stringify(post)); 
+      navigate(`/post/${post._id}`);
    };
 
    return (
       <div className="indivisual_dev_cards_box_products" onClick={publicPostClicked}>
-         <Link to='/publicpost' className='dev_products_link'>
             <div className="dev_products_image_box">
                <img src={post.image} alt="" className='dev_products_image' />
             </div>
@@ -31,7 +32,6 @@ export default function Cards({ post }) {
                </div>
                <button className='buynow_btn_product_card'>Buy now</button>
             </div>
-         </Link>
       </div>
    );
 }

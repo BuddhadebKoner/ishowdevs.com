@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
@@ -37,29 +37,35 @@ const Main = () => {
     createRoutesFromElements(
       <Route path='/' element={<App />}>
         <Route index element={<Home />} />
+
+        {/* User authentication routes */}
         <Route path='login' element={<Login />} />
-        <Route path='myacount' element={<Myacount />} >
+        <Route path='register' element={<Registeruser />} />
+        <Route path='forgot-password' element={<Forgotpassword />} />
+
+        {/* User profile routes */}
+        <Route path='account/:userID' element={<Myacount />}>
           <Route index element={<Myprofile />} />
-          <Route path='myposts' element={<Myposts />} />
-          <Route path='addpost' element={<Addpost />} />
-          <Route path='paymentdetails' element={<Paymentdetails />} />
-          <Route path='chnagepassword' element={<Passwordchnage />} />
+          <Route path='posts' element={<Myposts />} />
+          <Route path='add-post' element={<Addpost />} />
+          <Route path='payment-details' element={<Paymentdetails />} />
+          <Route path='change-password' element={<Passwordchnage />} />
         </Route>
-        <Route path='publicacount' element={<Publicacount />} />
-        <Route path='registeruser' element={<Registeruser />} />
+
+        {/* Public profile and post routes */}
+        <Route path='public/:username' element={<Publicacount />} />
+        <Route path='post/:postid' element={<Publicpost />} />
+
+        {/* Content routes */}
         <Route path='explore' element={<Explore />} />
-        <Route path='publicpost' element={<Publicpost />} />
         <Route path='blogpost' element={<Blogpost />} />
         <Route path='about' element={<About />} />
-        <Route path='forgotpassword' element={<Forgotpassword />} />
       </Route>
     )
   );
 
   return (
-    // <StrictMode>
-      <RouterProvider router={router} />
-    // </StrictMode>
+    <RouterProvider router={router} />
   );
 };
 

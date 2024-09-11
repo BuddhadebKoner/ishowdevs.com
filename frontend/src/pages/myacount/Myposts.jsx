@@ -15,7 +15,7 @@ export default function myacount() {
    return (
 
       <>
-         <Link to={"/myacount/addpost"} className="add_newpost_container">
+         <Link to={`/account/${userData._id}/add-post`} className="add_newpost_container">
             <p>Add new post</p>
             <img src={assets.addbtn} alt="" />
          </Link>

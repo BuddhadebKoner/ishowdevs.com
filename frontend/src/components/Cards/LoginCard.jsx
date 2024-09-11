@@ -17,7 +17,7 @@ export default function Cards() {
             <h1 className='welcome_level_login_big_text'>Sign In to Your Account</h1>
             <h1 className='welcome_level_login_small_text'>You don’t have account ?
                <span >
-                  <Link to={"/registeruser"} className='signup_Link'>
+                  <Link to={"/register"} className='signup_Link'>
                      sign up
                   </Link>
                </span>
@@ -48,7 +48,7 @@ export default function Cards() {
             </div>
             <button type="submit" className="btn" onClick={() => { handelLogin() }}>SIGN IN</button>
             <div className="forgot_password">
-               <Link to={"/forgotpassword"}>Forgot Password?</Link>
+               <Link to={"/forgot-password"}>Forgot Password?</Link>
             </div>
          </div>
       </>

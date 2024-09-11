@@ -138,12 +138,12 @@ const UserProvider = ({ children }) => {
       // Check if the login input is an email or a username
       if (re.test(loginUsername)) {
          user = {
-            email: loginUsername,  
+            email: loginUsername,
             password: loginPassword,
          };
       } else {
          user = {
-            username: loginUsername, 
+            username: loginUsername,
             password: loginPassword,
          };
       }
@@ -154,7 +154,7 @@ const UserProvider = ({ children }) => {
          if (res && res.status) {
             if (res.status === 200) {
                notify("User logged in successfully", 'success');
-               navigate('/myacount');
+               navigate(`/account/${userData._id}`);
                const UserData = res.data.data.user;
                setUserData(UserData);
                setIsLoggedIn(true);
@@ -307,7 +307,7 @@ const UserProvider = ({ children }) => {
          if (res && res.status === 200) {
             notify("Password changed successfully", 'success');
             notify("keep your new password safe", 'info');
-            navigate('/myacount');
+            navigate(`/account/${userData._id}`);
             setLoading(false);
          } else if (res && res.status === 400) {
             notify("Old password and new password are required", 'error');
@@ -464,7 +464,7 @@ const UserProvider = ({ children }) => {
          setLoading(false);
       }
    }
-
+  
 
 
    return (

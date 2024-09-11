@@ -4,50 +4,53 @@ import { assets } from '../../assets/assets';
 import { UserContext } from '../../context/user.context';
 
 export default function Myacount() {
-   const { handelDeleteAccount } = useContext(UserContext)
+   const { userData, handelDeleteAccount } = useContext(UserContext);
+
    const deleteAccount = () => {
       console.log("delete");
-      
-      handelDeleteAccount()
-   }
+      handelDeleteAccount();
+   };
 
    return (
       <div className="myacount_sidebar_container">
-         <NavLink to="" className="myacount_sidebar_link shining_effect">
-            <img src={assets.myprofile} alt="" />
+         <NavLink 
+            to="" 
+            className="myacount_sidebar_link shining_effect"
+         >
+            <img src={assets.myprofile} alt="My Profile" />
             My Profile
          </NavLink>
          <NavLink
-            to="/myacount/myposts"
+            to="posts"
             className={({ isActive }) =>
                isActive ? "NavlinkActive myacount_sidebar_link" : "myacount_sidebar_link"
             }
          >
-            <img src={assets.myposts} alt="" />
+            <img src={assets.myposts} alt="Your Posts" />
             Your Posts
          </NavLink>
          <NavLink
-            to="/myacount/paymentdetails"
+            to="payment-details"
             className={({ isActive }) =>
                isActive ? "NavlinkActive myacount_sidebar_link" : "myacount_sidebar_link"
             }
          >
-            <img src={assets.paymentRupee} alt="" />
+            <img src={assets.paymentRupee} alt="Payment Details" />
             Payment Details
          </NavLink>
          <NavLink
-            to="/myacount/chnagepassword"
+            to="change-password"
             className={({ isActive }) =>
                isActive ? "NavlinkActive myacount_sidebar_link" : "myacount_sidebar_link"
             }
          >
-            <img src={assets.changepass} alt="" />
+            <img src={assets.changepass} alt="Change Password" />
             Change Password
          </NavLink>
          <button className='myacount_sidebar_link' onClick={deleteAccount}>
-            <img src={assets.deleteforever} alt="" />
-            Delete Acount
+            <img src={assets.deleteforever} alt="Delete Account" />
+            Delete Account
          </button>
-      </div >
+      </div>
    );
 }

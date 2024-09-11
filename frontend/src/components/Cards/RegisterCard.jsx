@@ -18,7 +18,7 @@ export default function Cards() {
             <h1 className='welcome_level_login_big_text'>Ohh ! Create Account</h1>
             <h1 className='welcome_level_login_small_text'>Sign up for being our member
                <span >
-                  <Link to={"/registeruser"} className='signup_Link'>
+                  <Link to={"/register"} className='signup_Link'>
                      Turms & Conditions
                   </Link>
                </span>

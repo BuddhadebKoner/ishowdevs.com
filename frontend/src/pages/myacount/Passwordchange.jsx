@@ -41,7 +41,7 @@ export default function pages() {
                </div>
                <button type="submit" className="btn" onClick={() => { handelPasswordChange() }}>Chnage Password</button>
                <div className="forgot_password">
-                  <Link to={"/forgotpassword"}>Forgot Password?</Link>
+                  <Link to={"/forgot-password"}>Forgot Password?</Link>
                </div>
             </div>
          </div>
