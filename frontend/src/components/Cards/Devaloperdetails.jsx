@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import { assets } from '../../assets/assets';
-import { useNavigate } from 'react-router-dom';
 import { PublicContext } from '../../context/public.context';
 
 export default function Cards({ user }) {
-   const { handelPublicUserPostByid, setPublicAccountShow } = useContext(PublicContext);
-   const navigate = useNavigate();
+   const { handlePublicProfileData } = useContext(PublicContext);
 
    const roleClasses = {
       user: 'bg-[#3FA2F6]',
@@ -15,14 +13,6 @@ export default function Cards({ user }) {
 
    const themeClasses = roleClasses[user.role] || 'bg-gray-500 text-white';
 
-   const handleSeeProfile = () => {
-      console.log('See Profile');
-      handelPublicUserPostByid(user._id);
-
-      // Use navigate to redirect to the profile page with the username in the URL
-      navigate(`/public/${user.username}`);
-      setPublicAccountShow(user);
-   };
 
 
    return (
@@ -61,7 +51,7 @@ export default function Cards({ user }) {
                </div>
             </div>
             <div className={`dev_card_see_profile_btn ${themeClasses}`}>
-               <button className='see_profile' onClick={handleSeeProfile}>
+               <button className='see_profile' onClick={() => { handlePublicProfileData(user) }}>
                   See Profile
                </button>
             </div>

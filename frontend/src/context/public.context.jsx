@@ -1,9 +1,11 @@
-import React, { createContext, useEffect, useState, useMemo, useContext } from 'react';
+import React, { createContext, useEffect, useState, useMemo } from 'react';
 import { homeContents } from '../api/admin.api';
 import { getCurrentUser } from '../api/user.api';
 import { Toaster } from 'react-hot-toast';
 import notify from '../utils/notify';
 import { getallposts } from '../api/posts.api';
+import { useNavigate } from 'react-router-dom';
+
 
 const PublicContext = createContext();
 
@@ -24,6 +26,9 @@ const PublicProvider = ({ children }) => {
    const [publicUserPosts, setPublicUserPosts] = useState([]);
    // public account showing 
    const [publicAccountShow, setPublicAccountShow] = useState({});
+
+   // navigate page
+   const navigate = useNavigate();
 
    // Fetch home contents data
    const handleHomeContents = async () => {
@@ -119,10 +124,17 @@ const PublicProvider = ({ children }) => {
          setLoading(false);
       }
    };
+   const handlePublicProfileData = (user) => {
+      const userPosts = explorePosts.filter(post => post.author === user._id);
+      setPublicAccountShow({ user, posts: userPosts });
+      navigate(`/public/${user.username}`);
+   };
+
 
    useEffect(() => {
       handleHomeContents();
       checkLoggedIn();
+      handelExplorePosts();
    }, []);
 
    const contextValue = useMemo(() => ({
@@ -141,9 +153,9 @@ const PublicProvider = ({ children }) => {
       publicPost,
       publicUserPosts,
       handelPublicUserPostByid,
-      setPublicAccountShow,
+      handlePublicProfileData,
       publicAccountShow
-   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost, publicUserPosts, handelPublicUserPostByid, setPublicAccountShow, publicAccountShow]);
+   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost, publicUserPosts, handelPublicUserPostByid, handlePublicProfileData, publicAccountShow]);
 
    return (
       <PublicContext.Provider value={contextValue}>

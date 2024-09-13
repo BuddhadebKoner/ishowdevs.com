@@ -14,7 +14,7 @@ export default function Cards({ post }) {
 
    return (
       <div className="indivisual_dev_cards_box_products" onClick={publicPostClicked}>
-            <div className="dev_products_image_box">
+         <div className="dev_products_image_box">
                <img src={post.image} alt="" className='dev_products_image' />
             </div>
             <h1 className='dev_products_title'>{post.title}</h1>
