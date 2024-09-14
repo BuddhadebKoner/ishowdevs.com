@@ -29,6 +29,8 @@ import addbtn from './icons/add.svg'
 import arrowBack from './icons/arrowBack.svg';
 import githubmarkwhite from './media/github-mark-white.svg';
 import x_logo__logo from './media/x_logo__logo.svg';
+import rocketLogo from './icons/rocketLogo.svg';
+import samll_right_arrow from './icons/samll_right_arrow.svg'
 
 
 
@@ -59,5 +61,7 @@ export const assets = {
    addbtn: addbtn,
    arrowBack: arrowBack,
    githubmarkwhite: githubmarkwhite,
-   x: x_logo__logo
+   x: x_logo__logo,
+   rocketLogo: rocketLogo,
+   samll_right_arrow: samll_right_arrow
 }
