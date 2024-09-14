@@ -4,6 +4,7 @@ import Welcomelevel from '../components/Welcomelevel';
 import Heighlightoffer from '../components/Heighlightoffer';
 import Developers from '../components/Devalopers';
 import Products from '../components/Products';
+import Footer from '../pages/Footer';
 // flobal style for all home children
 import '../styles/Home.css';
 import { PublicContext } from '../context/public.context';
@@ -30,6 +31,7 @@ export default function pages() {
                <Products />
             </div>
          </div>
+         <Footer/>
       </>
 
    )

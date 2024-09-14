@@ -60,6 +60,8 @@ const Main = () => {
         <Route path='explore' element={<Explore />} />
         <Route path='blogpost' element={<Blogpost />} />
         <Route path='about' element={<About />} />
+
+        {/* 404 route */}
       </Route>
     )
   );

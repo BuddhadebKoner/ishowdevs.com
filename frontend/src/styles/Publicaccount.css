@@ -64,6 +64,7 @@
    font-size: 1rem;
    font-weight: 500;
    margin-bottom: 10px;
+   text-align: initial;
 }
 
 .portfolio_link,
@@ -105,12 +106,12 @@
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.public_account_container{
-  width: 100%;
-  height: fit-content;
+.public_account_container {
+   width: 100%;
+   height: fit-content;
 }
 
-.public_profile_posts{
+.public_profile_posts {
    width: fit-content;
    display: flex;
    align-items: flex-start;

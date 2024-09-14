@@ -262,7 +262,7 @@
    height: fit-content;
    padding: 0rem var(--padding-x);
    font-family: var(--Regular-Inter);
-   margin-top: 100px;
+   margin: 100px 0;
 }
 
 .heiglight_devaloper_container {
