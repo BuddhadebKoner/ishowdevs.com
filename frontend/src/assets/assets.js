@@ -31,6 +31,7 @@ import githubmarkwhite from './media/github-mark-white.svg';
 import x_logo__logo from './media/x_logo__logo.svg';
 import rocketLogo from './icons/rocketLogo.svg';
 import samll_right_arrow from './icons/samll_right_arrow.svg'
+import weblogo from './weblogo/logo.svg'
 
 
 
@@ -63,5 +64,6 @@ export const assets = {
    githubmarkwhite: githubmarkwhite,
    x: x_logo__logo,
    rocketLogo: rocketLogo,
-   samll_right_arrow: samll_right_arrow
+   samll_right_arrow: samll_right_arrow,
+   weblogo: weblogo
 }

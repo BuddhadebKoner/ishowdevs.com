@@ -38,8 +38,9 @@ export default function Components() {
          <nav className="navbar_container">
             <div className="left_navbar_container">
                <NavLink to={""} className="navbar_logo">
-                  <span className="logo_normal_text">CODE</span>
-                  <span className="text_gradient">BRIDGE</span>
+                  {/* <span className="logo_normal_text">CODE</span>
+                  <span className="text_gradient">BRIDGE</span> */}
+                  <img src={assets.weblogo} alt="" />
                </NavLink>
                <div className="input_field_container">
                   <select

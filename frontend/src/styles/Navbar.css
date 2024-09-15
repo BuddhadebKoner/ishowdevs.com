@@ -22,7 +22,7 @@
    font-weight: 700;
 }
 
-.text_gradient {
+/* .text_gradient {
    background: linear-gradient(90deg, #ffffff, #00DB1D);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -32,7 +32,7 @@
    background: linear-gradient(90deg, #FF671F, #ffffff);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-}
+} */
 
 .input_field_container {
    width: 300px;

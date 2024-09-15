@@ -9,7 +9,7 @@ export default function components({ fullName = "Fox ", isBatchShow = false }) {
             <h1 className="welcome_level_title">Hi {fullName} !</h1>
             <div className="wellcome_message_container_text">
                <p className="welcome_level_text">
-                  Welcome to Code Bridge!&nbsp;
+                  Welcome to IShowdevs.com&nbsp;
                </p>
                {
                   isBatchShow && (
