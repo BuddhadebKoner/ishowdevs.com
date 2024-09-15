@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../styles/Explore.css';
 import Allpostfilter from '../components/Allpostfilter/Allpost';
 import { PublicContext } from '../context/public.context';
 
 export default function Pages() {
-   const { explorePosts } = useContext(PublicContext);
-   const [selectedTag, setSelectedTag] = useState('All post');
+   const { handleExplorePostByTags, selectedTag } = useContext(PublicContext);
+   const [filteredPosts, setFilteredPosts] = useState([]);
 
-   // Filter posts based on the selected tag
-   const filteredPosts = selectedTag === 'All post'
-      ? explorePosts
-      : explorePosts.filter(post => post.tags === selectedTag);
+   useEffect(() => {
+      const posts = handleExplorePostByTags(selectedTag);
+      setFilteredPosts(posts);
+   }, [selectedTag, handleExplorePostByTags]);
 
    const getLiClass = (tag) => (
       `cursor-pointer py-2 px-4 rounded-lg 
@@ -23,37 +23,37 @@ export default function Pages() {
             <div className="explore_navbar_links flex space-x-4">
                <li
                   className={getLiClass('All post')}
-                  onClick={() => setSelectedTag('All post')}
+                  onClick={() => handleExplorePostByTags('All post')}
                >
                   All post
                </li>
                <li
                   className={getLiClass('Web Developer')}
-                  onClick={() => setSelectedTag('Web Developer')}
+                  onClick={() => handleExplorePostByTags('Web Developer')}
                >
                   Web Developer
                </li>
                <li
                   className={getLiClass('Designer')}
-                  onClick={() => setSelectedTag('Designer')}
+                  onClick={() => handleExplorePostByTags('Designer')}
                >
                   Designer
                </li>
                <li
                   className={getLiClass('App Developer')}
-                  onClick={() => setSelectedTag('App Developer')}
+                  onClick={() => handleExplorePostByTags('App Developer')}
                >
                   App Developer
                </li>
                <li
                   className={getLiClass('Artificial Intelligence')}
-                  onClick={() => setSelectedTag('Artificial Intelligence')}
+                  onClick={() => handleExplorePostByTags('Artificial Intelligence')}
                >
                   Artificial Intelligence
                </li>
                <li
                   className={getLiClass('Material')}
-                  onClick={() => setSelectedTag('Material')}
+                  onClick={() => handleExplorePostByTags('Material')}
                >
                   Material
                </li>

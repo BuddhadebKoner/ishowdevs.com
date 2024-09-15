@@ -20,6 +20,7 @@ const PublicProvider = ({ children }) => {
    const [loading, setLoading] = useState(false);
    // explore section posts data 
    const [explorePosts, setExplorePosts] = useState([]);
+   const [selectedTag, setSelectedTag] = useState('All post');
    // public post page data
    const [publicPost, setPublicPost] = useState();
    // public account user posts
@@ -103,6 +104,13 @@ const PublicProvider = ({ children }) => {
          setLoading(false);
       }
    };
+   // Function to handle filtering posts by tag
+   const handleExplorePostByTags = (tag) => {
+      setSelectedTag(tag);
+      return tag === 'All post'
+         ? explorePosts
+         : explorePosts.filter(post => post.tags === tag);
+   };
    // get public acount user post 
    const handelPublicUserPostByid = async (userid) => {
       setLoading(true);
@@ -124,6 +132,7 @@ const PublicProvider = ({ children }) => {
          setLoading(false);
       }
    };
+   // handle public profile data
    const handlePublicProfileData = (user) => {
       const userPosts = explorePosts.filter(post => post.author === user._id);
       setPublicAccountShow({ user, posts: userPosts });
@@ -154,8 +163,11 @@ const PublicProvider = ({ children }) => {
       publicUserPosts,
       handelPublicUserPostByid,
       handlePublicProfileData,
-      publicAccountShow
-   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost, publicUserPosts, handelPublicUserPostByid, handlePublicProfileData, publicAccountShow]);
+      publicAccountShow,
+      handleExplorePostByTags,
+      selectedTag,
+   }), [bigDealOffer, Developers, userpost, isLoggedIn, setIsLoggedIn, userData, setUserData, setLoading, loading, explorePosts, handelExplorePosts, publicPost, setPublicPost, publicUserPosts, handelPublicUserPostByid, handlePublicProfileData, publicAccountShow, handleExplorePostByTags,
+      selectedTag,]);
 
    return (
       <PublicContext.Provider value={contextValue}>
