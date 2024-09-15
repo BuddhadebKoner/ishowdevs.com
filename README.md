@@ -4,8 +4,8 @@
 **End:** Ongoing
 
 ---
-
-![image](./Banner/banner.svg)
+![image](https://res.cloudinary.com/dsfztnp9x/image/upload/v1726392413/portfolio/am14abeqvpte8eu5egl4.svg)
+---
 
 ### **🚀 Vision**
 
