@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { PublicContext } from '../context/public.context';
 
-
 // components
 import Devaloperdetails from './Cards/Devaloperdetails';
 
@@ -24,7 +23,6 @@ export default function UserSwiperSlider() {
             <button className='swiper_button_next'>
                <img src={assets.arrow} alt="" />
             </button>
-
          </div>
          <div className="users_swiper_slider">
             <Swiper
@@ -37,15 +35,22 @@ export default function UserSwiperSlider() {
                }}
                modules={[Navigation, Autoplay]}
                className="mySwiper"
+               breakpoints={{
+                  0: { 
+                     slidesPerView: 1,
+                  },
+                  850: {
+                     slidesPerView: 3,
+                  }
+               }}
             >
                {
                   Developers.length ? (
-                     Developers && Developers
-                        .map((user, index) => (
-                           <SwiperSlide key={index}>
-                              <Devaloperdetails user={user} />
-                           </SwiperSlide>
-                        ))
+                     Developers.map((user, index) => (
+                        <SwiperSlide key={index}>
+                           <Devaloperdetails user={user} />
+                        </SwiperSlide>
+                     ))
                   ) : (
                      <SwiperSlide>
                         <div className="heiglight_devaloper_container_skelliton"></div>

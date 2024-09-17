@@ -649,7 +649,7 @@
       width: 50vw;
       height: fit-content;
       flex-direction: column;
-      padding: 1vw;
+      padding: 2vw;
    }
 
    .buy_now_text {
@@ -681,12 +681,74 @@
    .indivisual_dev_cards_box {
       padding: 1vw;
    }
+
+   .heiglight_devaloper_container_h1 {
+      font-size: 3vw;
+   }
+
+   .swiper_button_next img {
+      width: 4vw;
+   }
+
+   .dev_card_work_as_text {
+      margin-top: 0;
+   }
 }
 
 /* 471px */
-@media screen and (max-width: 471px) {
+@media screen and (max-width: 521px) {
    .welcome_level_text {
       font-size: 1rem;
+   }
+
+   .wellcome_message_container_text {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+   }
+
+   .welcome_level_home {
+      padding: 10px 1rem;
+   }
+
+   .heiglight_offers {
+      padding: 10px 1rem;
+   }
+
+   .heiglight_offers_container_box_heading {
+      font-size: 1rem;
+   }
+
+   .heiglight_offers_details_container {
+      width: 80vw;
+   }
+
+   .heiglight_offers_details_title,
+   .heiglight_offers_details_content,
+   .heiglight_offers_details_prise,
+   .countdown p {
+      font-size: 0.8rem;
+   }
+
+   .heiglight_offers_details_title {
+      background: transparent;
+      color: #ffffff;
+      padding: 0;
+   }
+
+   .heiglight_offers_details_content {
+      color: #5F5F5F;
+   }
+
+   .heiglight_offers_details_container:hover {
+      border: 1px solid #5F5F5F;
+      background: none;
+   }
+
+   .heiglight_offers_details_container:hover .heiglight_offers_details_title {
+      background: none;
+      color: #00db1d;
+
    }
 
 }
@@ -695,5 +757,82 @@
 @media screen and (max-width: 329px) {
    .welcome_level_text {
       display: none;
+   }
+}
+
+/* special case */
+
+/* 850px */
+@media screen and (max-width: 850px) {
+   .users_swiper_slider {
+      width: 80vw;
+   }
+
+   .swiper {
+      padding: 0;
+   }
+
+   /* .swiper_button_next img {
+      display: none;
+   } */
+
+   .All_Developers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .dev_card_name_varify_tick h1 {
+      font-size: 2.5vw;
+      font-weight: 600;
+   }
+
+   .dev_card_name_varify_tick img {
+      width: 2vw;
+   }
+
+
+   .dev_card_user_icons {
+      width: 6vw;
+      height: 6vw;
+   }
+
+   .dev_card_user_richable p,
+   .dev_card_user_service p {
+      font-size: 2vw;
+   }
+
+   .dev_card_profile_role {
+      font-size: 2vw;
+   }
+
+   .dev_card_profile_img {
+      width: 7vw;
+      height: 7vw;
+   }
+
+   .dev_card_work_as {
+      font-size: 2.8vw;
+   }
+
+   .dev_card_work_as_text {
+      font-size: 3vw;
+   }
+
+   .see_profile {
+      font-size: 2.5vw;
+   }
+
+   .indivisual_dev_cards_box {
+      padding: 2vw;
+   }
+
+   .dev_card_name_profile {
+      gap: 2vw;
+   }
+
+   .dev_card_name_varify_tick {
+      gap: 2vw;
    }
 }
