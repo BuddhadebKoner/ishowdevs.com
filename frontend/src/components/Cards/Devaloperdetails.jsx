@@ -50,8 +50,8 @@ export default function Cards({ user }) {
                   </p>
                </div>
             </div>
-            <div className={`dev_card_see_profile_btn ${themeClasses}`}>
-               <button className='see_profile' onClick={() => { handlePublicProfileData(user) }}>
+            <div className={`dev_card_see_profile_btn ${themeClasses}`} onClick={() => { handlePublicProfileData(user) }}>
+               <button className='see_profile' >
                   See Profile
                </button>
             </div>

@@ -206,7 +206,8 @@
    color: #5F5F5F;
    transition: all 0.3s ease-in-out;
 }
-.heiglight_offers_details_prise{
+
+.heiglight_offers_details_prise {
    margin-top: 10px
 }
 
@@ -307,7 +308,7 @@
 
 .indivisual_dev_cards_box {
    width: 100%;
-   height: 20rem;
+   height: fit-content;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
@@ -351,8 +352,14 @@
    gap: 8px;
 }
 
+.dev_card_name_varify_tick h1 {
+   font-size: 1.1vw;
+   font-weight: 500;
+   color: #ffffff;
+}
+
 .dev_card_profile_role {
-   font-size: 1rem;
+   font-size: 0.8vw;
    font-weight: 400;
    color: #ffffff;
 }
@@ -362,7 +369,7 @@
    width: 100%;
    height: auto;
    padding: 0 15px;
-   margin-top: auto;
+   margin-top: 2vw;
    display: flex;
    align-items: center;
    justify-content: space-around;
@@ -393,15 +400,18 @@
    cursor: pointer;
    transition: all 0.3s ease-in-out;
    margin-top: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .see_profile {
-   width: 100%;
+   width: fit-content;
    height: fit-content;
    padding: 5px 10px;
    border-radius: 5px;
    color: #ffffff;
-   font-size: 1.2rem;
+   font-size: 1.2vw;
    font-weight: 500;
    cursor: pointer;
    transition: all 0.3s ease-in-out;
@@ -414,13 +424,13 @@
 }
 
 .dev_card_work_as {
-   font-size: 1.1rem;
+   font-size: 1vw;
    font-weight: 500;
    color: #989898;
 }
 
 .dev_card_work_as_text {
-   font-size: 1.2rem;
+   font-size: 1.4vw;
    margin-top: 10px;
    font-weight: 500;
 }
@@ -535,4 +545,155 @@
 .indivisual_dev_cards_box_products:hover .buynow_btn_product_card {
    background: #00db1d;
    color: #000000;
+}
+
+
+
+/* mobile screen */
+/* 1371px */
+@media screen and (max-width: 1371px) {
+   .all_services {
+      display: none;
+   }
+
+   .welcome_level_home {
+      padding: 20px 5rem;
+   }
+
+   .heiglight_offers,
+   .All_Developers {
+      padding: 20px 5rem;
+   }
+
+   .heiglight_offers_details_content,
+   .heiglight_offers_details_prise {
+      font-size: 1.7vw;
+   }
+
+   .dev_card_name_varify_tick h1 {
+      font-size: 1vw;
+   }
+
+   .dev_card_name_varify_tick img {
+      width: 1vw;
+   }
+
+   .dev_card_user_icons {
+      width: 30px;
+      height: 30px;
+   }
+
+   .dev_card_user_richable p,
+   .dev_card_user_service p {
+      font-size: 1vw;
+   }
+
+   .dev_card_profile_img {
+      width: 40px;
+      height: 40px;
+   }
+
+   .dev_card_see_profile_btn {
+      padding: 0;
+   }
+
+   .countdown p {
+      font-size: 1.5vw;
+   }
+
+}
+
+/* 1081px  */
+@media screen and (max-width: 1081px) {
+   .welcome_level_home {
+      padding: 15px 3rem;
+   }
+
+   .welcome_level_text {
+      font-size: 1.2rem;
+   }
+
+   .welcome_level_title {
+      font-size: 15px;
+      font-weight: 600;
+   }
+
+   .heading_short_message {
+      font-size: 10px;
+      padding: 1px 5px;
+   }
+
+   .heiglight_offers {
+      padding: 20px 3rem;
+   }
+
+   .heiglight_offers_container_box_heading {
+      width: 100%;
+   }
+
+   .heiglight_offers_container_box {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .heiglight_offers_image_container {
+      width: 100%;
+      height: 100%;
+   }
+
+   .heiglight_offers_details_container {
+      width: 50vw;
+      height: fit-content;
+      flex-direction: column;
+      padding: 1vw;
+   }
+
+   .buy_now_text {
+      display: none;
+   }
+
+   .heiglight_offers_details {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 20px;
+   }
+
+   .heiglight_offers_details {
+      padding: 0;
+   }
+
+   .All_Developers {
+      padding: 20px 1rem;
+   }
+
+   .heiglight_offers_details_title {
+      font-size: 1.5vw;
+      background: #00db1d;
+      color: #000000;
+   }
+
+   .indivisual_dev_cards_box {
+      padding: 1vw;
+   }
+}
+
+/* 471px */
+@media screen and (max-width: 471px) {
+   .welcome_level_text {
+      font-size: 1rem;
+   }
+
+}
+
+/* 329px */
+@media screen and (max-width: 329px) {
+   .welcome_level_text {
+      display: none;
+   }
 }
