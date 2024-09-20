@@ -1,18 +1,8 @@
 import reloadicon from './icons/reload.png';
-import close from './icons/close.png';
-import error from './icons/error.png';
-import info from './icons/info.png';
-import success from './icons/sucess.png';
-import offer from './icons/offer.png';
-import warn from './icons/warn.png';
 import varified from './icons/varified.svg';
 import forword_arrow from './icons/forword_arrow.png';
 // media icons
 import defaulticon from './media/default.png';
-// banners
-import testiminialsHero from './banners/testimonials_banner.svg';
-// temp
-import temp from './temp/profile.png';
 // new imports
 import customerService from './icons/customar_services.png';
 import customerRich from './icons/customer_rich.png';
@@ -36,18 +26,10 @@ import weblogo from './weblogo/logo.svg'
 
 
 export const assets = {
-   temp: temp,
    reloadicon: reloadicon,
-   close: close,
-   error: error,
-   info: info,
-   success: success,
-   offer: offer,
-   warn: warn,
    varified: varified,
    forword_arrow: forword_arrow,
    defaulticon: defaulticon,
-   testiminialsHero: testiminialsHero,
    customerService: customerService,
    customerRich: customerRich,
    searchIocn: searchIocn,
