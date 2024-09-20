@@ -4,11 +4,22 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+const allowedOrigins = [
+   'http://localhost:5173', // local dev
+   process.env.ORIGIN_URL,
+];
+
 // cors middleware
 app.use(
    cors({
-      origin: process.env.ORIGIN_URL,
-      credentials: true,
+      origin: function (origin, callback) {
+         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+         } else {
+            callback(new Error('Not allowed by CORS'));
+         }
+      },
+      credentials: true, // Allows cookies to be sent
    })
 );
 
