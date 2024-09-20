@@ -552,17 +552,26 @@
 /* mobile screen */
 /* 1371px */
 @media screen and (max-width: 1371px) {
-   .all_services {
-      display: none;
-   }
-
    .welcome_level_home {
       padding: 20px 5rem;
    }
 
    .heiglight_offers,
-   .All_Developers {
+   .All_Developers,
+   .all_services {
       padding: 20px 5rem;
+   }
+
+   .product_section_container {
+      padding: 0 15px;
+   }
+
+   .product_list {
+      justify-content: center;
+   }
+
+   .all_services {
+      margin: 20px 0;
    }
 
    .heiglight_offers_details_content,
@@ -600,7 +609,6 @@
    .countdown p {
       font-size: 1.5vw;
    }
-
 }
 
 /* 1081px  */
@@ -682,7 +690,9 @@
       padding: 1vw;
    }
 
-   .heiglight_devaloper_container_h1 {
+   .heiglight_devaloper_container_h1,
+   .product_section_title,
+   .product_section_button {
       font-size: 3vw;
    }
 
@@ -692,6 +702,10 @@
 
    .dev_card_work_as_text {
       margin-top: 0;
+   }
+
+   .all_services {
+      padding: 20px 1rem;
    }
 }
 
@@ -749,6 +763,29 @@
       background: none;
       color: #00db1d;
 
+   }
+
+   .all_services {
+      padding: 10px 1rem;
+      margin: 0;
+   }
+
+   .indivisual_dev_cards_box_products {
+      width: 90vw;
+   }
+
+   .dev_products_title,
+   .dev_products_content {
+      font-size: 4vw;
+   }
+
+   .priseBefore,
+   .priseNow {
+      font-size: 4vw;
+   }
+
+   .buynow_btn_product_card {
+      font-size: 4vw;
    }
 
 }

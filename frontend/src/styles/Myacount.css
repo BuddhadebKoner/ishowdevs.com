@@ -348,77 +348,6 @@
 }
 
 
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-   .myacount_container {
-      flex-direction: column;
-      height: auto;
-      padding: 20px var(--padding-x);
-   }
-
-   .myacount_container_card {
-      height: auto;
-   }
-
-   .myacount_container_outlet {
-      width: 100%;
-   }
-
-   .myacount_sidebar_container {
-      width: 100%;
-      gap: 20px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1.3rem;
-      height: 45px;
-   }
-}
-
-@media (max-width: 768px) {
-   .myacount_container {
-      padding: 10px var(--padding-x);
-   }
-
-   .myacount_sidebar_container {
-      gap: 15px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1.2rem;
-      height: 40px;
-      padding-left: 15px;
-   }
-}
-
-@media (max-width: 500px) {
-   .myacount_container {
-      padding: 5px var(--padding-x);
-   }
-
-   .myacount_container_card {
-      flex-direction: column;
-      height: auto;
-      gap: 8px;
-   }
-
-   .myacount_container_outlet {
-      width: 100%;
-   }
-
-   .myacount_sidebar_container {
-      width: 100%;
-      gap: 10px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1rem;
-      height: 35px;
-      padding-left: 10px;
-   }
-}
-
 /* form style */
 .edit_btn_container {
    width: 100%;
@@ -497,4 +426,74 @@
 .my_profile_form_group select:disabled {
    background-color: #395a77;
    color: #777;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+   .myacount_container {
+      flex-direction: column;
+      height: auto;
+      padding: 20px var(--padding-x);
+   }
+
+   .myacount_container_card {
+      height: auto;
+   }
+
+   .myacount_container_outlet {
+      width: 100%;
+   }
+
+   .myacount_sidebar_container {
+      width: 100%;
+      gap: 20px;
+   }
+
+   .myacount_sidebar_link {
+      font-size: 1.3rem;
+      height: 45px;
+   }
+}
+
+@media (max-width: 768px) {
+   .myacount_container {
+      padding: 10px var(--padding-x);
+   }
+
+   .myacount_sidebar_container {
+      gap: 15px;
+   }
+
+   .myacount_sidebar_link {
+      font-size: 1.2rem;
+      height: 40px;
+      padding-left: 15px;
+   }
+}
+
+@media (max-width: 500px) {
+   .myacount_container {
+      padding: 5px var(--padding-x);
+   }
+
+   .myacount_container_card {
+      flex-direction: column;
+      height: auto;
+      gap: 8px;
+   }
+
+   .myacount_container_outlet {
+      width: 100%;
+   }
+
+   .myacount_sidebar_container {
+      width: 100%;
+      gap: 10px;
+   }
+
+   .myacount_sidebar_link {
+      font-size: 1rem;
+      height: 35px;
+      padding-left: 10px;
+   }
 }

@@ -19,7 +19,7 @@ export default function pages() {
                <p>A fresh take on traditional nodejs frameworks, change the way you engineer your products.Intent is an open source framework that makes web development 10x easier and powerful.</p>
             </div>
             <div className="about_hero_btns_container">
-               <a href="" className='about_hero_btns_01' target='_blank'>
+               <a href="https://buddhadebkoner.rajislab.com/" className='about_hero_btns_01' target='_blank'>
                   <img src={assets.rocketLogo} alt="" className='about_hero_btns'/>
                   <p>Get Started</p>
                </a>
