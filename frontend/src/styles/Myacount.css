@@ -17,7 +17,6 @@
    flex-direction: row;
    align-items: start;
    justify-content: space-evenly;
-   flex-wrap: wrap;
    gap: 10px;
    border-radius: 10px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -429,71 +428,92 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1414px) {
    .myacount_container {
-      flex-direction: column;
-      height: auto;
-      padding: 20px var(--padding-x);
+      padding: 20px 1rem;
    }
 
-   .myacount_container_card {
-      height: auto;
+   .myacount_sidebar_link p {
+      display: none;
+   }
+
+   .myacount_sidebar_link img {
+      width: 30px;
+   }
+
+   .myacount_sidebar_container {
+      width: fit-content;
+      flex-direction: column;
+      justify-content: center;
+   }
+
+   .myacount_sidebar_link {
+      padding: 10px;
+      border-radius: 50%;
    }
 
    .myacount_container_outlet {
-      width: 100%;
+      width: 90%;
    }
 
-   .myacount_sidebar_container {
-      width: 100%;
-      gap: 20px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1.3rem;
-      height: 45px;
+   .myacount_container_card {
+      flex-direction: row;
    }
 }
 
-@media (max-width: 768px) {
+/* 1081px */
+@media (max-width: 1081px) {
+   .profile_name p {
+      font-size: 2.5vw;
+   }
+
+   .profile_name span {
+      font-size: 2vw;
+   }
+
+   .my_profile_form_group label {
+      font-size: 2vw;
+   }
+
+   .my_profile_form_group input.my_profile_form_control {
+      font-size: 2vw;
+   }
+
+   .profile_last_updated_box p {
+      font-size: 1.5vw;
+   }
+
+   .myacount_container_outlet {
+      padding: 2vw;
+   }
+
+   .my_profile_submit_btn,
+   .my_profile_edit_btn {
+      font-size: 2vw;
+      padding: 0 10px;
+   }
+
+   .my_profile_form_group {
+      padding: 0.5vw;
+   }
+
+   .profile_avatar {
+      width: 7vw;
+      height: 7vw;
+   }
+
    .myacount_container {
-      padding: 10px var(--padding-x);
+      margin-top: 2vw;
    }
 
    .myacount_sidebar_container {
-      gap: 15px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1.2rem;
-      height: 40px;
-      padding-left: 15px;
+      gap: 1vw;
    }
 }
 
 @media (max-width: 500px) {
-   .myacount_container {
-      padding: 5px var(--padding-x);
-   }
+   /* .myacount_container {
+      padding: 20px 1rem;
+   } */
 
-   .myacount_container_card {
-      flex-direction: column;
-      height: auto;
-      gap: 8px;
-   }
-
-   .myacount_container_outlet {
-      width: 100%;
-   }
-
-   .myacount_sidebar_container {
-      width: 100%;
-      gap: 10px;
-   }
-
-   .myacount_sidebar_link {
-      font-size: 1rem;
-      height: 35px;
-      padding-left: 10px;
-   }
 }

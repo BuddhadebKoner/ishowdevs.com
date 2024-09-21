@@ -176,7 +176,7 @@
 
 /* mobile screen */
 /* 1371px */
-@media screen and (max-width: 1371px) {
+@media screen and (max-width: 1414px) {
    .input_field_container {
       display: none;
    }
@@ -215,7 +215,7 @@
 }
 
 /* 471px */
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 556px) {
    .navbar_logo img {
       width: 100px;
    }
@@ -242,7 +242,7 @@
 }
 
 /* 329px */
-@media screen and (max-width: 329px) {
+@media screen and (max-width: 388px) {
 
    .navbar_link_about,
    .navbar_link_explore {
@@ -251,5 +251,14 @@
 
    .navbar_link_github {
       margin-left: 10px;
+   }
+
+   .navbar_link_github {
+      display: none;
+   }
+
+   .navbar_link {
+      font-size: 4vw;
+      background-color: transparent;
    }
 }

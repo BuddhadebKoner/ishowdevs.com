@@ -115,3 +115,119 @@
    font-size: 1.2rem;
    color: white;
 }
+
+/* responsive */
+/* 1371px */
+@media screen and (max-width: 1371px) {
+   .welcome_level_login {
+      padding: 20px 5rem;
+   }
+
+   .welcome_level_login_big_text {
+      font-size: 3vw;
+   }
+
+   .welcome_level_login_small_text,
+   .signup_Link {
+      font-size: 2vw;
+   }
+}
+
+/* 1081px */
+@media screen and (max-width: 1081px) {
+   .auth_card {
+      width: 70vw;
+      padding: 0;
+   }
+
+   .form_group label {
+      font-size: 2vw;
+   }
+
+   .form_control {
+      padding: 2vw;
+      font-size: 2vw;
+   }
+
+   .btn {
+      font-size: 2vw;
+      padding: 1vw 0;
+      margin-top: 2vw;
+   }
+
+   .forgot_password a,
+   .forgot_password h1 {
+      font-size: 2vw;
+   }
+
+   .welcome_level_login {
+      padding: 10px 0;
+   }
+}
+
+/* 521px */
+@media screen and (max-width: 556px) {
+   .auth_card {
+      width: 90vw;
+      padding: 1vw;
+   }
+
+   .form_group label {
+      font-size: 3vw;
+      margin-bottom: 10px;
+   }
+
+   .form_control {
+      padding: 3vw;
+      font-size: 3vw;
+   }
+
+   .btn {
+      font-size: 3vw;
+      padding: 1.5vw 0;
+      margin-top: 0px;
+   }
+
+   .forgot_password a,
+   .forgot_password h1 {
+      font-size: 3vw;
+   }
+}
+
+/* 388px */
+@media screen and (max-width: 388px) {
+   .auth_card {
+      width: 90vw;
+      padding: 1vw;
+   }
+
+   .welcome_level_login_big_text {
+      font-size: 5vw;
+   }
+
+   .welcome_level_login_small_text,
+   .signup_Link {
+      font-size: 3vw;
+   }
+
+
+   .form_group label {
+      font-size: 3vw;
+      margin-bottom: 10px;
+   }
+
+   .form_control {
+      padding: 3vw;
+      font-size: 3vw;
+   }
+
+   .btn {
+      font-size: 3vw;
+      padding: 1.5vw 0;
+      margin-top: 0px;
+   }
+
+   .forgot_password a {
+      font-size: 3vw;
+   }
+}

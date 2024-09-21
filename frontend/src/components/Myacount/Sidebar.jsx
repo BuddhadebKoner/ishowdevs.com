@@ -13,12 +13,14 @@ export default function Myacount() {
 
    return (
       <div className="myacount_sidebar_container">
-         <NavLink 
-            to="" 
+         <NavLink
+            to=""
             className="myacount_sidebar_link shining_effect"
          >
             <img src={assets.myprofile} alt="My Profile" />
-            My Profile
+            <p>
+               My Profile
+            </p>
          </NavLink>
          <NavLink
             to="posts"
@@ -27,7 +29,9 @@ export default function Myacount() {
             }
          >
             <img src={assets.myposts} alt="Your Posts" />
-            Your Posts
+            <p>
+               Your Posts
+            </p>
          </NavLink>
          <NavLink
             to="payment-details"
@@ -36,7 +40,9 @@ export default function Myacount() {
             }
          >
             <img src={assets.paymentRupee} alt="Payment Details" />
-            Payment Details
+            <p>
+               Payment Details
+            </p>
          </NavLink>
          <NavLink
             to="change-password"
@@ -45,11 +51,15 @@ export default function Myacount() {
             }
          >
             <img src={assets.changepass} alt="Change Password" />
-            Change Password
+            <p>
+               Change Password
+            </p>
          </NavLink>
          <button className='myacount_sidebar_link' onClick={deleteAccount}>
             <img src={assets.deleteforever} alt="Delete Account" />
-            Delete Account
+            <p>
+               Delete Account
+            </p>
          </button>
       </div>
    );
