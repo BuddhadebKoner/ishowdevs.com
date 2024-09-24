@@ -1,7 +1,7 @@
 # **Service-Oriented Full stack WebApp**
 
 **Start:** 12 August 2024  
-**End:** Ongoing
+**End:** 24th september 2024
 
 ---
 ![image](https://res.cloudinary.com/dsfztnp9x/image/upload/v1726392413/portfolio/am14abeqvpte8eu5egl4.svg)
