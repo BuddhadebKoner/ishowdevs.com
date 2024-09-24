@@ -189,6 +189,10 @@
       padding: 20px 5rem;
    }
 
+   .dropdown_menu {
+      right: 5rem;
+   }
+
 }
 
 /* 1081px  */
@@ -211,6 +215,10 @@
 
    .navbar_container {
       padding: 20px 3rem;
+   }
+
+   .dropdown_menu {
+      right: 3rem;
    }
 }
 
@@ -238,6 +246,17 @@
 
    .navbar_container {
       padding: 10px 1rem;
+   }
+
+   .dropdown_menu {
+      width: fit-content;
+      right: 1rem;
+      top: 50px;
+   }
+
+   .dropdown_menu a {
+      font-size: 3vw;
+      padding: 2vw 3vw;
    }
 }
 

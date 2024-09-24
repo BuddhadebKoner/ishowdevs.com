@@ -16,7 +16,7 @@ export default function pages() {
 
       <>
          <div className="myprofile_chnagepassword_container">
-            <div className="auth_card">
+            <div className="password-chnage-card">
                <div className="form_group">
                   <label htmlFor="oldpassword">Old Password</label>
                   <input

@@ -121,3 +121,80 @@
 .about_hero_btns_02 {
    border: 2px solid #ffffff;
 }
+
+
+/* responsive */
+/* 1414px */
+@media screen and (max-width: 1414px) {
+   .about_container {
+      padding: 20px 5rem;
+   }
+}
+
+/* 1081px */
+@media screen and (max-width: 1081px) {
+   .about_container {
+      padding: 20px 3rem;
+   }
+
+   .batch_container p {
+      font-size: 2vw;
+   }
+
+   .batch_container img {
+      width: 3vw;
+      height: 3vw;
+   }
+
+   .about_container_heading h1 {
+      font-size: 4vw;
+   }
+
+   .about_container_desc {
+      width: fit-content;
+   }
+
+   .about_container_desc p {
+      font-size: 2vw;
+   }
+
+   .about_hero_btns_container {
+      margin-top: 40px;
+      align-items: center;
+      justify-content: center;
+   }
+
+
+
+}
+
+/* 556px */
+@media screen and (max-width: 556px) {
+   .about_container {
+      padding: 20px 2rem;
+   }
+
+   .about_hero_btns_container {
+      gap: 5vw;
+   }
+
+   .about_hero_btns {
+      width: 4vw;
+   }
+
+   .about_hero_btns_container p {
+      font-size: 3vw;
+      gap: 1vw;
+   }
+
+   .about_hero_btns_container p {
+      padding: 0px;
+   }
+}
+
+/* 388px */
+@media screen and (max-width: 388px) {
+   .about_container {
+      padding: 20px 1rem;
+   }
+}

@@ -7,31 +7,31 @@ export default function Cards({ post }) {
    const navigate = useNavigate();
 
    const publicPostClicked = () => {
-      setPublicPost(post);
-      localStorage.setItem('publicPost', JSON.stringify(post)); 
-      navigate(`/post/${post._id}`);
+      setPublicPost(post);  // Optional: If you still want to store it in context
+      navigate(`/post/${post._id}`, { state: { post } });  // Passing data via route state
    };
+
 
    return (
       <div className="indivisual_dev_cards_box_products" onClick={publicPostClicked}>
          <div className="dev_products_image_box">
-               <img src={post.image} alt="" className='dev_products_image' />
+            <img src={post.image} alt="" className='dev_products_image' />
+         </div>
+         <h1 className='dev_products_title'>{post.title}</h1>
+         <h1 className='dev_products_content'>{post.content}</h1>
+         <div className="dev_product_prise">
+            <div className="prise_container">
+               <p className='priseBefore'>
+                  <span>₹</span>
+                  {post.priseBefore}
+                  <span>/-</span>
+               </p>
+               <p className='priseNow'>
+                  {post.priseNow === 0 ? <span>Free</span> : <><span>₹</span>{post.priseNow}<span>/-</span></>}
+               </p>
             </div>
-            <h1 className='dev_products_title'>{post.title}</h1>
-            <h1 className='dev_products_content'>{post.content}</h1>
-            <div className="dev_product_prise">
-               <div className="prise_container">
-                  <p className='priseBefore'>
-                     <span>₹</span>
-                     {post.priseBefore}
-                     <span>/-</span>
-                  </p>
-                  <p className='priseNow'>
-                     {post.priseNow === 0 ? <span>Free</span> : <><span>₹</span>{post.priseNow}<span>/-</span></>}
-                  </p>
-               </div>
-               <button className='buynow_btn_product_card'>Buy now</button>
-            </div>
+            <button className='buynow_btn_product_card'>Buy now</button>
+         </div>
       </div>
    );
 }

@@ -43,8 +43,7 @@ export default function HighlightOffers() {
    const handelSetPublicPost = () => {
       // console.log(offer);
       setPublicPost(offer);
-      localStorage.setItem('publicPost/', JSON.stringify(offer));
-      navigate(`/post/${offer._id}`);
+      navigate(`/post/${offer._id}`, { state: { post: offer } });
    }
 
    return (

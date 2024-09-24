@@ -5,13 +5,11 @@ export default function Pages() {
    const { publicPost, setPublicPost } = useContext(PublicContext);
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-
    useEffect(() => {
-      const savedPost = localStorage.getItem('publicPost');
-      if (savedPost) {
-         setPublicPost(JSON.parse(savedPost));
+      if (location.state?.post) {
+         setPublicPost(location.state.post);
       }
-   }, [setPublicPost]);
+   }, [location.state, setPublicPost]);
 
    useEffect(() => {
       if (publicPost?.offerEndDate) {
