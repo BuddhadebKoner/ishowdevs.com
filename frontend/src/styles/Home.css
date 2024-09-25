@@ -143,7 +143,7 @@
 
 .heiglight_offers_details_container {
    width: 100%;
-   height: 180px;
+   height: fit-content;
    position: relative;
    display: flex;
    flex-direction: row;
@@ -180,9 +180,7 @@
 }
 
 .heiglight_offers_image_container img {
-   width: 100%;
-   height: 100%;
-   aspect-ratio: 16 / 9;
+   width: 400px;
    object-fit: cover;
    border-radius: inherit;
 }
@@ -207,17 +205,20 @@
    transition: all 0.3s ease-in-out;
 }
 
-.heiglight_offers_details_prise {
-   margin-top: 10px
-}
 
 .heiglight_offers_details_content,
 .heiglight_offers_details_prise {
-   font-size: 1.3rem;
+   font-size: 1rem;
    font-weight: 600;
+   margin-top: 10px;
    color: #ffffff;
    display: flex;
    gap: 20px;
+}
+
+.heiglight_offers_details_prise {
+   margin-top: 10px;
+   font-size: 1.6vw;
 }
 
 .buy_now_text {
@@ -242,6 +243,7 @@
 }
 
 .countdown {
+   margin-top: 10px;
    font-size: 1.1rem;
    font-weight: 500;
    color: #ffffff;
@@ -574,7 +576,10 @@
       margin: 20px 0;
    }
 
-   .heiglight_offers_details_content,
+   .heiglight_offers_details_content {
+      font-size: 1.1vw;
+   }
+
    .heiglight_offers_details_prise {
       font-size: 1.7vw;
    }

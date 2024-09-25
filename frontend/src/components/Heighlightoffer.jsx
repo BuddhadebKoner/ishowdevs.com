@@ -62,7 +62,7 @@ export default function HighlightOffers() {
                      <div className='heiglight_offers_details_prise'>
                         <p className='priseBefore'>
                            <span>₹</span>
-                           {offer.priseBefore}
+                           {offer.priseBefore.toLocaleString('en-IN')}
                            <span>/-</span>
                         </p>
                         <p className='priseNow'>
@@ -71,7 +71,7 @@ export default function HighlightOffers() {
                            ) : (
                               <>
                                  <span>₹</span>
-                                 {offer.priseNow}
+                                 {offer.priseNow.toLocaleString('en-IN')}
                                  <span>/-</span>
                               </>
                            )}

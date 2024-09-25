@@ -272,11 +272,16 @@
 
 .post-image {
    width: 300px;
-   height: 150px;
+   height: fit-content;
    aspect-ratio: 16 / 9;
    object-fit: cover;
    border-radius: 8px;
    margin-right: 20px;
+   transition: scale 0.3s ease;
+}
+.post-image:hover {
+   cursor: pointer;
+   scale: 1.06;
 }
 
 .post-content {
@@ -427,6 +432,11 @@
    color: #777;
 }
 
+.from_add_new_post option {
+   background-color: #002749;
+   color: #f5f5f5;
+}
+
 /* Responsive Styles */
 @media (max-width: 1414px) {
    .myacount_container {
@@ -543,15 +553,18 @@
       font-size: 2vw;
    }
 
-   .add_newpost_container p {
+   .add_newpost_container p,
+   .newpost_card_container_headline h1 {
       font-size: 2vw;
    }
 
-   .add_newpost_container {
+   .add_newpost_container,
+   .newpost_card_container_headline {
       padding: 0 2vw;
    }
 
-   .add_newpost_container img {
+   .add_newpost_container img,
+   .newpost_card_container_headline img {
       width: 5vw;
    }
 }

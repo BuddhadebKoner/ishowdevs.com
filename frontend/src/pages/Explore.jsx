@@ -52,10 +52,10 @@ export default function Pages() {
                   Artificial Intelligence
                </li>
                <li
-                  className={getLiClass('Material')}
-                  onClick={() => handleExplorePostByTags('Material')}
+                  className={getLiClass('metarial')}
+                  onClick={() => handleExplorePostByTags('metarial')}
                >
-                  Material
+                  Metarial
                </li>
             </div>
          </div>

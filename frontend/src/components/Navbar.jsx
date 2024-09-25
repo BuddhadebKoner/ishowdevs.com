@@ -57,7 +57,7 @@ export default function Components() {
                      <option value="Designer">Designer</option>
                      <option value="App Developer">App Developer</option>
                      <option value="Artificial Intelligence">Artificial Intelligence</option>
-                     <option value="Material">Material</option>
+                     <option value="metarial">metarial</option>
                   </select>
                   <button onClick={handleDropdownChange}>
                      <img src={assets.searchIocn} alt="" />

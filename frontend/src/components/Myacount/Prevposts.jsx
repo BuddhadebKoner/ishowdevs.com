@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { UserContext } from '../../context/user.context';
+import { useNavigate } from 'react-router-dom';
+import { PublicContext } from '../../context/public.context';
 
 export default function Myacount({ userid }) {
+   const navigate = useNavigate();
+   const { setPublicPost } = useContext(PublicContext);
    const { handelGetpost, userPosts, handelDeletePost } = useContext(UserContext);
    const [currentPage, setCurrentPage] = useState(1);
    const postsPerPage = 5;
@@ -39,31 +43,49 @@ export default function Myacount({ userid }) {
       handelDeletePost(postid);
    };
 
+   const publicPostClicked = (post) => {
+      setPublicPost(post);
+      navigate(`/post/${post._id}`, { state: { post } });
+   };
+
    return (
       <div className="myaccount-container">
          {currentPosts && currentPosts.length > 0 ? (
             <>
-                  <p>Previous posts</p>
+               <p>Previous posts</p>
                <ul className="post-list">
                   {currentPosts.map(post => (
-                     <li key={post._id} className="post-item">
-                        <img src={post.image} alt={post.title} className="post-image" />
+                     <li key={post._id} className="post-item" >
+                        <img src={post.image} alt={post.title} className="post-image" onClick={() => publicPostClicked(post)} />
                         <div className="post-content">
                            <div className="post-title-delete-container">
                               <h2 className="post-title">{post.title}</h2>
                               <button onClick={() => { DeletePost(post._id) }}>Delete</button>
                            </div>
-                           <p className="post-description">{post.content}</p>
+                           <p className="post-description">
+                              {post.content.split(" ").length > 15
+                                 ? `${post.content.split(" ").slice(0, 15).join(" ")} ....`
+                                 : post.content}
+                           </p>
                            {post.projectLink && (
                               <a href={post.projectLink} target="_blank" rel="noopener noreferrer" className="post-link">
                                  View Project
                               </a>
                            )}
-                           <p className="post-tags">Tags: {post.tags}</p>
+                           <p className="post-tags">Tags: {post.keyWords}</p>
                         </div>
                      </li>
                   ))}
                </ul>
+            </>
+
+         ) : (
+            <p>No posts available.</p>
+         )}
+         {
+            currentPosts && currentPosts.length <= 5 ? (
+               null
+            ) : (
                <div className="pagination-controls">
                   <button onClick={handlePreviousPage} disabled={currentPage === 1}>
                      Previous
@@ -73,11 +95,9 @@ export default function Myacount({ userid }) {
                      Next
                   </button>
                </div>
-            </>
+            )
+         }
 
-         ) : (
-            <p>No posts available.</p>
-         )}
       </div>
    );
 }

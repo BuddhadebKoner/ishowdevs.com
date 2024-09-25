@@ -46,12 +46,10 @@ export default function UserPostForm() {
                   onChange={(e) => setProjectLink(e.target.value)}
                />
             </div>
-            <div className="form_group">
+            <div className="form_group from_add_new_post">
                <label htmlFor="tags">Tags*</label>
                {/* <input
                   type="text"
-                 
-                  
                   placeholder="Enter Tags (comma separated)"
                   onChange={(e) => setTags(e.target.value)}
                /> */}
@@ -65,7 +63,7 @@ export default function UserPostForm() {
                   <option value="Designer">Designer</option>
                   <option value="App Developer">App Developer</option>
                   <option value="Artificial Intelligence">Artificial Intelligence</option>
-                  <option value="metarial">Material</option>
+                  <option value="metarial">metarial</option>
                </select>
             </div>
             <div className="form_group">
