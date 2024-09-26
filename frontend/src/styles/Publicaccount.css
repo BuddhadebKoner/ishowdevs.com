@@ -9,14 +9,16 @@
 }
 
 .public_profile_details_sidebar_container {
-   width: 20vw;
-   padding: 20px;
+   width: fit-content;
+   padding: 0px;
    border-radius: 10px;
+   display: flex;
+   flex-direction: column;
 }
 
 .avatar_section {
-   width: fit-content;
-   height: fit-content;
+   width: 250px;
+   height: 250px;
    display: flex;
    align-items: start;
    justify-content: flex-start;
@@ -25,8 +27,8 @@
 }
 
 .avatar_image {
-   width: 250px;
-   height: 250px;
+   width: fit-content;
+   height: fit-content;
    border-radius: 50%;
    object-fit: cover;
 }
@@ -115,7 +117,107 @@
    width: fit-content;
    display: flex;
    align-items: flex-start;
-   justify-content: flex-start;
+   justify-content: center;
    flex-wrap: wrap;
    gap: 20px;
+}
+
+.dev_card_user_rich_public_profile {
+   margin-top: 0;
+   justify-content: flex-start;
+   padding: 0;
+}
+
+
+
+/* 1414px */
+@media screen and (max-width: 1414px) {
+   .public_account_container {
+      padding: 20px 5rem;
+   }
+
+   .public_profile_posts {
+      justify-content: center;
+      width: fit-content;
+   }
+}
+
+/* 1081px */
+@media screen and (max-width: 1081px) {
+   .public_account_container {
+      padding: 20px 3rem;
+   }
+}
+
+/* 830px */
+@media screen and (max-width: 830px) {
+   .public_account_container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .public_profile_details_sidebar_container {
+      width: 100%;
+      flex-direction: row;
+   }
+
+   .dev_card_user_rich_public_profile {
+      display: none;
+   }
+
+   .avatar_section {
+      width: 10vw;
+      height: 10vw;
+      margin: 0;
+   }
+
+   .profile_details_section {
+      width: fit-content;
+      margin: 0;
+   }
+
+   .public_profile_details_sidebar_container {
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+   }
+
+   .full_name {
+      font-size: 3vw;
+   }
+
+   .username {
+      font-size: 2vw;
+   }
+
+   .role,
+   .portfolio_link,
+   .media_link {
+      display: none;
+   }
+}
+
+/* 556px */
+@media screen and (max-width: 556px) {
+   .public_account_container {
+      padding: 20px 1rem;
+   }
+
+   .public_profile_posts {
+      justify-content: center;
+      width: fit-content;
+   }
+
+   .public_account_container {
+      margin-top: 0;
+   }
+}
+
+/* 388px */
+@media screen and (max-width: 388px) {
+   .public_account_container {
+      padding: 20px 0.5rem;
+   }
 }

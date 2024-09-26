@@ -39,7 +39,7 @@
 
 .publicpost_container {
    width: 100%;
-   height: 100vh;
+   height: fit-content;
    padding: 0 var(--padding-x);
    display: flex;
    flex-direction: column;
@@ -84,6 +84,7 @@
 .publicpost_feature_product_details_container {
    width: 100%;
    margin-top: 20px;
+   position: relative;
 }
 
 .publicpost_container_heading_container h1 {
@@ -121,6 +122,11 @@
 
 .desc_post_container p {
    font-size: 1.3rem;
+   color: #5F5F5F;
+}
+
+.publicpost_ifream_container img {
+   display: none;
 }
 
 
@@ -133,6 +139,10 @@
 
    .explore_post_container {
       padding: 0 4rem;
+   }
+
+   .publicpost_container {
+      padding: 0 5rem;
    }
 }
 
@@ -147,6 +157,40 @@
 
    .publicpost_container {
       padding: 0 3rem;
+   }
+
+   .publicpost_ifream_container iframe {
+      display: none;
+   }
+
+   .publicpost_ifream_container img {
+      display: block;
+      border-radius: 2vw;
+   }
+
+   .publicpost_ifream_container {
+      height: fit-content;
+   }
+
+   .publicpost_container_heading_container h1 {
+      font-size: 3.5vw;
+   }
+
+   .title_order_btn h1 {
+      font-size: 3vw;
+   }
+
+   .desc_post_container p {
+      font-size: 2vw;
+   }
+
+   .title_order_btn button {
+      font-size: 2vw;
+      padding: 1vw 2vw;
+      border-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
    }
 }
 
@@ -166,5 +210,25 @@
    .explore_navbar_links li {
       font-size: 3vw;
       margin: 0;
+   }
+
+   .publicpost_container_heading_container h1 {
+      font-size: 5vw;
+   }
+
+   .title_order_btn h1 {
+      font-size: 4vw;
+   }
+
+   .desc_post_container p {
+      font-size: 3vw;
+   }
+
+   .title_order_btn button {
+      font-size: 2vw;
+   }
+
+   .publicpost_feature_product_details_container {
+      margin-top: 0;
    }
 }

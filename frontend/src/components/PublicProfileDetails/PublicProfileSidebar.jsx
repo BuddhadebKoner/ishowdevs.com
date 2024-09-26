@@ -17,7 +17,12 @@ export default function PublicProfileDetails({ publicAccountShow }) {
                            <img src={publicAccountShow?.avatar} alt={publicAccountShow?.fullName} className="avatar_image" />
                         </div >
                         <div className="profile_details_section">
-                           <h2 className="full_name">{publicAccountShow?.fullName}</h2>
+                           <div className="dev_card_name_varify_tick">
+                              <h1>{publicAccountShow.fullName}</h1>
+                              {publicAccountShow.isVarified && (
+                                 <img src={assets.varified} alt="Verified" /> 
+                              )}
+                           </div>
                            <p className="username">@{publicAccountShow?.username}</p>
                            <p className="role">{publicAccountShow?.workAs}</p>
                            <a href={publicAccountShow?.portfolio} className="portfolio_link" target="_blank" rel="noopener noreferrer">
@@ -27,7 +32,7 @@ export default function PublicProfileDetails({ publicAccountShow }) {
                               <a href={publicAccountShow?.mediaLinks} target="_blank" rel="noopener noreferrer">Social Media</a>
                            </p>
                         </div>
-                        <div className="dev_card_user_rich">
+                        <div className="dev_card_user_rich dev_card_user_rich_public_profile">
                            <div className="dev_card_user_richable">
                               <img src={assets.customerRich} alt="Rich Icon" className="dev_card_user_icons" />
                               <p>

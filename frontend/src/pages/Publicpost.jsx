@@ -46,6 +46,7 @@ export default function Pages() {
                   </div>
                   <div className="publicpost_ifream_container">
                      <iframe src={publicPost.projectLink} frameBorder="0"></iframe>
+                     <img src={publicPost.image} alt="" />
                   </div>
                </div>
                <div className="publicpost_feature_product_details_container">

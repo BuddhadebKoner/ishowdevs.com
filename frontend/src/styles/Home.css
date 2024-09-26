@@ -355,8 +355,8 @@
 }
 
 .dev_card_name_varify_tick h1 {
-   font-size: 1.1vw;
-   font-weight: 500;
+   font-size: 1.5vw;
+   font-weight: 700;
    color: #ffffff;
 }
 
@@ -746,7 +746,7 @@
    .heiglight_offers_details_content,
    .heiglight_offers_details_prise,
    .countdown p {
-      font-size: 0.8rem;
+      font-size: 3vw;
    }
 
    .heiglight_offers_details_title {
@@ -776,7 +776,13 @@
    }
 
    .indivisual_dev_cards_box_products {
+      padding: 2vw;
+      border-radius: 2vw;
       width: 90vw;
+   }
+
+   .dev_products_image_box {
+      border-radius: 2vw;
    }
 
    .dev_products_title,
