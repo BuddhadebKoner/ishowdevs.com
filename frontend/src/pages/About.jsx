@@ -13,18 +13,18 @@ export default function pages() {
                <img src={assets.samll_right_arrow} alt="" />
             </div>
             <div className="about_container_heading">
-               <h1>We Are <span className='about_container_heading_highlight'>Connecting<br/> Developers</span> & Customers</h1>
+               <h1>We Are <span className='about_container_heading_highlight'>Connecting<br /> Developers</span> & Customers</h1>
             </div>
             <div className="about_container_desc">
-               <p>A fresh take on traditional nodejs frameworks, change the way you engineer your products.Intent is an open source framework that makes web development 10x easier and powerful.</p>
+               <p>Empowering Collaboration for Seamless Digital Solutions Across the Globe.</p>
             </div>
             <div className="about_hero_btns_container">
                <a href="https://buddhadebkoner.rajislab.com/" className='about_hero_btns_01' target='_blank'>
-                  <img src={assets.rocketLogo} alt="" className='about_hero_btns'/>
+                  <img src={assets.rocketLogo} alt="" className='about_hero_btns' />
                   <p>Get Started</p>
                </a>
                <a href="https://github.com/BuddhadebKoner/NFB-website" className='about_hero_btns_02' target='_blank'>
-                  <img src={assets.githubmarkwhite} alt="" className='about_hero_btns'/>
+                  <img src={assets.githubmarkwhite} alt="" className='about_hero_btns' />
                   <p>Star on GitHub</p>
                </a>
             </div>

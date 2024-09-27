@@ -258,6 +258,10 @@
       font-size: 3vw;
       padding: 2vw 3vw;
    }
+
+   .navbar_link {
+      background: transparent;
+   }
 }
 
 /* 329px */
@@ -278,6 +282,5 @@
 
    .navbar_link {
       font-size: 4vw;
-      background-color: transparent;
    }
 }

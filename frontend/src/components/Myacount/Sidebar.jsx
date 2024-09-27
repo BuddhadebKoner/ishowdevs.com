@@ -7,8 +7,12 @@ export default function Myacount() {
    const { userData, handelDeleteAccount } = useContext(UserContext);
 
    const deleteAccount = () => {
-      console.log("delete");
-      handelDeleteAccount();
+      alert("Are you sure you want to delete your account?");
+      // yes no option
+      if (window.confirm("Are you sure you want to delete your account?")) {
+         console.log("delete");
+         handelDeleteAccount();
+      }
    };
 
    return (
