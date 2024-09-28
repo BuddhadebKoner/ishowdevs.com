@@ -5,6 +5,10 @@
 
 ---
 ![image](https://res.cloudinary.com/dsfztnp9x/image/upload/v1726392413/portfolio/am14abeqvpte8eu5egl4.svg)
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=mongo,express,react,nodejs,vscode" />
+</div>
+
 ---
 
 ### **🚀 Vision**
