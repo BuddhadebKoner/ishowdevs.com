@@ -13,7 +13,7 @@ Since this project is hosted on a free-tier server:
 ## Reporting a Vulnerability
 
 If you discover a security issue or vulnerability, please:
-- Contact **[email@example.com]** with a detailed report of the issue.
+- Contact **[buddhadeb.webdeveloper.gmail.com]** with a detailed report of the issue.
 - Include a clear description of the vulnerability, steps to reproduce it, and the potential impact.
 
 ## Security Practices
